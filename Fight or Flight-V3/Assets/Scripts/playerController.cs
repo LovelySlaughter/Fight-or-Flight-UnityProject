@@ -11,6 +11,8 @@ public class playerController : MonoBehaviour
     [SerializeField] int healthPoints;
     [SerializeField] int jumpHeight;
     [SerializeField] int maxJumpAmount;
+    [SerializeField] int playerSpeed;
+    [SerializeField] int gravity;
 
     Vector3 movement;
     int jumpCounter;
@@ -24,5 +26,10 @@ public class playerController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Movement()
+    {
+        movement = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Verticle"));
     }
 }
