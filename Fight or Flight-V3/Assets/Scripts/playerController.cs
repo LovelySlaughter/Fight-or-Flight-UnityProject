@@ -32,6 +32,11 @@ public class playerController : MonoBehaviour
     {
         movement = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
 
+        //reset jump counter
+        if (characterController.isGrounded)
+        {
+            jumpCounter = 0;
+        }
 
         characterController.Move(movement * Time.deltaTime * playerSpeed);
     }
