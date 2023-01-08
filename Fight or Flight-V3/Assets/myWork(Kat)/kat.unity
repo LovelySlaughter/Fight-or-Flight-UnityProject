@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 132719974}
+  - component: {fileID: 132719975}
   - component: {fileID: 132719973}
   - component: {fileID: 132719972}
   - component: {fileID: 132719971}
@@ -225,6 +226,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &132719975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132719969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc3f3df5b014bf41b158ea66eb2038f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 132719973}
+  healthPoints: 0
+  jumpHeight: 7
+  maxJumpAmount: 2
+  playerSpeed: 5
+  gravity: 0
 --- !u!1 &691119520
 GameObject:
   m_ObjectHideFlags: 0
