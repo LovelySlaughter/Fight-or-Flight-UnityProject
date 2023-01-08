@@ -25,11 +25,14 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Movement();
     }
 
     void Movement()
     {
         movement = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Verticle"));
+
+
+        characterController.Move(movement * Time.deltaTime * playerSpeed);
     }
 }
