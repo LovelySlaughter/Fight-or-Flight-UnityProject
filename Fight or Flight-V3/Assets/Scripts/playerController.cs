@@ -30,7 +30,7 @@ public class playerController : MonoBehaviour
 
     void Movement()
     {
-        movement = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Verticle"));
+        movement = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
 
 
         characterController.Move(movement * Time.deltaTime * playerSpeed);
