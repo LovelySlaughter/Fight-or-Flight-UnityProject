@@ -14,8 +14,8 @@ public class cameraControls : MonoBehaviour
     [SerializeField] int verticalMax;
     [SerializeField] int verticalMin;
 
-    bool pilotControls;
-    bool invertY;
+    [SerializeField] bool pilotControls;
+    [SerializeField] bool invertY;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +27,8 @@ public class cameraControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseHorizontal = Input.GetAxis("Horizontal") * Time.deltaTime * xSensitivity;
-        float mouseVertical = Input.GetAxis("Vertical") * Time.deltaTime * ySensitivity;
+        float mouseHorizontal = Input.GetAxis("Mouse X") * Time.deltaTime * xSensitivity;
+        float mouseVertical = Input.GetAxis("Mouse Y") * Time.deltaTime * ySensitivity;
 
         if (pilotControls)
         {
