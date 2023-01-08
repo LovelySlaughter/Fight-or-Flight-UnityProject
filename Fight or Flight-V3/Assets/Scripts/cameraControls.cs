@@ -27,7 +27,7 @@ public class cameraControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseHorizontal = Input.GetAxis("Horizantal") * Time.deltaTime * xSensitivity;
+        float mouseHorizontal = Input.GetAxis("Horizontal") * Time.deltaTime * xSensitivity;
         float mouseVertical = Input.GetAxis("Vertical") * Time.deltaTime * ySensitivity;
 
         if (pilotControls)
