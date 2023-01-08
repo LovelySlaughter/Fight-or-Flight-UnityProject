@@ -15,7 +15,9 @@ public class playerController : MonoBehaviour
     [SerializeField] int gravity;
 
     Vector3 movement;
+    Vector3 velocity;
     int jumpCounter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,14 @@ public class playerController : MonoBehaviour
         {
             jumpCounter = 0;
         }
+
+        if (Input.GetButtonDown("Jump") && jumpCounter < maxJumpAmount)
+        {
+            velocity.y = jumpHeight;
+            jumpCounter++;
+        }
+
+        velocity.y -= gravity * Time.deltaTime;
 
         characterController.Move(movement * Time.deltaTime * playerSpeed);
     }
