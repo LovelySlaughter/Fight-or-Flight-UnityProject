@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+    [Header("--- Character Components ---")]
+    [SerializeField] CharacterController characterController;
+
+    [Header("--- Character Stats ---")]
+    [SerializeField] int healthPoints;
+    [SerializeField] int jumpHeight;
+
     // Start is called before the first frame update
     void Start()
     {
