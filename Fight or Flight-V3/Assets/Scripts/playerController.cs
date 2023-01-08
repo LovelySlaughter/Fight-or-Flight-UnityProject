@@ -32,7 +32,10 @@ public class playerController : MonoBehaviour
 
     void Movement()
     {
-        movement = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
+        movement = (transform.right * Input.GetAxis("Horizontal")) + 
+            (transform.forward * Input.GetAxis("Vertical"));
+
+        characterController.Move(movement * Time.deltaTime * playerSpeed);
 
         //reset jump counter
         if (characterController.isGrounded && velocity.y < 0)
@@ -49,7 +52,6 @@ public class playerController : MonoBehaviour
 
         velocity.y -= gravity * Time.deltaTime;
 
-        characterController.Move(movement * Time.deltaTime * playerSpeed);
         characterController.Move(velocity * Time.deltaTime);
     }
 }
