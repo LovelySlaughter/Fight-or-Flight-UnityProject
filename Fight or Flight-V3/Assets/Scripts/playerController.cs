@@ -10,7 +10,10 @@ public class playerController : MonoBehaviour
     [Header("--- Character Stats ---")]
     [SerializeField] int healthPoints;
     [SerializeField] int jumpHeight;
+    [SerializeField] int maxJumpAmount;
 
+    Vector3 movement;
+    int jumpCounter;
     // Start is called before the first frame update
     void Start()
     {
