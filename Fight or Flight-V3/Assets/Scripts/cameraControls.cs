@@ -47,7 +47,10 @@ public class cameraControls : MonoBehaviour
             yRotation -= mouseHorizontal;
         }
 
+        xRotation = Mathf.Clamp(xRotation, verticalMin, verticalMax);
 
+        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        transform.parent.Rotate(Vector3.up * mouseHorizontal);
        
     }
 }
