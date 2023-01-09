@@ -34,17 +34,17 @@ public class playerController : MonoBehaviour
 
     void Movement()
     {
-        movement = (transform.right * Input.GetAxis("Horizontal")) + 
-            (transform.forward * Input.GetAxis("Vertical"));
-
-        characterController.Move(movement * Time.deltaTime * playerSpeed);
-
         //reset jump counter
         if (characterController.isGrounded && velocity.y < 0)
         {
             velocity.y = 0;
             jumpCounter = 0;
         }
+        
+        movement = (transform.right * Input.GetAxis("Horizontal")) + 
+            (transform.forward * Input.GetAxis("Vertical"));
+
+        characterController.Move(movement * Time.deltaTime * playerSpeed);
 
         if (Input.GetButtonDown("Jump") && jumpCounter < maxJumpAmount)
         {
