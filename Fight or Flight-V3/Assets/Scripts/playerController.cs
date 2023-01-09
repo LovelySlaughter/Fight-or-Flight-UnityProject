@@ -14,6 +14,8 @@ public class playerController : MonoBehaviour
     [SerializeField] int playerSpeed;
     [SerializeField] int gravity;
 
+    //Missing Gun Stats and Guns
+
     Vector3 movement;
     Vector3 velocity;
     int jumpCounter;
