@@ -54,4 +54,13 @@ public class playerController : MonoBehaviour
 
         characterController.Move(velocity * Time.deltaTime);
     }
+    //Shoot method missing here
+
+    //Player damage done here
+    //Coded By Mauricio
+    public void takeDamage(int dmg)
+    {
+        healthPoints -= dmg;
+    }
+
 }
