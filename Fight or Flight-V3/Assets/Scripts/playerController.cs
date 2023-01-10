@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
 // Coded by Kat
 public class playerController : MonoBehaviour
 {
@@ -39,6 +41,11 @@ public class playerController : MonoBehaviour
         {
             velocity.y = 0;
             jumpCounter = 0;
+        }
+
+        if (Input.GetButtonDown("Sprint") && characterController.isGrounded)
+        {
+            velocity = velocity * 2;
         }
         
         movement = (transform.right * Input.GetAxis("Horizontal")) + 
