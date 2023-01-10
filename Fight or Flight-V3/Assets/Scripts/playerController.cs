@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Coded by Kat
 public class playerController : MonoBehaviour
 {
     [Header("--- Character Components ---")]
