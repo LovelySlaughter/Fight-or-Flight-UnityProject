@@ -45,7 +45,7 @@ public class playerController : MonoBehaviour
 
         if (Input.GetButtonDown("Sprint") && characterController.isGrounded)
         {
-            velocity = velocity * 2;
+            playerSpeed = playerSpeed * 2;
         }
         
         movement = (transform.right * Input.GetAxis("Horizontal")) + 
