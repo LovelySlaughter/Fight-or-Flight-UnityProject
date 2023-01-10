@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -935,6 +935,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604505307}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &624381895 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8864996729887419428, guid: 92780988724eb44438622137481e371f, type: 3}
+  m_PrefabInstance: {fileID: 8864996730270239111}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &671341020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,6 +1842,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 602520704}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1089091652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1089091653}
+  m_Layer: 0
+  m_Name: P1ShootPOS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1089091653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089091652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.1, z: 1.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 624381895}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1155088165
 GameObject:
@@ -3540,6 +3576,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: gunID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3313442712892301273, guid: 2f6dc9f9a5aef6a4d8ef7666695af0c4, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: shootRate
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: P1ShootPOS
+      value: 
+      objectReference: {fileID: 1089091653}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: bulletSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: shootDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: healthPoints
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8864996730310552801, guid: 92780988724eb44438622137481e371f, type: 3}
       propertyPath: m_RootOrder
       value: 2
