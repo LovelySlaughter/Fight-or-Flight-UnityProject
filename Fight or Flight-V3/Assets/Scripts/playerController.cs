@@ -43,7 +43,7 @@ public class playerController : MonoBehaviour
             jumpCounter = 0;
         }
 
-        if (Input.GetButtonDown("Sprint") && characterController.isGrounded)
+        while (Input.GetButtonDown("Sprint") && characterController.isGrounded)
         {
             playerSpeed = playerSpeed * 2;
         }
