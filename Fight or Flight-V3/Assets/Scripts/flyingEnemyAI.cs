@@ -31,7 +31,7 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     void Start()
     {
         gameManager.instance.player = GameObject.FindGameObjectWithTag("Player");
-
+        gameManager.instance.updateEnemyRemaining(1);
 
     }
 
