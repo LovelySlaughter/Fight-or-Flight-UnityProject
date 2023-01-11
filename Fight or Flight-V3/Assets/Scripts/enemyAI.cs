@@ -11,16 +11,16 @@ public class enemyAI : MonoBehaviour, IDamage//, gunParent
 
     [Header("---- Enemy Stats ----")]
     [SerializeField] Transform headPos;
-    [Range(10, 150)] [SerializeField] int HP;
+    [Range(10, 150)][SerializeField] int HP;
     [SerializeField] int playerfaceSpeed;
 
     [Header("---- Gun Stats ----")]
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
-    [Range(15, 50)] [SerializeField] int bulletSpeed;
-    [Range(0.1f, 4)] [SerializeField] float shootRate;
-     [Range(1, 20)] [SerializeField] int shootDamage;
-    [Range(1, 4)] [SerializeField] int gunID;
+    [Range(15, 50)][SerializeField] int bulletSpeed;
+    [Range(0.1f, 4)][SerializeField] float shootRate;
+    [Range(1, 20)][SerializeField] int shootDamage;
+    [Range(1, 4)][SerializeField] int gunID;
     //[SerializeField] bool automatic;
     bool isShotting;
     Vector3 playerDir;
@@ -54,7 +54,7 @@ public class enemyAI : MonoBehaviour, IDamage//, gunParent
 
 
     }
-    
+
     public void takeDamage(int dmg)
     {
         HP -= dmg;
@@ -143,6 +143,7 @@ public class enemyAI : MonoBehaviour, IDamage//, gunParent
     //            bulletSpeed = 15;
     //            automatic = false;
     //            break;
-    //    }
-    }
+    //}
+    //}
+
 }
