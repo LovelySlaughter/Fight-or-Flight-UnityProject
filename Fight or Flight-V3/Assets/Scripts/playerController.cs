@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour //, gunParent
     [Header("--- Character Components ---")]
     [SerializeField] CharacterController characterController;
     [SerializeField] GameObject MainCamera;
+    [SerializeField] int sprintModifier;
 
     [Header("--- Character Stats ---")]
     [SerializeField] int healthPoints;
@@ -35,6 +36,7 @@ public class playerController : MonoBehaviour //, gunParent
     Vector3 movement;
     Vector3 velocity;
     int jumpCounter;
+    bool sprint = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,10 @@ public class playerController : MonoBehaviour //, gunParent
     void Update()
     {
         Movement();
+
+      
+
+
 
         //if (!isShooting)
         //{
@@ -62,24 +68,28 @@ public class playerController : MonoBehaviour //, gunParent
     }
 
     void Movement()
-    {
+    {  
+        bool isSpringting = sprint;
+        int sprintSpeed = playerSpeed;
+
         //reset jump counter
         if (characterController.isGrounded && velocity.y < 0)
         {
             velocity.y = 0;
             jumpCounter = 0;
         }
-
-        while (Input.GetButtonDown("Sprint") && characterController.isGrounded)
+        // sprint activator
+        if (isSpringting)
         {
-            playerSpeed = playerSpeed * 2;
+            sprintSpeed *= sprintModifier;
         }
 
+        
         movement = (transform.right * Input.GetAxis("Horizontal")) +
             (transform.forward * Input.GetAxis("Vertical"));
 
-        characterController.Move(movement * Time.deltaTime * playerSpeed);
-
+        characterController.Move(movement * Time.deltaTime * sprintSpeed);
+        // jump controlss
         if (Input.GetButtonDown("Jump") && jumpCounter < maxJumpAmount)
         {
             velocity.y = jumpHeight;
@@ -168,8 +178,8 @@ public class playerController : MonoBehaviour //, gunParent
     //            break;
     //    }
     //}
-   
-    
+
+
     //Player damage done here
     //Coded By Mauricio
     public void takeDamage(int dmg)
