@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 //Coded By Mauricio
-
-public class enemyAI : MonoBehaviour, IDamage//, gunParent
+public class enemyAI : MonoBehaviour, IDamage
 {
     [Header("---- Components ----")]
     [SerializeField] NavMeshAgent agent;
 
     [Header("---- Enemy Stats ----")]
     [SerializeField] Transform headPos;
-    [Range(10, 150)][SerializeField] int HP;
+    [Range(10, 150)] [SerializeField] int HP;
     [SerializeField] int playerfaceSpeed;
 
     [Header("---- Gun Stats ----")]
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
-    [Range(15, 50)][SerializeField] int bulletSpeed;
-    [Range(0.1f, 4)][SerializeField] float shootRate;
-    [Range(1, 20)][SerializeField] int shootDamage;
-    [Range(1, 4)][SerializeField] int gunID;
-    //[SerializeField] bool automatic;
+    [Range(15, 35)] [SerializeField] int bulletSpeed;
+    [Range(0.1f, 2)] [SerializeField] float shootRate;
+    [Range(10, 50)] [SerializeField] int shootDist;
+    [Range(1, 10)] [SerializeField] int shootDamage;
+
+
     bool isShotting;
     Vector3 playerDir;
     bool playerInRange;

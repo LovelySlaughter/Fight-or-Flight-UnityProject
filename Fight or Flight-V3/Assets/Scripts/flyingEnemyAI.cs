@@ -33,6 +33,7 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
         gameManager.instance.player = GameObject.FindGameObjectWithTag("Player");
         gameManager.instance.updateEnemyRemaining(1);
 
+
     }
 
     // Update is called once per frame

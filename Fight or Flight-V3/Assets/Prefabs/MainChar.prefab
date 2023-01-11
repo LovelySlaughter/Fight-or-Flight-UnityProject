@@ -157,13 +157,9 @@ MonoBehaviour:
   maxJumpAmount: 2
   playerSpeed: 5
   gravity: 25
-  shootRate: 2.5
+  shootRate: 0.05
+  shootDist: 30
   shootDamage: 1
-  bulletSpeed: 15
-  automatic: 0
-  P1ShootPOS: {fileID: 0}
-  bullet: {fileID: 0}
-  gunID: 0
 --- !u!143 &8864996730310552802
 CharacterController:
   m_ObjectHideFlags: 0

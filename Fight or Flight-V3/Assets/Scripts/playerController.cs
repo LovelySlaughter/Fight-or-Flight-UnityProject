@@ -9,8 +9,8 @@ public class playerController : MonoBehaviour //, gunParent
 
     [Header("--- Character Components ---")]
     [SerializeField] CharacterController characterController;
-    [SerializeField] GameObject MainCamera;
-    [SerializeField] int sprintModifier;
+    //[SerializeField] GameObject MainCamera;
+    //[SerializeField] int sprintModifier;
 
     [Header("--- Character Stats ---")]
     [SerializeField] int healthPoints;
@@ -18,6 +18,12 @@ public class playerController : MonoBehaviour //, gunParent
     [SerializeField] int maxJumpAmount;
     [SerializeField] int playerSpeed;
     [SerializeField] int gravity;
+
+    //Gun Stats Update by Mauricio
+    [Header("---- Gun Stats ----")]
+    [SerializeField] float shootRate;
+    [SerializeField] int shootDist;
+    [Range(1, 9)] [SerializeField] int shootDamage;
 
     ////Missing Gun Stats and Guns
     //[Header("--- Gun stats ---")]
@@ -32,25 +38,38 @@ public class playerController : MonoBehaviour //, gunParent
     //bool isShooting;
     //private GameObject MainCamera;
 
-
+    int jumpCounter;
     Vector3 movement;
     Vector3 velocity;
-    int jumpCounter;
+    int HPOrig;
 
+    bool isShooting;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //Update by Mauricio
+        HPOrig = healthPoints;
+        updatePlayerHP();
+        respawnPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        int sprintSpeed = playerSpeed;
-        Movement();
+        //int sprintSpeed = playerSpeed;
+        
 
-        bool sprint = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+        //Edit Mauricio
+        if (!gameManager.instance.isPaused)
+        {
+            Movement();
+            if (!isShooting && Input.GetButton("Shoot"))
+                StartCoroutine(shoot());
+        }
+
+        
+        /*bool sprint = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
         bool isSpringting = sprint;
 
         if (isSpringting)
@@ -60,18 +79,19 @@ public class playerController : MonoBehaviour //, gunParent
 
         characterController.Move(movement * Time.deltaTime * sprintSpeed);
 
-        //if (!isShooting)
-        //{
-        //    selectGun(gunID);
-        //    if (!automatic && Input.GetButtonDown("Shoot"))
-        //    {
-        //        StartCoroutine(shoot());
-        //    }
-        //    else if(automatic && Input.GetButton("Shoot"))
-        //    {
-        //        StartCoroutine(shoot());
-        //    }
-        //}
+        if (!isShooting)
+        {
+            selectGun(gunID);
+            if (!automatic && Input.GetButtonDown("Shoot"))
+            {
+                StartCoroutine(shoot());
+            }
+            else if (automatic && Input.GetButton("Shoot"))
+            {
+                StartCoroutine(shoot());
+            }
+        }*/
+        
     }
 
     void Movement()
@@ -92,7 +112,8 @@ public class playerController : MonoBehaviour //, gunParent
         movement = (transform.right * Input.GetAxis("Horizontal")) +
             (transform.forward * Input.GetAxis("Vertical"));
 
-        //characterController.Move(movement * Time.deltaTime * sprintSpeed);
+        characterController.Move(playerSpeed * Time.deltaTime * movement); //controls our move input
+
         // jump controlss
         if (Input.GetButtonDown("Jump") && jumpCounter < maxJumpAmount)
         {
@@ -107,88 +128,124 @@ public class playerController : MonoBehaviour //, gunParent
     //Shoot method missing here
     //yee ye i hear you
     //coded by Miguel
+    /*GameObject bulletClone;
+    IEnumerator shoot()
+    {
+        isShooting = true;
+        //creates bullet
+        bulletClone = Instantiate(bullet, P1ShootPOS.position, bullet.transform.rotation);
 
-    GameObject bulletClone;
-    //IEnumerator shoot()
-    //{
-    //    isShooting = true;
-    //    //creates bullet
-    //    bulletClone = Instantiate(bullet, P1ShootPOS.position, bullet.transform.rotation);
+        // bulletClone.GetComponent<SphereCollider>().radius = 4;   this changes BULLET size
 
-    //    // bulletClone.GetComponent<SphereCollider>().radius = 4;   this changes BULLET size
+        //makes bullet go where your facing
+        SetRotate(bulletClone.GetComponent<Rigidbody>().gameObject, MainCamera);
 
-    //    //makes bullet go where your facing
-    //    SetRotate(bulletClone.GetComponent<Rigidbody>().gameObject, MainCamera);
+        //sets speed and direction
+        bulletClone.GetComponent<Rigidbody>().velocity = bulletClone.GetComponent<Rigidbody>().transform.forward * bulletSpeed;
 
-    //    //sets speed and direction
-    //    bulletClone.GetComponent<Rigidbody>().velocity = bulletClone.GetComponent<Rigidbody>().transform.forward * bulletSpeed;
-
-    //    //sets damage
-    //    bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
-
-
-    //    //sets shootrate
-    //    yield return new WaitForSeconds(shootRate);
-
-    //    isShooting = false;
-    //}
+        //sets damage
+        bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
 
 
-    void SetRotate(GameObject toRotate, GameObject camera)
+        //sets shootrate
+        yield return new WaitForSeconds(shootRate);
+
+        isShooting = false;
+    }*/
+
+
+    //Updated Shoot Method By Mauricio
+    IEnumerator shoot()
+    {
+        isShooting = true;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        {
+            if (hit.collider.GetComponent<IDamage>() != null)
+            {
+                hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
+            }
+        }
+
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
+    }
+
+    /*void SetRotate(GameObject toRotate, GameObject camera)
     {
 
         bulletClone.transform.rotation = Quaternion.Lerp(toRotate.transform.rotation, camera.transform.rotation, 500 * Time.deltaTime);
     }
+    */
+    /*public void selectGun(int x)
+    {
+        switch (gunID)
+        {
+            case 4:
+                //pistol
+                shootRate = 0.4f;
+                shootDamage = 1;
+                bulletSpeed = 15;
+                automatic = false;
+                break;
+            case 3:
+                //ar rifle
+                shootRate = 0.4f;
+                shootDamage = 3;
+                bulletSpeed = 20;
+                automatic = true;
+                break;
+            case 2:
+                //subgun
+                shootRate = 0.2f;
+                shootDamage = 1;
+                bulletSpeed = 18;
+                automatic = true;
 
-    //public void selectGun(int x)
-    //{
-    //    switch(gunID)
-    //    {
-    //        case 4:
-    //            //pistol
-    //              shootRate = 0.4f;
-    //            shootDamage = 1;
-    //            bulletSpeed = 15;
-    //            automatic = false;
-    //            break;
-    //        case 3:
-    //            //ar rifle
-    //            shootRate = 0.4f;
-    //            shootDamage = 3;
-    //            bulletSpeed = 20;
-    //            automatic = true;
-    //            break;
-    //        case 2:
-    //            //subgun
-    //            shootRate = 0.2f;
-    //            shootDamage = 1;
-    //            bulletSpeed = 18;
-    //            automatic = true;
+                break;
+            case 1:
+                //sniper 
+                shootRate = 3f;
+                shootDamage = 6;
+                bulletSpeed = 40;
+                automatic = false;
 
-    //            break;
-    //        case 1:
-    //            //sniper 
-    //            shootRate = 3f;
-    //            shootDamage = 6;
-    //            bulletSpeed = 40;
-    //            automatic = false;
-
-    //            break;
-    //        default:
-    //            shootRate = 0.4f;
-    //            shootDamage = 1;
-    //            bulletSpeed = 15;
-    //            automatic = false;
-    //            break;
-    //    }
-    //}
+                break;
+            default:
+                shootRate = 0.4f;
+                shootDamage = 1;
+                bulletSpeed = 15;
+                automatic = false;
+                break;
+        }
+    }*/
 
 
     //Player damage done here
-    //Coded By Mauricio
+    //Coded/Updated By Mauricio
     public void takeDamage(int dmg)
     {
         healthPoints -= dmg;
+        updatePlayerHP();
+
+        if (healthPoints <= 0)
+        {
+            gameManager.instance.playerDead();
+        }
     }
 
+    public void updatePlayerHP()
+    {
+        gameManager.instance.playerHPBar.fillAmount = (float)healthPoints / (float)HPOrig;
+    }
+
+    public void respawnPlayer()
+    {
+        characterController.enabled = false;
+        healthPoints = HPOrig;
+        updatePlayerHP();
+        transform.position = gameManager.instance.playerSpawnPos.transform.position;
+        characterController.enabled = true;
+
+    }
 }

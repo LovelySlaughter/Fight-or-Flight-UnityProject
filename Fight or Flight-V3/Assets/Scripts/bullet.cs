@@ -16,19 +16,19 @@ public class bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            gameManager.instance.enemyScript.takeDamage(bulletDamage);
-        }
+    //    if (other.CompareTag("Enemy"))
+    //    {
+    //        gameManager.instance.enemyScript.takeDamage(bulletDamage);
+    //    }
 
-        else if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             gameManager.instance.playerScript.takeDamage(bulletDamage);
         }
-        else if(other.CompareTag("Untagged"))
-        {
-            //this is so it doesnt get confused when hitting untagged things
-        }
+        //else if(other.CompareTag("Untagged"))
+        //{
+        //    //this is so it doesnt get confused when hitting untagged things
+        //}
         Destroy(gameObject);
     }
 }
