@@ -36,7 +36,7 @@ public class playerController : MonoBehaviour //, gunParent
     Vector3 movement;
     Vector3 velocity;
     int jumpCounter;
-    bool sprint = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,11 +47,18 @@ public class playerController : MonoBehaviour //, gunParent
     // Update is called once per frame
     void Update()
     {
+        int sprintSpeed = playerSpeed;
         Movement();
 
-      
+        bool sprint = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+        bool isSpringting = sprint;
 
+        if (isSpringting)
+        {
+            sprintSpeed *= sprintModifier;
+        }
 
+        characterController.Move(movement * Time.deltaTime * sprintSpeed);
 
         //if (!isShooting)
         //{
@@ -68,9 +75,9 @@ public class playerController : MonoBehaviour //, gunParent
     }
 
     void Movement()
-    {  
-        bool isSpringting = sprint;
-        int sprintSpeed = playerSpeed;
+    {
+
+
 
         //reset jump counter
         if (characterController.isGrounded && velocity.y < 0)
@@ -79,16 +86,13 @@ public class playerController : MonoBehaviour //, gunParent
             jumpCounter = 0;
         }
         // sprint activator
-        if (isSpringting)
-        {
-            sprintSpeed *= sprintModifier;
-        }
 
-        
+
+
         movement = (transform.right * Input.GetAxis("Horizontal")) +
             (transform.forward * Input.GetAxis("Vertical"));
 
-        characterController.Move(movement * Time.deltaTime * sprintSpeed);
+        //characterController.Move(movement * Time.deltaTime * sprintSpeed);
         // jump controlss
         if (Input.GetButtonDown("Jump") && jumpCounter < maxJumpAmount)
         {
