@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 //Coded By Mauricio
 
-public class enemyAI : MonoBehaviour, IDamage, gunParent
+public class enemyAI : MonoBehaviour, IDamage//, gunParent
 {
     [Header("---- Components ----")]
     [SerializeField] NavMeshAgent agent;
@@ -21,7 +21,7 @@ public class enemyAI : MonoBehaviour, IDamage, gunParent
     [Range(0.1f, 4)] [SerializeField] float shootRate;
      [Range(1, 20)] [SerializeField] int shootDamage;
     [Range(1, 4)] [SerializeField] int gunID;
-    [SerializeField] bool automatic;
+    //[SerializeField] bool automatic;
     bool isShotting;
     Vector3 playerDir;
     bool playerInRange;
@@ -103,46 +103,46 @@ public class enemyAI : MonoBehaviour, IDamage, gunParent
         }
     }
     //miguel
-    public void selectGun(int x)
-    {
-        switch (gunID)
-        {
-            case 4:
-                //pistol
-                shootRate = 0.4f;
-                shootDamage = 1;
-                bulletSpeed = 15;
-                automatic = false;
-                break;
-            case 3:
-                //ar rifle
-                shootRate = 0.4f;
-                shootDamage = 3;
-                bulletSpeed = 20;
-                automatic = true;
-                break;
-            case 2:
-                //subgun
-                shootRate = 0.2f;
-                shootDamage = 1;
-                bulletSpeed = 18;
-                automatic = true;
+    //public void selectGun(int x)
+    //{
+    //    switch (gunID)
+    //    {
+    //        case 4:
+    //            //pistol
+    //            shootRate = 0.4f;
+    //            shootDamage = 1;
+    //            bulletSpeed = 15;
+    //            automatic = false;
+    //            break;
+    //        case 3:
+    //            //ar rifle
+    //            shootRate = 0.4f;
+    //            shootDamage = 3;
+    //            bulletSpeed = 20;
+    //            automatic = true;
+    //            break;
+    //        case 2:
+    //            //subgun
+    //            shootRate = 0.2f;
+    //            shootDamage = 1;
+    //            bulletSpeed = 18;
+    //            automatic = true;
 
-                break;
-            case 1:
-                //sniper 
-                shootRate = 3f;
-                shootDamage = 6;
-                bulletSpeed = 40;
-                automatic = false;
+    //            break;
+    //        case 1:
+    //            //sniper 
+    //            shootRate = 3f;
+    //            shootDamage = 6;
+    //            bulletSpeed = 40;
+    //            automatic = false;
 
-                break;
-            default:
-                shootRate = 0.4f;
-                shootDamage = 1;
-                bulletSpeed = 15;
-                automatic = false;
-                break;
-        }
+    //            break;
+    //        default:
+    //            shootRate = 0.4f;
+    //            shootDamage = 1;
+    //            bulletSpeed = 15;
+    //            automatic = false;
+    //            break;
+    //    }
     }
 }
