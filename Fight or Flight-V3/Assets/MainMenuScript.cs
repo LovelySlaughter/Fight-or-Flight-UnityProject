@@ -8,6 +8,7 @@ public class MainMenuScript : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject options;
+    [SerializeField] GameObject loadGame;
     public void NewGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -27,11 +28,13 @@ public class MainMenuScript : MonoBehaviour
 
     public void OpenLoad()
     {
-
+        mainMenu.SetActive(false);
+        loadGame.SetActive(true);
     }
     public void CloseLoad()
     {
-
+        loadGame.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
     public void Quit()
