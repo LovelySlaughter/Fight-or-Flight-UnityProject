@@ -55,6 +55,7 @@ public class playerController : MonoBehaviour //, gunParent
         HPOrig = healthPoints;
         updatePlayerHP();
         respawnPlayer();
+
     }
 
     // Update is called once per frame
