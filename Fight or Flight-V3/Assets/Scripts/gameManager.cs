@@ -9,6 +9,8 @@ public class gameManager : MonoBehaviour
 
     public GameObject player;
     public playerController playerScript;
+    public GameObject enemy;
+    public enemyAI enemyScript;
     public int enemiesRemaining;
 
     // Start is called before the first frame update
@@ -18,6 +20,10 @@ public class gameManager : MonoBehaviour
         instance = this; //Making sure you have one instance if there is two it will turn off one instance
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
+        enemyScript = enemy.GetComponent<enemyAI>();
+
     }
 
     // Update is called once per frame
