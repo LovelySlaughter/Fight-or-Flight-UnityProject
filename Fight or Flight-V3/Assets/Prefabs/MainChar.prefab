@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089091652}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.010001093, y: 0.87478745, z: 2.3957071}
-  m_LocalScale: {x: 11.467364, y: 4.1489644, z: 6.8170037}
+  m_LocalRotation: {x: -0, y: -0.08360088, z: -0, w: 0.99649936}
+  m_LocalPosition: {x: 0.093, y: -0.28, z: 1.279182}
+  m_LocalScale: {x: 1, y: 3.7234619, z: 0.26856712}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4586415560992427734}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 8864996729887419428}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -9.591, z: 0}
 --- !u!1 &1253393814
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +95,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1253393815}
+  - {fileID: 1089091653}
   m_Father: {fileID: 8864996730310552801}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -216,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 8864996730310552802}
+  MainCamera: {fileID: 8864996729887419431}
   healthPoints: 10
   jumpHeight: 15
   maxJumpAmount: 2
@@ -224,7 +226,7 @@ MonoBehaviour:
   shootPos: {fileID: 1089091653}
   bullet: {fileID: 3313442712892301273, guid: 2f6dc9f9a5aef6a4d8ef7666695af0c4, type: 3}
   bulletSpeed: 25
-  shootRate: 0.05
+  shootRate: 0.1
   shootDist: 30
   shootDamage: 1
 --- !u!143 &8864996730310552802
@@ -312,7 +314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.16001746
+      value: -4.68
       objectReference: {fileID: 0}
     - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
       propertyPath: m_LocalPosition.y

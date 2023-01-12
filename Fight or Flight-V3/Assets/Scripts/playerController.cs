@@ -9,7 +9,7 @@ public class playerController : MonoBehaviour //, gunParent
 
     [Header("--- Character Components ---")]
     [SerializeField] CharacterController characterController;
-    //[SerializeField] GameObject MainCamera;
+    [SerializeField] GameObject MainCamera;
     //[SerializeField] int sprintModifier;
 
     [Header("--- Character Stats ---")]
@@ -163,7 +163,7 @@ public class playerController : MonoBehaviour //, gunParent
         isShooting = true;
 
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+        bulletClone.GetComponent<Rigidbody>().velocity = MainCamera.transform.forward * bulletSpeed;
         bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
 
         yield return new WaitForSeconds(shootRate);
