@@ -21,6 +21,9 @@ public class playerController : MonoBehaviour //, gunParent
 
     //Gun Stats Update by Mauricio
     [Header("---- Gun Stats ----")]
+    [SerializeField] Transform shootPos;
+    [SerializeField] GameObject bullet;
+    [Range(15, 35)] [SerializeField] int bulletSpeed;
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
     [Range(1, 9)] [SerializeField] int shootDamage;
@@ -158,14 +161,10 @@ public class playerController : MonoBehaviour //, gunParent
     IEnumerator shoot()
     {
         isShooting = true;
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-        {
-            if (hit.collider.GetComponent<IDamage>() != null)
-            {
-                hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
-            }
-        }
+
+        GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+        bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+        bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;

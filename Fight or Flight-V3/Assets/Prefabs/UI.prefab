@@ -298,4 +298,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  playerSpawnPos: {fileID: 0}
   enemiesRemaining: 0
+  activeMenu: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  winMenu: {fileID: 0}
+  playerDeadMenu: {fileID: 0}
+  playerHPBar: {fileID: 0}
+  enemiesRemainingText: {fileID: 0}
+  isPaused: 0

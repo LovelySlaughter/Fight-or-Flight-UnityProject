@@ -24,12 +24,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089091652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5628967, y: 0.70199966, z: 1.28}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.010001093, y: 0.87478745, z: 2.3957071}
+  m_LocalScale: {x: 11.467364, y: 4.1489644, z: 6.8170037}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8864996730310552801}
-  m_RootOrder: 1
+  m_Father: {fileID: 4586415560992427734}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1253393814
 GameObject:
@@ -55,13 +55,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253393814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5308533, y: 0.33433342, z: 0.64715666}
+  m_LocalPosition: {x: 0.5308533, y: -0.6656666, z: 0.6471567}
   m_LocalScale: {x: 0.087204, y: 0.241024, z: 0.14669201}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4586415560992427734}
-  m_Father: {fileID: 8864996730310552801}
-  m_RootOrder: 2
+  m_Father: {fileID: 8864996729887419428}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8864996729887419431
 GameObject:
@@ -93,7 +93,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1253393815}
   m_Father: {fileID: 8864996730310552801}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -199,8 +200,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8864996729887419428}
-  - {fileID: 1089091653}
-  - {fileID: 1253393815}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -222,6 +221,9 @@ MonoBehaviour:
   maxJumpAmount: 2
   playerSpeed: 5
   gravity: 25
+  shootPos: {fileID: 1089091653}
+  bullet: {fileID: 3313442712892301273, guid: 2f6dc9f9a5aef6a4d8ef7666695af0c4, type: 3}
+  bulletSpeed: 25
   shootRate: 0.05
   shootDist: 30
   shootDamage: 1
