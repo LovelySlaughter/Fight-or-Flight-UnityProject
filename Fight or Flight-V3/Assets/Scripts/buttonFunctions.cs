@@ -29,4 +29,9 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.playerScript.respawnPlayer();
         gameManager.instance.unPause();
     }
+
+    public void nextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
