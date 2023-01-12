@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//Coded By Mauricio
 
+//Coded By Mauricio
 public class bullet : MonoBehaviour
 {
     public int bulletDamage;
@@ -16,11 +16,7 @@ public class bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-    //    if (other.CompareTag("Enemy"))
-    //    {
-    //        gameManager.instance.enemyScript.takeDamage(bulletDamage);
-    //    }
-
+       
         if (other.CompareTag("Player"))
         {
             gameManager.instance.playerScript.takeDamage(bulletDamage);

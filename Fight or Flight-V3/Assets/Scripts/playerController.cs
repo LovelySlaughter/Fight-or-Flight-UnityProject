@@ -61,17 +61,20 @@ public class playerController : MonoBehaviour //, gunParent
     void Update()
     {
         //int sprintSpeed = playerSpeed;
-        
+
 
         //Edit Mauricio
         if (!gameManager.instance.isPaused)
         {
             Movement();
-            if (!isShooting && Input.GetButton("Shoot"))
-                StartCoroutine(shoot());
+
+           
+                if (!isShooting && Input.GetButton("Shoot"))
+                    StartCoroutine(shoot());
+            
         }
 
-        
+
         /*bool sprint = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
         bool isSpringting = sprint;
 
@@ -94,7 +97,7 @@ public class playerController : MonoBehaviour //, gunParent
                 StartCoroutine(shoot());
             }
         }*/
-        
+
     }
 
     void Movement()
@@ -161,10 +164,18 @@ public class playerController : MonoBehaviour //, gunParent
     IEnumerator shoot()
     {
         isShooting = true;
-
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = MainCamera.transform.forward * bulletSpeed;
-        bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        {
+            if (hit.collider.GetComponent<IDamage>() != null)
+            {
+                hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
+                
+            }
+        }
+
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;

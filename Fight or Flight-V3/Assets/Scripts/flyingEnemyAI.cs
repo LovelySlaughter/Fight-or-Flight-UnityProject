@@ -21,7 +21,6 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [Range(15, 35)] [SerializeField] int bulletSpeed;
     [Range(0.1f, 2)] [SerializeField] float shootRate;
-    [Range(10, 50)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
 
     bool isShotting;
@@ -59,6 +58,7 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
             //Go to starting Position
             returnStartingPos();
         }
+        
 
     }
 
