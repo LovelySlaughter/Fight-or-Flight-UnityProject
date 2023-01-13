@@ -91,7 +91,7 @@ public class enemyAI : MonoBehaviour, IDamage
         isShotting = true;
 
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+        bulletClone.GetComponent<Rigidbody>().velocity = (gameManager.instance.player.transform.position - headPos.transform.position).normalized * bulletSpeed;
         bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
 
         yield return new WaitForSeconds(shootRate);
@@ -123,48 +123,5 @@ public class enemyAI : MonoBehaviour, IDamage
 
         }
     }
-    //miguel
-    //public void selectGun(int x)
-    //{
-    //    switch (gunID)
-    //    {
-    //        case 4:
-    //            //pistol
-    //            shootRate = 0.4f;
-    //            shootDamage = 1;
-    //            bulletSpeed = 15;
-    //            automatic = false;
-    //            break;
-    //        case 3:
-    //            //ar rifle
-    //            shootRate = 0.4f;
-    //            shootDamage = 3;
-    //            bulletSpeed = 20;
-    //            automatic = true;
-    //            break;
-    //        case 2:
-    //            //subgun
-    //            shootRate = 0.2f;
-    //            shootDamage = 1;
-    //            bulletSpeed = 18;
-    //            automatic = true;
-
-    //            break;
-    //        case 1:
-    //            //sniper 
-    //            shootRate = 3f;
-    //            shootDamage = 6;
-    //            bulletSpeed = 40;
-    //            automatic = false;
-
-    //            break;
-    //        default:
-    //            shootRate = 0.4f;
-    //            shootDamage = 1;
-    //            bulletSpeed = 15;
-    //            automatic = false;
-    //            break;
-    //}
-    //}
-
+   
 }
