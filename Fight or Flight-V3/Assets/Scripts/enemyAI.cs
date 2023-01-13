@@ -14,6 +14,8 @@ public class enemyAI : MonoBehaviour, IDamage
     [Range(10, 150)] [SerializeField] int HP;
     [SerializeField] int playerfaceSpeed;
     [SerializeField] int viewAngle;
+    [SerializeField] int shootAngle;
+
 
     [Header("---- Gun Stats ----")]
     [SerializeField] Transform shootPos;
@@ -55,7 +57,7 @@ public class enemyAI : MonoBehaviour, IDamage
         Debug.DrawRay(headPos.position, playerDir);
 
         RaycastHit impact;
-        if (Physics.Raycast(headPos.position, new Vector3(playerDir.x,0, playerDir.z), out impact))
+        if (Physics.Raycast(headPos.position, playerDir, out impact))
         {
             if (impact.collider.CompareTag("Player") && angleToPlayerw <= viewAngle)
             {
@@ -66,7 +68,7 @@ public class enemyAI : MonoBehaviour, IDamage
                     facePlayer();
                 }
 
-                if (!isShotting)
+                if (!isShotting && angleToPlayerw <= shootAngle)
                 {
                     StartCoroutine(shoot());
                 }
