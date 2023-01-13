@@ -12,6 +12,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] Transform headPos;
     [Range(10, 150)] [SerializeField] int HP;
     [SerializeField] int playerfaceSpeed;
+    [SerializeField] int viewAngle;
 
     [Header("---- Gun Stats ----")]
     [SerializeField] Transform shootPos;
@@ -21,7 +22,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [Range(10, 50)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
 
-
+    float angleToPlayerw;
     bool isShotting;
     Vector3 playerDir;
     bool playerInRange;
@@ -37,22 +38,38 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         if (playerInRange)
         {
-            playerDir = gameManager.instance.player.transform.position - headPos.position;
-
-            agent.SetDestination(gameManager.instance.player.transform.position);
-
-            if (agent.remainingDistance < agent.stoppingDistance)
-            {
-                facePlayer();
-            }
-
-            if (!isShotting)
-            {
-                StartCoroutine(shoot());
-            }
+           canSeePlayer();
         }
 
 
+    }
+
+    void canSeePlayer()
+    {
+        playerDir = gameManager.instance.player.transform.position - headPos.position;
+        angleToPlayerw = Vector3.Angle(playerDir, transform.forward);
+
+        Debug.Log(angleToPlayerw);
+        Debug.DrawRay(headPos.position, playerDir);
+
+        RaycastHit impact;
+        if (Physics.Raycast(headPos.position, new Vector3(playerDir.x,0, playerDir.z), out impact))
+        {
+            if (impact.collider.CompareTag("Player") && angleToPlayerw <= viewAngle)
+            {
+                agent.SetDestination(gameManager.instance.player.transform.position);
+
+                if (agent.remainingDistance < agent.stoppingDistance)
+                {
+                    facePlayer();
+                }
+
+                if (!isShotting)
+                {
+                    StartCoroutine(shoot());
+                }
+            }
+        }
     }
 
     public void takeDamage(int dmg)
