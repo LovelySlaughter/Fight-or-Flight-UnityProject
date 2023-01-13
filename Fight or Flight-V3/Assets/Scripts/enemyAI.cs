@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 //Coded By Mauricio
@@ -32,7 +33,7 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         gameManager.instance.updateEnemyRemaining(1);
     }
-
+    // Updat by Kat
     // Update is called once per frame
     void Update()
     {
@@ -44,6 +45,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     }
 
+    // Update by Kat
     void canSeePlayer()
     {
         playerDir = gameManager.instance.player.transform.position - headPos.position;
