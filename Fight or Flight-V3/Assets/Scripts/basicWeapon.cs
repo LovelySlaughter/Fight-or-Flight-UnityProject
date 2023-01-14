@@ -18,6 +18,7 @@ public class basicWeapon : MonoBehaviour
     public int bulletsPerTap;
     public bool automatic;
 
+    [Header("--- Bullet Information ---")]
     int bulletsRemaining;
     int bulletsFired;
 
@@ -42,7 +43,7 @@ public class basicWeapon : MonoBehaviour
     [SerializeField] TextMeshProUGUI ammoDisplay;
 
     // Recoil
-    [SerializeField] Rigidbody rigidbody;
+    [SerializeField] Rigidbody rbdy;
     public float recoilForce;
 
     // Bug Fix
@@ -136,7 +137,7 @@ public class basicWeapon : MonoBehaviour
             Invoke("ResetShot", timeBetweenShots);
 
             // Recoil Force
-            rigidbody.AddForce(-yesSpreadDir.normalized * recoilForce, ForceMode.Impulse);
+            rbdy.AddForce(-yesSpreadDir.normalized * recoilForce, ForceMode.Impulse);
         }
 
         //burst or automatic reset shot
