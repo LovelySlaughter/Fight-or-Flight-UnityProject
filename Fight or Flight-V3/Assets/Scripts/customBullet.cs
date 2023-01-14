@@ -5,7 +5,7 @@ public class customBullet : MonoBehaviour
     [Header("--- Bullet Components ---")]
     [SerializeField] Rigidbody rb;
     [SerializeField] GameObject visualFX;
-    [SerializeField] LayerMask AOE;
+    public LayerMask AOE;
 
     [Header("--- Bullet Stats ---")]
     [Range(0f, 1f)] public float bounce;
