@@ -41,6 +41,10 @@ public class basicWeapon : MonoBehaviour
     [SerializeField] GameObject muzzleFlash;
     [SerializeField] TextMeshProUGUI ammoDisplay;
 
+    // Recoil
+    [SerializeField] Rigidbody rigidbody;
+    public float recoilForce;
+
     // Bug Fix
     public bool allowInvoke = true;
 
@@ -117,6 +121,9 @@ public class basicWeapon : MonoBehaviour
         // Add forces
         CurrentBullet.GetComponent<Rigidbody>().AddForce(yesSpreadDir * shootForce, ForceMode.Impulse);
         CurrentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
+
+        // Recoil Force
+        rigidbody.AddForce(-yesSpreadDir.normalized * recoilForce, ForceMode.Impulse);
 
         //Activate Muzzle Flash
         if (muzzleFlash != null) { Instantiate(muzzleFlash, shootPOS.position, Quaternion.identity); }
