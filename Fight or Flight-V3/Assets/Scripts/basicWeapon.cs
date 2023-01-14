@@ -122,8 +122,7 @@ public class basicWeapon : MonoBehaviour
         CurrentBullet.GetComponent<Rigidbody>().AddForce(yesSpreadDir * shootForce, ForceMode.Impulse);
         CurrentBullet.GetComponent<Rigidbody>().AddForce(cam.transform.up * upwardForce, ForceMode.Impulse);
 
-        // Recoil Force
-        rigidbody.AddForce(-yesSpreadDir.normalized * recoilForce, ForceMode.Impulse);
+        
 
         //Activate Muzzle Flash
         if (muzzleFlash != null) { Instantiate(muzzleFlash, shootPOS.position, Quaternion.identity); }
@@ -132,7 +131,13 @@ public class basicWeapon : MonoBehaviour
         bulletsFired++;
 
         //to reset shot
-        if (allowInvoke) { Invoke("ResetShot", timeBetweenShots); }
+        if (allowInvoke) 
+        { 
+            Invoke("ResetShot", timeBetweenShots);
+
+            // Recoil Force
+            rigidbody.AddForce(-yesSpreadDir.normalized * recoilForce, ForceMode.Impulse);
+        }
 
         //burst or automatic reset shot
         if (bulletsFired < bulletsPerTap && bulletsRemaining > 0) { Invoke("Shoot", timeBetweenShots); }
