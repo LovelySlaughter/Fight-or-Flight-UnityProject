@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour
     [SerializeField] CharacterController characterController;
     [SerializeField] GameObject MainCamera;
     [SerializeField] int sprintModifier;
+    [SerializeField] GameObject weapon;
 
     [Header("--- Character Stats ---")]
     [SerializeField] int healthPoints;
