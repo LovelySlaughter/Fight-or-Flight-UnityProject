@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
+
 //Coded By Mauricio
 public class enemyAI : MonoBehaviour, IDamage
 {
     [Header("---- Components ----")]
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator animator;
 
     [Header("---- Enemy Stats ----")]
     [SerializeField] Transform headPos;
@@ -39,6 +42,8 @@ public class enemyAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
+
+        animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
         if (playerInRange)
         {
            canSeePlayer();
