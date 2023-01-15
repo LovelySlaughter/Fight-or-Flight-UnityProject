@@ -23,8 +23,17 @@ public class pickUpController : MonoBehaviour
         eqipped = true;
         gunInHand = true;
 
+        // Make Weapon Child of Anchor and Move it into position
+        transform.SetParent(gunContainer);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
+        transform.localScale = Vector3.one;
+
+        // Rigidbody Kinematic and BC = Trigger
         rb.isKinematic = true;
         boxCollider.isTrigger = true;
+
+        // Enable Script
         basicWeapon.enabled = true;
     }
 
@@ -33,15 +42,41 @@ public class pickUpController : MonoBehaviour
         eqipped = false;
         gunInHand = false;
 
+        // Parent = Null
+        transform.SetParent(null);
+
+        // Rigidbody not Kinematic and BC = Not a Trigger
         rb.isKinematic = false;
         boxCollider.isTrigger = false;
+
+        // Gun Momentum
+        rb.velocity = player.GetComponent<Rigidbody>().velocity;
+
+        // Make it one with the force
+        rb.AddForce(cam.forward * dropForce, ForceMode.Impulse);
+        rb.AddForce(cam.up * dropUpwardForce, ForceMode.Impulse);
+
+        // Disable Script
         basicWeapon.enabled = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Setup Stuff
+        if (!eqipped)
+        {
+            basicWeapon.enabled = false;
+            rb.isKinematic = false;
+            boxCollider.isTrigger = false;
+        }
+        if (eqipped)
+        {
+            basicWeapon.enabled = true;
+            rb.isKinematic = true;
+            boxCollider.isTrigger = true;
+            gunInHand = true;
+        }
     }
 
     // Update is called once per frame
