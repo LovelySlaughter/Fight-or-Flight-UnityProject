@@ -166,15 +166,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.52
+      value: 65.91433
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5269909
+      value: 1.8330269
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.85
+      value: 31.870201
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -182,15 +182,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -454,3 +454,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &7780532302838247105
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9027974424199364023}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 33b6b3aa0156c6146b8db27ca2dff66b, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
