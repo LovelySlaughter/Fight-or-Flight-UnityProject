@@ -46,7 +46,7 @@ public class enemyAI : MonoBehaviour, IDamage
         animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
         if (playerInRange)
         {
-           canSeePlayer();
+            canSeePlayer();
         }
 
 
@@ -105,10 +105,9 @@ public class enemyAI : MonoBehaviour, IDamage
 
     void facePlayer()
     {
+        
         Quaternion rot = Quaternion.LookRotation(playerDir);
-
         playerDir.y = 0;
-
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerfaceSpeed);
     }
 
@@ -128,5 +127,5 @@ public class enemyAI : MonoBehaviour, IDamage
 
         }
     }
-   
+
 }
