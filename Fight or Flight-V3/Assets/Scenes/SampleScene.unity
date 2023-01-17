@@ -481,6 +481,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7988858210573824688, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988858210573824689, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988858210807458518, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988858210807458519, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8864996730310552801, guid: 92780988724eb44438622137481e371f, type: 3}
       propertyPath: m_RootOrder
       value: 5

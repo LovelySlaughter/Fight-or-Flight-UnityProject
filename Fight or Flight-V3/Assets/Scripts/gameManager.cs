@@ -59,6 +59,11 @@ public class gameManager : MonoBehaviour
                 unPause();
             }
         }
+        else if (Input.GetButtonDown("Cancel") && activeMenu == pauseMenu)
+        {
+            unPause();
+            isPaused = !isPaused;
+        }
     }
 
     public void pause()
