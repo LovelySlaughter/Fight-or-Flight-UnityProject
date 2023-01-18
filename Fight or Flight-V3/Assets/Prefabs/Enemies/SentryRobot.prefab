@@ -2192,7 +2192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7325747906968437548
 Transform:
   m_ObjectHideFlags: 0
@@ -2232,7 +2232,6 @@ MonoBehaviour:
   bullet: {fileID: 3313442712892301273, guid: 2f6dc9f9a5aef6a4d8ef7666695af0c4, type: 3}
   bulletSpeed: 25
   shootRate: 0.5
-  shootDist: 10
   shootDamage: 1
 --- !u!195 &7325747906968437539
 NavMeshAgent:

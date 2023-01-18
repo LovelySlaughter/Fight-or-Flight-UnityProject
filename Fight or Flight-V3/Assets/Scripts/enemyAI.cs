@@ -25,7 +25,6 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [Range(15, 35)] [SerializeField] int bulletSpeed;
     [Range(0.1f, 2)] [SerializeField] float shootRate;
-    [Range(10, 50)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
 
     float angleToPlayerw;
@@ -94,6 +93,8 @@ public class enemyAI : MonoBehaviour, IDamage
     IEnumerator shoot()
     {
         isShotting = true;
+
+        animator.SetTrigger("Shoot");
 
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = (gameManager.instance.player.transform.position - headPos.transform.position).normalized * bulletSpeed;
