@@ -13,4 +13,9 @@ public class gunObjScript : ScriptableObject
     public GameObject gun;
     public AudioClip gunShots;
 
+    public Transform weaponTransform;
+    public float distance = 10f;
+    GameObject currentWeapon;
+    GameObject targetWeapon;
+
 }
