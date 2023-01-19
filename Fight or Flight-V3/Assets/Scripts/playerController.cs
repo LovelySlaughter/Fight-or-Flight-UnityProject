@@ -76,7 +76,7 @@ public class playerController : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isShooting == true)
         {
             StartCoroutine("Shoot");
         }
