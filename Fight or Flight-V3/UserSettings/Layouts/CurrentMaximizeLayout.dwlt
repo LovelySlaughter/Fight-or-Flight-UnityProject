@@ -26,7 +26,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 2793
+  controlID: 17610
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 2794
+  controlID: 17569
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -428,9 +428,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -101.16957, y: 28.043526, z: -0.2702999}
+    m_Target: {x: -109.07697, y: 25.244616, z: -2.7958462}
     speed: 2
-    m_Value: {x: -101.16957, y: 28.043526, z: -0.2702999}
+    m_Value: {x: -109.07697, y: 25.244616, z: -2.7958462}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -477,13 +477,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.011749881, y: 0.9834467, z: -0.16710404, w: -0.06914942}
+    m_Target: {x: -0.09773797, y: 0.73796433, z: -0.109503746, w: -0.65868807}
     speed: 2
-    m_Value: {x: -0.011749818, y: 0.9834414, z: -0.16710314, w: -0.06914905}
+    m_Value: {x: -0.09773772, y: 0.7379625, z: -0.10950347, w: -0.6586864}
   m_Size:
-    m_Target: 1.7320508
+    m_Target: 2.5875645
     speed: 2
-    m_Value: 1.7320508
+    m_Value: 2.5875645
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -593,7 +593,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b04fffffe069ffff32deffff3edeffffb8faffff
+      m_ExpandedIDs: fcf6feffb04fffffe069ffff32deffff3edeffffb0e1ffffb8faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -684,22 +684,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Weaons/Prefabs
+    - Assets/Prefabs/Weaons/Bullets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Weaons/Prefabs
+  - Assets/Prefabs/Weaons/Bullets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity\New folder\Fight-or-Flight-UnityProject\Fight or Flight-V3
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: fa680000
-    m_LastClickedID: 26874
-    m_ExpandedIDs: 000000001a5a0000445a00004a5a0000645a0000fa680000fc69000000ca9a3bffffff7f
+    m_SelectedIDs: f8070100
+    m_LastClickedID: 67576
+    m_ExpandedIDs: 000000001a5a0000445a00004a5a0000645a0000fc69000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -727,7 +727,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001a5a000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000001a5a0000445a00004a5a0000645a0000fc69000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -752,8 +752,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: fcf6feff
-    m_LastClickedInstanceID: -67844
+    m_SelectedInstanceIDs: 3edeffff
+    m_LastClickedInstanceID: -8642
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
@@ -779,7 +779,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 180}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 263
@@ -843,8 +843,8 @@ MonoBehaviour:
     m_CachedPref: 333
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -67844
-  m_LastVerticalScrollValue: 0
+  m_LastInspectedObjectInstanceID: -8642
+  m_LastVerticalScrollValue: 270
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

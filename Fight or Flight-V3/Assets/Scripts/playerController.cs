@@ -76,6 +76,11 @@ public class playerController : MonoBehaviour
             
         }
 
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine("Shoot");
+        }
+
 
         bool sprint = (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift));
         bool isSpringting = sprint;

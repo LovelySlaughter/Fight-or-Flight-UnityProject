@@ -9,7 +9,7 @@ public class basicWeapon : MonoBehaviour
     [SerializeField] GameObject bullets;
 
     [Header("--- Gun Stats ---")]
-    public int rateOfFire;
+    public float rateOfFire;
     public float spread;
     public float reloadTime;
     public float timeBetweenShots;
@@ -35,7 +35,7 @@ public class basicWeapon : MonoBehaviour
     bool reloading;
 
     // References
-    [SerializeField] Camera cam;
+    Camera cam = gameManager.instance.player.GetComponent<Camera>();
     [SerializeField] Transform shootPOS;
 
     //Graphics
