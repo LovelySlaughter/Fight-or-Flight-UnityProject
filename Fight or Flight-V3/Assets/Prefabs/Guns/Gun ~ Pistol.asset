@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056962f887213b641a5070fcdfbc0c98, type: 3}
   m_Name: Gun ~ Pistol
   m_EditorClassIdentifier: 
-  Rate: 0
-  Range: 0
-  Damage: 0
-  gun: {fileID: 0}
-  gunShots: {fileID: 0}
+  Rate: 0.25
+  Range: 50
+  Damage: 1
+  gun: {fileID: 1425756895877542, guid: 9820bbe58bb57204db392c631110251c, type: 3}
+  gunShots: {fileID: 8300000, guid: 7736ebd0e468eb843a27e996b7c014a1, type: 3}

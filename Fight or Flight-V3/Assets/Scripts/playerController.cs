@@ -161,4 +161,13 @@ public class playerController : MonoBehaviour
         characterController.enabled = true;
 
     }
+
+    public void GunPickUp(gunObjScript gunObj)
+    {
+        gunObjects.Add(gunObj);
+
+        shootRate = gunObj.Rate;
+        shootDist = gunObj.Range;
+        shootDamage = gunObj.Damage;
+    }
 }
