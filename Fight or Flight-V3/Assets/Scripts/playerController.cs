@@ -169,5 +169,7 @@ public class playerController : MonoBehaviour
         shootRate = gunObj.Rate;
         shootDist = gunObj.Range;
         shootDamage = gunObj.Damage;
+
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunModel.GetComponent<MeshFilter>().sharedMesh;
     }
 }
