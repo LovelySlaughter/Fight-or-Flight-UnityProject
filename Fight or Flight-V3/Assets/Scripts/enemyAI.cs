@@ -11,6 +11,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [Header("---- Components ----")]
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
+    [SerializeField] Renderer model;
 
     [Header("---- Enemy Stats ----")]
     [SerializeField] Transform headPos;
@@ -83,6 +84,7 @@ public class enemyAI : MonoBehaviour, IDamage
     public void takeDamage(int dmg)
     {
         HP -= dmg;
+        StartCoroutine(flashDamage());
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
@@ -90,6 +92,14 @@ public class enemyAI : MonoBehaviour, IDamage
             Destroy(gameObject);
         }
     }
+
+    IEnumerator flashDamage()
+    {
+        model.material.color = Color.red;
+        yield return new WaitForSeconds(0.30f);
+        model.material.color = Color.white;
+    }
+
     IEnumerator shoot()
     {
         isShotting = true;

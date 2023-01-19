@@ -138,7 +138,7 @@ public class playerController : MonoBehaviour
     {
         healthPoints -= dmg;
         updatePlayerHP();
-
+        StartCoroutine(gameManager.instance.flashDamage());
         if (healthPoints <= 0)
         {
             gameManager.instance.playerDead();

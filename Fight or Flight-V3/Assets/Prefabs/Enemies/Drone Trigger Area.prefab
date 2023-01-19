@@ -134,11 +134,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chase: 0
   startingPoint: {fileID: 8554330720284757152}
-  distToPlayer: 10
-  heightToPlayer: 6
+  distToPlayer: 2
+  heightToPlayer: 10
+  model: {fileID: 2141893284742874226}
   headPos: {fileID: 2141893284742874231}
   HP: 10
-  flySpeed: 5
+  flySpeed: 9
   faceplayerSpeed: 15
   shootPos: {fileID: 2141893284645682035}
   bullet: {fileID: 3313442712892301273, guid: 2f6dc9f9a5aef6a4d8ef7666695af0c4, type: 3}
@@ -268,7 +269,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8554330721751018464
 GameObject:

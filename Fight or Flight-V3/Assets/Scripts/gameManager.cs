@@ -22,6 +22,7 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public GameObject playerDeadMenu;
     public Image playerHPBar;
+    public GameObject screenFlash;
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
 
     public bool isPaused;
@@ -101,5 +102,12 @@ public class gameManager : MonoBehaviour
         pause();
         activeMenu = playerDeadMenu;
         activeMenu.SetActive(true);
+    }
+
+    public IEnumerator flashDamage()
+    {
+        screenFlash.SetActive(true);
+        yield return new WaitForSeconds(0.40f);
+        screenFlash.SetActive(false);
     }
 }
