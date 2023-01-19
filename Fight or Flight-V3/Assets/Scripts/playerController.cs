@@ -60,7 +60,7 @@ public class playerController : MonoBehaviour
             Movement();
 
            
-                if (!isShooting && Input.GetButton("Shoot"))
+                if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot"))
                     StartCoroutine(shoot());
             
         }
@@ -170,6 +170,7 @@ public class playerController : MonoBehaviour
         shootDist = gunObj.Range;
         shootDamage = gunObj.Damage;
 
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.gun.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.gun.GetComponent<MeshRenderer>().sharedMaterial;
     }
 }
