@@ -9,6 +9,8 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     public Transform startingPoint;
     public int distToPlayer;
     public int heightToPlayer;
+    [SerializeField] Renderer model;
+
 
     [Header("---- Enemy Stats ----")]
     [SerializeField] Transform headPos;
@@ -21,7 +23,6 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [Range(15, 35)] [SerializeField] int bulletSpeed;
     [Range(0.1f, 2)] [SerializeField] float shootRate;
-    [Range(10, 50)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
 
     bool isShotting;
@@ -32,6 +33,7 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     {
         gameManager.instance.player = GameObject.FindGameObjectWithTag("Player");
         gameManager.instance.updateEnemyRemaining(1);
+
 
     }
 
@@ -58,18 +60,29 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
             //Go to starting Position
             returnStartingPos();
         }
+        
 
     }
 
     public void takeDamage(int dmg)
     {
         HP -= dmg;
+        StartCoroutine(flashDamage());
+
         if (HP <= 0)
         {
             gameManager.instance.updateEnemyRemaining(-1);
             Destroy(gameObject);
         }
     }
+
+    IEnumerator flashDamage()
+    {
+        model.material.color = Color.red;
+        yield return new WaitForSeconds(0.30f);
+        model.material.color = Color.white;
+    }
+
     IEnumerator shoot()
     {
         isShotting = true;
@@ -83,7 +96,7 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     }
     private void Chase()
     {
-        playerDir.x += distToPlayer;
+        playerDir.z += distToPlayer;
         playerDir.y += heightToPlayer;
         transform.position = Vector3.MoveTowards(transform.position, playerDir, flySpeed * Time.deltaTime);
     }

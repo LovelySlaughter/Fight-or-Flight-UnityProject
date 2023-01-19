@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - PlayerSpawnPos
+  - Bullet
+  - CanGrab
   layers:
   - Default
   - TransparentFX
@@ -15,9 +18,9 @@ TagManager:
   - Enemy
   - Enemy Bullet
   - Enemy Flight Area
-  - 
-  - 
-  - 
+  - whatIsEnemies
+  - whatIsPlayers
+  - whatIsBullet
   - 
   - 
   - 
