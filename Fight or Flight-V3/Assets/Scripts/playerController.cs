@@ -181,6 +181,8 @@ public class playerController : MonoBehaviour
         healthPoints -= dmg;
         updatePlayerHP();
         StartCoroutine(gameManager.instance.flashDamage());
+        sounds.PlayOneShot(playerDamageAudio[Random.Range(0, playerDamageAudio.Length - 1)], damageAudioVolume);
+
         if (healthPoints <= 0)
         {
             gameManager.instance.playerDead();
