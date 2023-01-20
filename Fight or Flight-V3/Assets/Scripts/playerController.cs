@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 // Coded by Kat
-public class playerController : MonoBehaviour 
+public class playerController : MonoBehaviour
 {
 
     [Header("--- Character Components ---")]
@@ -23,22 +23,16 @@ public class playerController : MonoBehaviour
     [SerializeField] int pushBackTime;
 
 
-    //Gun Stats Update by Mauricio
+    //Gun Stats Update by Mauricio and Kat
     [Header("---- Gun Stats ----")]
     [SerializeField] List<gunObjScript> gunObjects = new List<gunObjScript>();
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
-    [Range(15, 35)] [SerializeField] int bulletSpeed;
+    [Range(15, 35)][SerializeField] int bulletSpeed;
     [SerializeField] float shootRate;
     [SerializeField] int shootDist;
-    [Range(1, 9)] [SerializeField] int shootDamage;
-    [SerializeField] GameObject gunModel; 
-    
-    [Header("--- Weapon Select Stuff ---")]
-    public Transform weaponTransform;
-    public float distance = 10f;
-    GameObject currentWeapon;
-    GameObject targetWeapon;
+    [Range(1, 9)][SerializeField] int shootDamage;
+    [SerializeField] GameObject gunModel;
 
     bool canGrab;
 
@@ -68,8 +62,7 @@ public class playerController : MonoBehaviour
     void Update()
     {
         int sprintSpeed = playerSpeed;
-        WeaponSetUp();
-        
+
         //Edit Mauricio
         if (!gameManager.instance.isPaused)
         {
@@ -83,8 +76,8 @@ public class playerController : MonoBehaviour
 
 
             if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot"))
-                    StartCoroutine(shoot());
-            
+                StartCoroutine(shoot());
+
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && isShooting == true)
@@ -103,7 +96,7 @@ public class playerController : MonoBehaviour
 
         characterController.Move(movement * Time.deltaTime * sprintSpeed);
 
-        
+
 
     }
 
@@ -166,7 +159,7 @@ public class playerController : MonoBehaviour
             if (hit.collider.GetComponent<IDamage>() != null)
             {
                 hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
-                
+
             }
         }
 
@@ -211,8 +204,6 @@ public class playerController : MonoBehaviour
         shootDist = gunObj.Range;
         shootDamage = gunObj.Damage;
 
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.gun.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.gun.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     void ChangeGun()
@@ -221,8 +212,6 @@ public class playerController : MonoBehaviour
         shootDist = gunObjects[selectedGun].Range;
         shootDamage = gunObjects[selectedGun].Damage;
 
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObjects[selectedGun].gun.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObjects[selectedGun].gun.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     void SelectGun()
@@ -232,67 +221,10 @@ public class playerController : MonoBehaviour
             selectedGun++;
             ChangeGun();
         }
-        else if(Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
         {
             selectedGun--;
             ChangeGun();
-        }
-    }
-
-    private void WeaponCheck()
-    {
-        RaycastHit hit;
-
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, distance))
-        {
-            if (hit.transform.tag == "CanGrab")
-            {
-                canGrab = true;
-                targetWeapon = hit.transform.gameObject;
-            }
-            else
-            {
-                canGrab = false;
-            }
-        }
-    }
-
-    private void PickUp()
-    {
-        currentWeapon = targetWeapon;
-        currentWeapon.transform.position = weaponTransform.position;
-        currentWeapon.transform.parent = weaponTransform;
-        currentWeapon.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
-        currentWeapon.GetComponent<Rigidbody>().isKinematic = true;
-    }
-    private void DropDown()
-    {
-        currentWeapon.transform.parent = null;
-        currentWeapon.GetComponent<Rigidbody>().isKinematic = false;
-        currentWeapon = null;
-    }
-
-    void WeaponSetUp()
-    {
-        WeaponCheck();
-
-        if (canGrab)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (currentWeapon != null)
-                {
-                    DropDown();
-                }
-                PickUp();
-            }
-        }
-        if (currentWeapon != null)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                DropDown();
-            }
         }
     }
 }

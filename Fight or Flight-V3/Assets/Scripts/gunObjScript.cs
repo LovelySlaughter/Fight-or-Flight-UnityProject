@@ -17,5 +17,5 @@ public class gunObjScript : ScriptableObject
     public float distance = 10f;
     GameObject currentWeapon;
     GameObject targetWeapon;
-
+    public Animator animator;
 }
