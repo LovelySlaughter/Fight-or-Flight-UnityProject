@@ -13,6 +13,7 @@ public class playerController : MonoBehaviour
     [SerializeField] CharacterController characterController;
     [SerializeField] GameObject MainCamera;
     [SerializeField] GameObject weapon;
+    [SerializeField] AudioSource sounds;
 
     [Header("--- Character Stats ---")]
     [SerializeField] int healthPoints;
@@ -23,6 +24,9 @@ public class playerController : MonoBehaviour
     [SerializeField] int gravity;
     [SerializeField] int pushBackTime;
 
+    [Header("---  Audio ---")]
+    [SerializeField] AudioClip[] playerDamageAudio;
+    [Range(0, 1)][SerializeField] float damageAudioVolume;
 
     //Gun Stats Update by Mauricio and Kat
     [Header("---- Gun Stats ----")]
