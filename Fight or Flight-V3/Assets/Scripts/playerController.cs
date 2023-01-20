@@ -42,7 +42,7 @@ public class playerController : MonoBehaviour
     [SerializeField] int shootDist;
     [Range(1, 9)][SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
-    
+
 
     bool canGrab;
 
@@ -53,6 +53,7 @@ public class playerController : MonoBehaviour
     Vector3 movement;
     Vector3 velocity;
     int HPOrig;
+    bool isWalking;
 
     bool isShooting;
 
@@ -76,12 +77,16 @@ public class playerController : MonoBehaviour
         //Edit Mauricio
         if (!gameManager.instance.isPaused)
         {
+            if (!isWalking && characterController.velocity.magnitude > 0)
+            {
+                StartCoroutine("StepSounds");
+            }
 
             pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
 
 
             Movement();
-            //Sprint();
+            Sprint();
             SelectGun();
 
 
@@ -98,15 +103,6 @@ public class playerController : MonoBehaviour
 
         bool sprint = (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift));
         bool isSpringting = sprint;
-
-        if (isSpringting)
-        {
-            sprintSpeed *= sprintMod;
-        }
-        else
-        {
-            sprintSpeed /= sprintMod;
-        }
 
         characterController.Move(movement * Time.deltaTime * sprintSpeed);
 
@@ -129,7 +125,7 @@ public class playerController : MonoBehaviour
 
         movement = (transform.right * Input.GetAxis("Horizontal")) +
             (transform.forward * Input.GetAxis("Vertical"));
-        
+
 
         characterController.Move(playerSpeed * Time.deltaTime * movement); //controls our move input
 
@@ -146,19 +142,36 @@ public class playerController : MonoBehaviour
         characterController.Move((velocity + pushBack) * Time.deltaTime);
     }
 
-    //void Sprint()
-    //{
-    //    if (Input.GetButtonDown("Sprint"))
-    //    {
-    //        isSprinting = true;
-    //        playerSpeed *= sprintMod;
-    //    }
-    //    else if (Input.GetButtonUp("Sprint"))
-    //    {
-    //        isSprinting = false;
-    //        playerSpeed /= sprintMod;
-    //    }
-    //}
+    void Sprint()
+    {
+        if (Input.GetButtonDown("Sprint"))
+        {
+            isSprinting = true;
+            playerSpeed *= sprintMod;
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            isSprinting = false;
+            playerSpeed /= sprintMod;
+        }
+    }
+
+    IEnumerator StepSounds()
+    {
+        isWalking = true;
+        if (isSprinting)
+        {
+            sounds.PlayOneShot(playerWalkAudio[Random.Range(0, playerWalkAudio.Length - 1)], walkAudioVolume);
+            yield return new WaitForSeconds(0.25f);
+        }
+        else if (!isSprinting)
+        {
+            sounds.PlayOneShot(playerWalkAudio[Random.Range(0, playerWalkAudio.Length - 1)], walkAudioVolume);
+            yield return new WaitForSeconds(0.5f);
+        }
+        
+        isWalking = false;
+    }
 
 
     //Updated Shoot Method By Mauricio

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089091652}
   m_LocalRotation: {x: -0, y: -0.1940159, z: -0, w: 0.98099834}
-  m_LocalPosition: {x: -0.06, y: 0.96099865, z: 2.86}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.873836, y: 9.707131, z: 0.94279164}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -223,7 +223,7 @@ MonoBehaviour:
   healthPoints: 40
   jumpHeight: 15
   maxJumpAmount: 2
-  playerSpeed: 10
+  playerSpeed: 5
   sprintMod: 2
   gravity: 25
   pushBackTime: 2
@@ -235,6 +235,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5b5615c8d7ba88048991e6dc662cc0d9, type: 3}
   - {fileID: 8300000, guid: bcc431a91dbb0c6499fa49cc84527ff5, type: 3}
   damageAudioVolume: 0.5
+  playerJumpAudio:
+  - {fileID: 8300000, guid: 4a692ab1afbd138479a932bdb77dae75, type: 3}
+  - {fileID: 8300000, guid: a2a5f82550abfd94b9fcb05d4bfc5772, type: 3}
+  - {fileID: 8300000, guid: 07600b60577532f419e76a42ac2d06eb, type: 3}
+  jumpAudioVolume: 0.5
+  playerWalkAudio:
+  - {fileID: 8300000, guid: 93e2dfc26a697a949bd935461db7b5f1, type: 3}
+  - {fileID: 8300000, guid: 46d16e49e15f41748ae4cb35ddcf0de1, type: 3}
+  - {fileID: 8300000, guid: 47b7c2a3a3e885c40ac3bdf828c52af0, type: 3}
+  - {fileID: 8300000, guid: 86b5e253b9bab824e982973b0a6bd661, type: 3}
+  - {fileID: 8300000, guid: 47a363388b1395944b114125afa2438c, type: 3}
+  - {fileID: 8300000, guid: d105ac296c97d024baf56fd3f9f27a01, type: 3}
+  - {fileID: 8300000, guid: 7f7854e8a81fa0a44a8b08533ddbc88b, type: 3}
+  - {fileID: 8300000, guid: fa50fe02241d0ef4b9ca1cc453279343, type: 3}
+  - {fileID: 8300000, guid: ef0f1b456126b674a8f9689f3f561a8c, type: 3}
+  walkAudioVolume: 0.2
   gunObjects: []
   shootPos: {fileID: 1089091653}
   bullet: {fileID: 5777184380615178806, guid: b9501d5f3a6754042a3b2a14d6e40658, type: 3}
