@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 // Coded by Kat
@@ -33,6 +34,7 @@ public class playerController : MonoBehaviour
     [SerializeField] int shootDist;
     [Range(1, 9)][SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
+    
 
     bool canGrab;
 
@@ -205,8 +207,10 @@ public class playerController : MonoBehaviour
         shootDist = gunObj.Range;
         shootDamage = gunObj.Damage;
 
+
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
+        gunModel.transform.localScale = gunObj.scale;
     }
 
     void ChangeGun()
@@ -215,6 +219,9 @@ public class playerController : MonoBehaviour
         shootDist = gunObjects[selectedGun].Range;
         shootDamage = gunObjects[selectedGun].Damage;
 
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObjects[selectedGun].weaponModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObjects[selectedGun].weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
+        gunModel.transform.localScale = gunObjects[selectedGun].scale;
     }
 
     void SelectGun()
