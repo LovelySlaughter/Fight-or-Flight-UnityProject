@@ -11,7 +11,6 @@ public class playerController : MonoBehaviour
     [Header("--- Character Components ---")]
     [SerializeField] CharacterController characterController;
     [SerializeField] GameObject MainCamera;
-    [SerializeField] int sprintModifier;
     [SerializeField] GameObject weapon;
 
     [Header("--- Character Stats ---")]
@@ -19,7 +18,10 @@ public class playerController : MonoBehaviour
     [SerializeField] int jumpHeight;
     [SerializeField] int maxJumpAmount;
     [SerializeField] int playerSpeed;
+    [SerializeField] int sprintMod;
     [SerializeField] int gravity;
+    [SerializeField] int pushBackTime;
+
 
     //Gun Stats Update by Mauricio
     [Header("---- Gun Stats ----")]
@@ -40,6 +42,8 @@ public class playerController : MonoBehaviour
 
     bool canGrab;
 
+    public Vector3 pushBack;
+
     int selectedGun;
     int jumpCounter;
     Vector3 movement;
@@ -47,6 +51,8 @@ public class playerController : MonoBehaviour
     int HPOrig;
 
     bool isShooting;
+
+    bool isSprinting;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +73,12 @@ public class playerController : MonoBehaviour
         //Edit Mauricio
         if (!gameManager.instance.isPaused)
         {
+
+            pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
+
+
             Movement();
+            Sprint();
             SelectGun();
 
 
@@ -87,7 +98,7 @@ public class playerController : MonoBehaviour
 
         if (isSpringting)
         {
-            sprintSpeed *= sprintModifier;
+            sprintSpeed *= sprintMod;
         }
 
         characterController.Move(movement * Time.deltaTime * sprintSpeed);
@@ -125,9 +136,23 @@ public class playerController : MonoBehaviour
 
         velocity.y -= gravity * Time.deltaTime;
 
-        characterController.Move(velocity * Time.deltaTime);
+        characterController.Move((velocity + pushBack) * Time.deltaTime);
     }
-    
+
+    void Sprint()
+    {
+        if (Input.GetButtonDown("Sprint"))
+        {
+            isSprinting = true;
+            playerSpeed *= sprintMod;
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            isSprinting = false;
+            playerSpeed /= sprintMod;
+        }
+    }
+
 
     //Updated Shoot Method By Mauricio
     IEnumerator shoot()

@@ -217,19 +217,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 8864996730310552802}
   MainCamera: {fileID: 8864996729887419431}
-  sprintModifier: 0
   weapon: {fileID: 0}
   healthPoints: 40
   jumpHeight: 15
   maxJumpAmount: 2
-  playerSpeed: 5
+  playerSpeed: 10
+  sprintMod: 2
   gravity: 25
+  pushBackTime: 2
+  gunObjects: []
   shootPos: {fileID: 1089091653}
   bullet: {fileID: 5777184380615178806, guid: b9501d5f3a6754042a3b2a14d6e40658, type: 3}
   bulletSpeed: 25
   shootRate: 0.1
   shootDist: 10000
   shootDamage: 1
+  gunModel: {fileID: 0}
+  weaponTransform: {fileID: 0}
+  distance: 10
+  pushBack: {x: 0, y: 0, z: 0}
 --- !u!143 &8864996730310552802
 CharacterController:
   m_ObjectHideFlags: 0
