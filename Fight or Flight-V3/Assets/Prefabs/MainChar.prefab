@@ -139,7 +139,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
   shootRate: 0.1
   shootDist: 10000
   shootDamage: 1
-  gunModel: {fileID: 0}
+  gunModel: {fileID: 7988858210573824684}
   pushBack: {x: 0, y: 0, z: 0}
 --- !u!143 &8864996730310552802
 CharacterController:
@@ -326,16 +326,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.85663605
       objectReference: {fileID: 0}
     - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.82217026
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.438996
+      value: 1.414
       objectReference: {fileID: 0}
     - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -375,6 +387,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
+--- !u!1 &7988858210573824684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6333808366003165865, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
+  m_PrefabInstance: {fileID: 4123068624186583045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7988858210573824691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}

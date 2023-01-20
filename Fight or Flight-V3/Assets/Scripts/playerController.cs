@@ -76,13 +76,13 @@ public class playerController : MonoBehaviour
 
 
             if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot"))
-                StartCoroutine(shoot());
+                StartCoroutine(Shoot());
 
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && isShooting == true)
         {
-            StartCoroutine("shoot");
+            StartCoroutine("Shoot");
         }
 
 
@@ -148,7 +148,7 @@ public class playerController : MonoBehaviour
 
 
     //Updated Shoot Method By Mauricio
-    IEnumerator shoot()
+    IEnumerator Shoot()
     {
         isShooting = true;
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
@@ -196,6 +196,7 @@ public class playerController : MonoBehaviour
 
     }
 
+    //Updated by Kat
     public void GunPickUp(gunStats gunObj)
     {
         gunObjects.Add(gunObj);
