@@ -81,7 +81,7 @@ public class playerController : MonoBehaviour
 
 
             Movement();
-            Sprint();
+            //Sprint();
             SelectGun();
 
 
@@ -102,6 +102,10 @@ public class playerController : MonoBehaviour
         if (isSpringting)
         {
             sprintSpeed *= sprintMod;
+        }
+        else
+        {
+            sprintSpeed /= sprintMod;
         }
 
         characterController.Move(movement * Time.deltaTime * sprintSpeed);
@@ -125,7 +129,7 @@ public class playerController : MonoBehaviour
 
         movement = (transform.right * Input.GetAxis("Horizontal")) +
             (transform.forward * Input.GetAxis("Vertical"));
-        //sounds.PlayOneShot(playerWalkAudio[Random.Range(0, playerWalkAudio.Length - 1)], walkAudioVolume);
+        
 
         characterController.Move(playerSpeed * Time.deltaTime * movement); //controls our move input
 
@@ -142,19 +146,19 @@ public class playerController : MonoBehaviour
         characterController.Move((velocity + pushBack) * Time.deltaTime);
     }
 
-    void Sprint()
-    {
-        if (Input.GetButtonDown("Sprint"))
-        {
-            isSprinting = true;
-            playerSpeed *= sprintMod;
-        }
-        else if (Input.GetButtonUp("Sprint"))
-        {
-            isSprinting = false;
-            playerSpeed /= sprintMod;
-        }
-    }
+    //void Sprint()
+    //{
+    //    if (Input.GetButtonDown("Sprint"))
+    //    {
+    //        isSprinting = true;
+    //        playerSpeed *= sprintMod;
+    //    }
+    //    else if (Input.GetButtonUp("Sprint"))
+    //    {
+    //        isSprinting = false;
+    //        playerSpeed /= sprintMod;
+    //    }
+    //}
 
 
     //Updated Shoot Method By Mauricio
@@ -224,6 +228,8 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
         gunModel.transform.localScale = gunObj.scale;
+
+        selectedGun = gunObjects.Count - 1;
     }
 
     void ChangeGun()
