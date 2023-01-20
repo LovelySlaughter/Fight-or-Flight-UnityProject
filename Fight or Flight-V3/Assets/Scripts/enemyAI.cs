@@ -12,6 +12,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
     [SerializeField] Renderer model;
+    [SerializeField] AudioSource sounds;
 
     [Header("---- Enemy Stats ----")]
     [SerializeField] Transform headPos;
@@ -19,6 +20,14 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int playerfaceSpeed;
     [SerializeField] int viewAngle;
     [SerializeField] int shootAngle;
+
+    [Header("---  Audio ---")]
+    [SerializeField] AudioClip[] enemyDamageAudio;
+    [Range(0, 1)][SerializeField] float damageAudioVolume;
+    [SerializeField] AudioClip[] enemyJumpAudio;
+    [Range(0, 1)][SerializeField] float jumpAudioVolume;
+    [SerializeField] AudioClip[] enemyWalkAudio;
+    [Range(0, 1)][SerializeField] float walkAudioVolume;
 
 
     [Header("---- Gun Stats ----")]
