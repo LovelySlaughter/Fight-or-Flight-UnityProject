@@ -25,7 +25,7 @@ public class playerController : MonoBehaviour
 
     //Gun Stats Update by Mauricio and Kat
     [Header("---- Gun Stats ----")]
-    [SerializeField] List<gunObjScript> gunObjects = new List<gunObjScript>();
+    [SerializeField] List<gunStats> gunObjects = new List<gunStats>();
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
     [Range(15, 35)][SerializeField] int bulletSpeed;
