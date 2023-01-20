@@ -82,7 +82,7 @@ public class playerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && isShooting == true)
         {
-            StartCoroutine("Shoot");
+            StartCoroutine("shoot");
         }
 
 
@@ -196,7 +196,7 @@ public class playerController : MonoBehaviour
 
     }
 
-    public void GunPickUp(gunObjScript gunObj)
+    public void GunPickUp(gunStats gunObj)
     {
         gunObjects.Add(gunObj);
 
@@ -204,6 +204,8 @@ public class playerController : MonoBehaviour
         shootDist = gunObj.Range;
         shootDamage = gunObj.Damage;
 
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     void ChangeGun()

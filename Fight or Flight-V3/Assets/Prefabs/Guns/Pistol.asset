@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056962f887213b641a5070fcdfbc0c98, type: 3}
-  m_Name: Gun ~ ShotGun
+  m_Script: {fileID: 11500000, guid: bb9ea10370574fd4faa62028189ce451, type: 3}
+  m_Name: Pistol
   m_EditorClassIdentifier: 
-  Rate: 1.5
-  Range: 12
-  Damage: 5
-  gun: {fileID: 0}
+  Rate: 0
+  Range: 0
+  Damage: 0
+  weaponModel: {fileID: 0}
   gunShots: {fileID: 0}

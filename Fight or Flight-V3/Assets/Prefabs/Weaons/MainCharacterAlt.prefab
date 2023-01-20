@@ -154,13 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 3423424992336880406}
   MainCamera: {fileID: 3423424991838315475}
-  sprintModifier: 0
   weapon: {fileID: 0}
   healthPoints: 40
   jumpHeight: 15
   maxJumpAmount: 2
   playerSpeed: 5
+  sprintMod: 0
   gravity: 25
+  pushBackTime: 0
   gunObjects: []
   shootPos: {fileID: 0}
   bullet: {fileID: 3313442712892301273, guid: 2f6dc9f9a5aef6a4d8ef7666695af0c4, type: 3}
@@ -169,6 +170,7 @@ MonoBehaviour:
   shootDist: 20
   shootDamage: 1
   gunModel: {fileID: 0}
+  pushBack: {x: 0, y: 0, z: 0}
 --- !u!143 &3423424992336880406
 CharacterController:
   m_ObjectHideFlags: 0
@@ -264,70 +266,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8669885036004707297}
+  m_Children: []
   m_Father: {fileID: 3423424991838315472}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3754923092756972143
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8665349028230625381}
-    m_Modifications:
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5501352659907491158, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-      propertyPath: m_Name
-      value: Gun w/ Hands Pistol
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
---- !u!4 &8669885036004707297 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5498248811903568270, guid: 7608ed1476342b44ea37d1f6edbddf8e, type: 3}
-  m_PrefabInstance: {fileID: 3754923092756972143}
-  m_PrefabAsset: {fileID: 0}

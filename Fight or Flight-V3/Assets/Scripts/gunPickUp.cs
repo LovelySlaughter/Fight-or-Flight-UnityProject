@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class gunPickUp : MonoBehaviour
 {
-    [SerializeField] gunObjScript gun;
+    [SerializeField] gunStats gun;
 
     private void OnTriggerEnter(Collider other)
     {
