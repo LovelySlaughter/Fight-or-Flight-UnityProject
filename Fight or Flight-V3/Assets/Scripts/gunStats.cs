@@ -14,4 +14,5 @@ public class gunStats : ScriptableObject
     public GameObject weaponModel;
     public AudioClip gunShots;
     public Vector3 scale;
+    [Range(0, 1)] public float gunShotsVolume;
 }

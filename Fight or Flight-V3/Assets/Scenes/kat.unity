@@ -2440,6 +2440,82 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1089091653, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089091653, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089091653, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: jumpAudioVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: walkAudioVolume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerJumpAudio.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerWalkAudio.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerJumpAudio.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a692ab1afbd138479a932bdb77dae75, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerJumpAudio.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a2a5f82550abfd94b9fcb05d4bfc5772, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerJumpAudio.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 07600b60577532f419e76a42ac2d06eb, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerWalkAudio.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 93e2dfc26a697a949bd935461db7b5f1, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerWalkAudio.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 46d16e49e15f41748ae4cb35ddcf0de1, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerWalkAudio.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 47b7c2a3a3e885c40ac3bdf828c52af0, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerWalkAudio.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 86b5e253b9bab824e982973b0a6bd661, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerWalkAudio.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 47a363388b1395944b114125afa2438c, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerWalkAudio.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: d105ac296c97d024baf56fd3f9f27a01, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerWalkAudio.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f7854e8a81fa0a44a8b08533ddbc88b, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerWalkAudio.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: fa50fe02241d0ef4b9ca1cc453279343, type: 3}
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: playerWalkAudio.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: ef0f1b456126b674a8f9689f3f561a8c, type: 3}
     - target: {fileID: 8864996730310552801, guid: 92780988724eb44438622137481e371f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6836,7 +6912,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d6c9bc6652989040bdd51f7d7b9b37b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0

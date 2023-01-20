@@ -27,6 +27,10 @@ public class playerController : MonoBehaviour
     [Header("---  Audio ---")]
     [SerializeField] AudioClip[] playerDamageAudio;
     [Range(0, 1)][SerializeField] float damageAudioVolume;
+    [SerializeField] AudioClip[] playerJumpAudio;
+    [Range(0, 1)][SerializeField] float jumpAudioVolume;
+    [SerializeField] AudioClip[] playerWalkAudio;
+    [Range(0, 1)][SerializeField] float walkAudioVolume;
 
     //Gun Stats Update by Mauricio and Kat
     [Header("---- Gun Stats ----")]
@@ -119,16 +123,16 @@ public class playerController : MonoBehaviour
         }
         // sprint activator
 
-
-
         movement = (transform.right * Input.GetAxis("Horizontal")) +
             (transform.forward * Input.GetAxis("Vertical"));
+        //sounds.PlayOneShot(playerWalkAudio[Random.Range(0, playerWalkAudio.Length - 1)], walkAudioVolume);
 
         characterController.Move(playerSpeed * Time.deltaTime * movement); //controls our move input
 
         // jump controlss
         if (Input.GetButtonDown("Jump") && jumpCounter < maxJumpAmount)
         {
+            sounds.PlayOneShot(playerJumpAudio[Random.Range(0, playerJumpAudio.Length - 1)], jumpAudioVolume);
             velocity.y = jumpHeight;
             jumpCounter++;
         }
@@ -157,6 +161,9 @@ public class playerController : MonoBehaviour
     IEnumerator Shoot()
     {
         isShooting = true;
+
+        sounds.PlayOneShot(gunObjects[selectedGun].gunShots, gunObjects[selectedGun].gunShotsVolume);
+
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = MainCamera.transform.forward * bulletSpeed;
         RaycastHit hit;
