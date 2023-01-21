@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class CCTvMovie : MonoBehaviour 
 {
-    [ColorUsageAttribute(true, true)]
+    [ColorUsageAttribute(true, true, 0, 4, 0, 1)]
     public Color MaxBright = Color.black;
-    public bool IsReverse;
     public float Speed;
     public int MatId;
     public Texture[] Frames;
@@ -38,7 +37,6 @@ public class CCTvMovie : MonoBehaviour
     {
         i = (int)(Time.time * Speed);
         i = i % Frames.Length;
-        if(IsReverse) i = (Frames.Length - 1) - i;
         _Material.SetTexture("_EmissionMap", Frames[i]);
 	}
 }
