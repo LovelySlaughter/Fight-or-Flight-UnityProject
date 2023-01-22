@@ -1,0 +1,12 @@
+background traffic system:  
+
+1. make new GameObject, position - 0,0,0;
+2. add USTraffic.cs on it;
+3. add children GO's - car traffic spawn points;
+4. add vehicles prefabs to 'cars variety' array;
+5. adjust params on USTraffic.cs;
+6 optional: add USTraffVehicle.cs script to your own vehicles;
+Done.
+
+IL.ranch, 2021.
+
