@@ -11,10 +11,9 @@ public class FightForeverAudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < music.Length; i++)
-        {
-            sounds.PlayOneShot(music[Random.Range(0, music.Length - 1)], musicVolume);
-        }
+
+        sounds.PlayOneShot(music[Random.Range(0, music.Length - 1)], musicVolume);
+
     }
 
     // Update is called once per frame
