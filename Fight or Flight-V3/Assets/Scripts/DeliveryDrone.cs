@@ -20,21 +20,6 @@ public class DeliveryDrone : MonoBehaviour
     [SerializeField] int viewAngle;
     [SerializeField] int shootAngle;
 
-    [Header("---  Audio ---")]
-    [SerializeField] AudioClip[] enemyDamageAudio;
-    [Range(0, 1)][SerializeField] float damageAudioVolume;
-    [SerializeField] AudioClip[] enemyJumpAudio;
-    [Range(0, 1)][SerializeField] float jumpAudioVolume;
-    [SerializeField] AudioClip[] enemyWalkAudio;
-    [Range(0, 1)][SerializeField] float walkAudioVolume;
-
-
-    [Header("---- Gun Stats ----")]
-    [SerializeField] Transform shootPos;
-    [SerializeField] GameObject bullet;
-    [Range(15, 35)] [SerializeField] int bulletSpeed;
-    [Range(0.1f, 2)] [SerializeField] float shootRate;
-    [Range(1, 10)] [SerializeField] int shootDamage;
 
     float angleToPlayerw;
     bool isShotting;

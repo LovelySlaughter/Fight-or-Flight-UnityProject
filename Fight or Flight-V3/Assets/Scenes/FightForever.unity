@@ -4599,6 +4599,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4081835182477562, guid: b1722fb3d7b386d4793939660a24aea2, type: 3}
   m_PrefabInstance: {fileID: 2006745854}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &2018547980 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8548768101569630601, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
+  m_PrefabInstance: {fileID: 3108459243232550773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2018547981 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7307262761574284869, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
+  m_PrefabInstance: {fileID: 3108459243232550773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2033047018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4939,18 +4949,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3121681825280994811, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
-      propertyPath: headPos
+    - target: {fileID: 2724274881054882421, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
+      propertyPath: model
       value: 
-      objectReference: {fileID: 3108459243232550774}
-    - target: {fileID: 3121681825280994811, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
-      propertyPath: viewAngle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3121681825280994811, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
-      propertyPath: playerfaceSpeed
-      value: 5
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2018547980}
+    - target: {fileID: 2724274881054882421, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2018547981}
     - target: {fileID: 6280627084561458125, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4961,7 +4967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6280627084561458125, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.010002136
+      value: 6.459
       objectReference: {fileID: 0}
     - target: {fileID: 6280627084561458125, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4999,10 +5005,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot_Blue Variant (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2724274881054882421, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
---- !u!4 &3108459243232550774 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 935706888540730180, guid: f04c58daee6db1249bcf169b6cf13c45, type: 3}
-  m_PrefabInstance: {fileID: 3108459243232550773}
-  m_PrefabAsset: {fileID: 0}

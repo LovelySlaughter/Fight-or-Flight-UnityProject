@@ -48,7 +48,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 105032287857973291, guid: fdd784f73d734684c8883b1f091a161a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.010002136
+      value: 6.459
       objectReference: {fileID: 0}
     - target: {fileID: 105032287857973291, guid: fdd784f73d734684c8883b1f091a161a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -85,6 +85,14 @@ PrefabInstance:
     - target: {fileID: 738298846790599313, guid: fdd784f73d734684c8883b1f091a161a, type: 3}
       propertyPath: m_Name
       value: Robot_Blue Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3689854944276383139, guid: fdd784f73d734684c8883b1f091a161a, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: e68422d44dbeca14b8abd6b3b3a2c6df, type: 3}
+    - target: {fileID: 3689854944276383139, guid: fdd784f73d734684c8883b1f091a161a, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4433875721682119535, guid: fdd784f73d734684c8883b1f091a161a, type: 3}
       propertyPath: m_Materials.Array.data[0]
