@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -170,7 +171,7 @@ public class playerController : MonoBehaviour
             sounds.PlayOneShot(playerWalkAudio[Random.Range(0, playerWalkAudio.Length - 1)], walkAudioVolume);
             yield return new WaitForSeconds(0.5f);
         }
-        
+
         isWalking = false;
     }
 
@@ -224,7 +225,6 @@ public class playerController : MonoBehaviour
         characterController.enabled = false;
         healthPoints = HPOrig;
         updatePlayerHP();
-        transform.position = gameManager.instance.playerSpawnPos.transform.position;
         characterController.enabled = true;
 
     }
@@ -254,11 +254,11 @@ public class playerController : MonoBehaviour
         shootDist = gunObj.Range;
         shootDamage = gunObj.Damage;
 
-
-       
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponPrefab.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponPrefab.GetComponent<MeshRenderer>().sharedMaterial;
         gunModel.transform.localScale = gunObj.scale;
 
-        selectedGun = gunObjects.Count - 1;
+        selectedGun = handGunObjects.Count - 1;
     }
 
     void ChangeGun()
