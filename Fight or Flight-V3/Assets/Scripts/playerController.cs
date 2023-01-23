@@ -36,7 +36,6 @@ public class playerController : MonoBehaviour
     //Gun Stats Update by Mauricio and Kat
     [Header("---- Gun Stats ----")]
     [SerializeField] List<gunStats> gunObjects = new List<gunStats>();
-    [SerializeField] List<handsGuns> handGunObjects = new List<handsGuns>();
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
     [Range(15, 35)][SerializeField] int bulletSpeed;
@@ -247,21 +246,6 @@ public class playerController : MonoBehaviour
         gunModel.transform.localScale = gunObj.scale;
 
         selectedGun = gunObjects.Count - 1;
-    }
-
-    public void HandGunPickUp(handsGuns gunObj)
-    {
-        handGunObjects.Add(gunObj);
-
-        shootRate = gunObj.Rate;
-        shootDist = gunObj.Range;
-        shootDamage = gunObj.Damage;
-
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponPrefab.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponPrefab.GetComponent<MeshRenderer>().sharedMaterial;
-        gunModel.transform.localScale = gunObj.scale;
-
-        selectedGun = handGunObjects.Count - 1;
     }
 
     void ChangeGun()
