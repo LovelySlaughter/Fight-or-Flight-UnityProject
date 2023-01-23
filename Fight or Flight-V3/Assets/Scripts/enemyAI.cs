@@ -5,14 +5,13 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations;
 
-//Coded By Mauricio
+//Coded By Mauricio/Kat
 public class enemyAI : MonoBehaviour, IDamage
 {
     [Header("---- Components ----")]
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Animator animator;
+    [SerializeField] Animator anim;
     [SerializeField] Renderer model;
-    [SerializeField] AudioSource sounds;
 
     [Header("---- Enemy Stats ----")]
     [SerializeField] Transform headPos;
@@ -20,61 +19,91 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int playerfaceSpeed;
     [SerializeField] int viewAngle;
     [SerializeField] int shootAngle;
-
-    [Header("---  Audio ---")]
-    [SerializeField] AudioClip[] enemyDamageAudio;
-    [Range(0, 1)][SerializeField] float damageAudioVolume;
-    [SerializeField] AudioClip[] enemyJumpAudio;
-    [Range(0, 1)][SerializeField] float jumpAudioVolume;
-    [SerializeField] AudioClip[] enemyWalkAudio;
-    [Range(0, 1)][SerializeField] float walkAudioVolume;
-
+    [SerializeField] int waitTime;
+    [SerializeField] int roamDist;
 
     [Header("---- Gun Stats ----")]
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
     [Range(15, 35)] [SerializeField] int bulletSpeed;
     [Range(0.1f, 2)] [SerializeField] float shootRate;
+    [Range(10, 50)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
 
-    float angleToPlayerw;
+
     bool isShotting;
     Vector3 playerDir;
     bool playerInRange;
+    float angleToPlayer;
+    bool destinationChosen;
+    float speedOrig;
+    float stoppingDistOrig;
+    Vector3 startingPos;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager.instance.updateEnemyRemaining(1);
+        speedOrig = agent.speed;
+        stoppingDistOrig = agent.stoppingDistance;
+        startingPos = transform.position;
     }
-    // Updat by Kat
+
     // Update is called once per frame
     void Update()
     {
+        anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
 
-        animator.SetFloat("Speed", agent.velocity.normalized.magnitude);
         if (playerInRange)
         {
-            canSeePlayer();
+            if (!canSeePlayer() && !destinationChosen && agent.remainingDistance < 0.1f)
+            {
+                StartCoroutine(roam());
+            }
+
         }
-
-
+        else if (!destinationChosen && agent.remainingDistance < 0.1f && agent.destination != gameManager.instance.player.transform.position)
+        {
+            StartCoroutine(roam());
+        }
     }
 
-    // Update by Kat
-    void canSeePlayer()
+    IEnumerator roam()
+    {
+        agent.stoppingDistance = 0;
+        destinationChosen = true;
+        yield return new WaitForSeconds(waitTime);
+
+        destinationChosen = false;
+
+        Vector3 randomDir = Random.insideUnitSphere * roamDist;
+        randomDir += startingPos;
+
+        NavMeshHit hit;
+        NavMesh.SamplePosition(new Vector3(randomDir.x, 0, randomDir.z), out hit, 1, 1);
+        NavMeshPath path = new NavMeshPath();
+
+        if (hit.position != null)
+        {
+            agent.CalculatePath(hit.position, path);
+        }
+        agent.SetPath(path);
+    }
+
+    bool canSeePlayer()
     {
         playerDir = gameManager.instance.player.transform.position - headPos.position;
-        angleToPlayerw = Vector3.Angle(playerDir, transform.forward);
+        angleToPlayer = Vector3.SignedAngle(playerDir, transform.forward, Vector3.up);
 
-        Debug.Log(angleToPlayerw);
+        Debug.Log(angleToPlayer);
         Debug.DrawRay(headPos.position, playerDir);
 
-        RaycastHit impact;
-        if (Physics.Raycast(headPos.position, playerDir, out impact))
+        RaycastHit hit;
+        if (Physics.Raycast(headPos.position, playerDir, out hit))
         {
-            if (impact.collider.CompareTag("Player") && angleToPlayerw <= viewAngle)
+            if (hit.collider.CompareTag("Player") && angleToPlayer <= viewAngle)
             {
+                agent.stoppingDistance = stoppingDistOrig;
                 agent.SetDestination(gameManager.instance.player.transform.position);
 
                 if (agent.remainingDistance < agent.stoppingDistance)
@@ -82,18 +111,22 @@ public class enemyAI : MonoBehaviour, IDamage
                     facePlayer();
                 }
 
-                if (!isShotting && angleToPlayerw <= shootAngle)
+                if (!isShotting && angleToPlayer <= shootAngle)
                 {
                     StartCoroutine(shoot());
                 }
+                return true;
             }
         }
+        agent.stoppingDistance = 0;
+        return false;
     }
 
     public void takeDamage(int dmg)
     {
         HP -= dmg;
         StartCoroutine(flashDamage());
+        
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
@@ -105,7 +138,7 @@ public class enemyAI : MonoBehaviour, IDamage
     IEnumerator flashDamage()
     {
         model.material.color = Color.red;
-        yield return new WaitForSeconds(0.30f);
+        yield return new WaitForSeconds(0.15f);
         model.material.color = Color.white;
     }
 
@@ -113,7 +146,7 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         isShotting = true;
 
-        animator.SetTrigger("Shoot");
+        anim.SetTrigger("Shoot");
 
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = (gameManager.instance.player.transform.position - headPos.transform.position).normalized * bulletSpeed;
@@ -125,9 +158,10 @@ public class enemyAI : MonoBehaviour, IDamage
 
     void facePlayer()
     {
-        
         Quaternion rot = Quaternion.LookRotation(playerDir);
+
         playerDir.y = 0;
+
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerfaceSpeed);
     }
 
@@ -143,9 +177,9 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         if (other.CompareTag("Player"))
         {
+            agent.stoppingDistance = 0;
             playerInRange = false;
 
         }
     }
-
 }

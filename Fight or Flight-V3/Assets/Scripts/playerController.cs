@@ -160,19 +160,22 @@ public class playerController : MonoBehaviour
 
     IEnumerator StepSounds()
     {
-        isWalking = true;
-        if (isSprinting)
+        if (characterController.isGrounded)
         {
-            sounds.PlayOneShot(playerWalkAudio[Random.Range(0, playerWalkAudio.Length - 1)], walkAudioVolume);
-            yield return new WaitForSeconds(0.25f);
-        }
-        else if (!isSprinting)
-        {
-            sounds.PlayOneShot(playerWalkAudio[Random.Range(0, playerWalkAudio.Length - 1)], walkAudioVolume);
-            yield return new WaitForSeconds(0.5f);
-        }
+            isWalking = true;
+            if (isSprinting)
+            {
+                sounds.PlayOneShot(playerWalkAudio[Random.Range(0, playerWalkAudio.Length - 1)], walkAudioVolume);
+                yield return new WaitForSeconds(0.25f);
+            }
+            else if (!isSprinting)
+            {
+                sounds.PlayOneShot(playerWalkAudio[Random.Range(0, playerWalkAudio.Length - 1)], walkAudioVolume);
+                yield return new WaitForSeconds(0.5f);
+            }
 
-        isWalking = false;
+            isWalking = false;
+        }
     }
 
 
@@ -237,7 +240,7 @@ public class playerController : MonoBehaviour
         shootRate = gunObj.Rate;
         shootDist = gunObj.Range;
         shootDamage = gunObj.Damage;
-
+        gunObj.gunBulletPos = shootPos;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;

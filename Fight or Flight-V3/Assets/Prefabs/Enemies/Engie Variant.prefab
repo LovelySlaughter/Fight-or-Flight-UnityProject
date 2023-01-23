@@ -154,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1455960043018602633, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_Name
-      value: Engie Variant
+      value: Engine Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1455960043018602633, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_Layer
@@ -166,15 +166,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.52
+      value: 15.5
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.85
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2269615601799991859, guid: c9d8cd1303fa39d46b1243d43b65132f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -614,24 +614,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 4735962790702915276}
-  animator: {fileID: 7780532302838247105}
+  anim: {fileID: 7780532302838247105}
   model: {fileID: 913101100580561582}
-  sounds: {fileID: 2912028708576587073}
   headPos: {fileID: 2500347840122715593}
   HP: 15
   playerfaceSpeed: 15
   viewAngle: 180
   shootAngle: 90
-  enemyDamageAudio: []
-  damageAudioVolume: 0
-  enemyJumpAudio: []
-  jumpAudioVolume: 0
-  enemyWalkAudio: []
-  walkAudioVolume: 0
+  waitTime: 5
+  roamDist: 5
   shootPos: {fileID: 2500347840122715593}
   bullet: {fileID: 3313442712892301273, guid: 2f6dc9f9a5aef6a4d8ef7666695af0c4, type: 3}
   bulletSpeed: 25
   shootRate: 0.5
+  shootDist: 0
   shootDamage: 2
 --- !u!195 &4735962790702915276
 NavMeshAgent:

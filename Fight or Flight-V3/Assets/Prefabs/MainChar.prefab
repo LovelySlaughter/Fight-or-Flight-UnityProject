@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089091652}
   m_LocalRotation: {x: -0, y: -0.1940159, z: -0, w: 0.98099834}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.048, y: 0.246, z: 0.44}
   m_LocalScale: {x: 5.873836, y: 9.707131, z: 0.94279164}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,6 +252,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ef0f1b456126b674a8f9689f3f561a8c, type: 3}
   walkAudioVolume: 0.2
   gunObjects: []
+  handGunObjects: []
   shootPos: {fileID: 1089091653}
   bullet: {fileID: 5777184380615178806, guid: b9501d5f3a6754042a3b2a14d6e40658, type: 3}
   bulletSpeed: 25
@@ -498,6 +499,10 @@ PrefabInstance:
     - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333808366003165878, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6333808366776156882, guid: a3ce826cdf6546d4e9a0c54f22a13a6a, type: 3}
       propertyPath: m_Materials.Array.data[0]
