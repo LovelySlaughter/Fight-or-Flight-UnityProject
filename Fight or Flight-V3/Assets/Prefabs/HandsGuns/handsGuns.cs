@@ -10,7 +10,7 @@ public class handsGuns : ScriptableObject
     public float Rate;
     public int Range;
     public int Damage;
-    public GameObject weaponModel;
+    public GameObject weaponPrefab;
     public AudioClip gunShots;
     public Vector3 scale;
     [Range(0, 1)] public float gunShotsVolume;

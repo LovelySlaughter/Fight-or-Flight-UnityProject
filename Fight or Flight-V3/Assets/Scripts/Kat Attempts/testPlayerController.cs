@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 
-// Coded by Kat
-public class playerController : MonoBehaviour
+public class testPlayerController : MonoBehaviour
 {
+
 
     [Header("--- Character Components ---")]
     [SerializeField] CharacterController characterController;
@@ -34,8 +34,7 @@ public class playerController : MonoBehaviour
 
     //Gun Stats Update by Mauricio and Kat
     [Header("---- Gun Stats ----")]
-    [SerializeField] List<gunStats> gunObjects = new List<gunStats>();
-    [SerializeField] List<handsGuns> handGunObjects = new List<handsGuns>();
+    [SerializeField] List<handsGuns> gunObjects = new List<handsGuns>();
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
     [Range(15, 35)][SerializeField] int bulletSpeed;
@@ -170,7 +169,7 @@ public class playerController : MonoBehaviour
             sounds.PlayOneShot(playerWalkAudio[Random.Range(0, playerWalkAudio.Length - 1)], walkAudioVolume);
             yield return new WaitForSeconds(0.5f);
         }
-        
+
         isWalking = false;
     }
 
@@ -230,25 +229,9 @@ public class playerController : MonoBehaviour
     }
 
     //Updated by Kat
-    public void GunPickUp(gunStats gunObj)
+    public void GunPickUp(handsGuns gunObj)
     {
         gunObjects.Add(gunObj);
-
-        shootRate = gunObj.Rate;
-        shootDist = gunObj.Range;
-        shootDamage = gunObj.Damage;
-
-
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
-        gunModel.transform.localScale = gunObj.scale;
-
-        selectedGun = gunObjects.Count - 1;
-    }
-
-    public void HandGunPickUp(handsGuns gunObj)
-    {
-        handGunObjects.Add(gunObj);
 
         shootRate = gunObj.Rate;
         shootDist = gunObj.Range;
@@ -267,8 +250,7 @@ public class playerController : MonoBehaviour
         shootDist = gunObjects[selectedGun].Range;
         shootDamage = gunObjects[selectedGun].Damage;
 
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObjects[selectedGun].weaponModel.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObjects[selectedGun].weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
+        
         gunModel.transform.localScale = gunObjects[selectedGun].scale;
     }
 
@@ -286,3 +268,5 @@ public class playerController : MonoBehaviour
         }
     }
 }
+
+
