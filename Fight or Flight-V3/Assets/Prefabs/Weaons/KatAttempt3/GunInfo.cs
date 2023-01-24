@@ -8,6 +8,7 @@ public class GunInfo : ScriptableObject
 {
     [Header("--- Gun Info ---")]
     public new string name;
+    public Animator _animator;
 
     [Header("--- Shooting ---")]
     public float damage;
