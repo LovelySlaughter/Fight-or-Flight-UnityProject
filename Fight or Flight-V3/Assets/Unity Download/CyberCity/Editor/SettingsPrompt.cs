@@ -45,9 +45,17 @@ namespace ILranch
             {
                 valuename = "disabled";
             }
-            else
+            else if(QualitySettings.antiAliasing == 2)
             {
                 valuename = "2x (default)";
+            }
+            else if (QualitySettings.antiAliasing == 4)
+            {
+                valuename = "4x";
+            }
+            else if (QualitySettings.antiAliasing == 8)
+            {
+                valuename = "8x";
             }
             return valuename;
         }
@@ -175,10 +183,6 @@ namespace ILranch
                 EditorUtility.DisplayDialog("Confirmation", "'AntiAliasing' changed to " + AntiAlias(), "Ok");
                 pressed3 = !pressed3;
             }
-
-            GUI.backgroundColor = Color.blue;
-            EditorGUILayout.HelpBox("Trying to use Universal or HDRP - is everything PINK ??? Then select all package materials, click: Edit > Render Pipeline > Upgrade Selected Materials to your SRP; and erase 'PostProcessing' folder", MessageType.None);
-
             GUILayout.FlexibleSpace();
             GUI.backgroundColor = Color.cyan;
             if (GUILayout.Button("Ignore"))
