@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Animations;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -234,18 +236,21 @@ public class playerController : MonoBehaviour
     //Updated by Kat
     public void GunPickUp(gunStats gunObj)
     {
-        gunObjects.Add(gunObj);
+        if (gunModel.CompareTag("Untagged"))
+        {
+            gunObjects.Add(gunObj);
 
-        shootRate = gunObj.Rate;
-        shootDist = gunObj.Range;
-        shootDamage = gunObj.Damage;
-        gunObj.gunBulletPos = shootPos;
+            shootRate = gunObj.Rate;
+            shootDist = gunObj.Range;
+            shootDamage = gunObj.Damage;
+            gunObj.gunBulletPos = shootPos;
 
-        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
-        gunModel.transform.localScale = gunObj.scale;
+            gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
+            gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
+            gunModel.transform.localScale = gunObj.scale;
 
-        selectedGun = gunObjects.Count - 1;
+            selectedGun = gunObjects.Count - 1;
+        }
     }
 
     void ChangeGun()

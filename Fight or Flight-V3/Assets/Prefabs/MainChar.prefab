@@ -56,10 +56,42 @@ Transform:
   m_GameObject: {fileID: 1253393814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5308533, y: -0.6656666, z: 0.6471567}
-  m_LocalScale: {x: 0.087204, y: 0.241024, z: 0.14669201}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1813371278}
+  m_Father: {fileID: 8864996729887419428}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1813371277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1813371278}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1813371278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813371277}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8864996729887419428}
+  m_Father: {fileID: 1253393815}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8864996729887419431
@@ -252,7 +284,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ef0f1b456126b674a8f9689f3f561a8c, type: 3}
   walkAudioVolume: 0.2
   gunObjects: []
-  handGunObjects: []
   shootPos: {fileID: 1089091653}
   bullet: {fileID: 5777184380615178806, guid: b9501d5f3a6754042a3b2a14d6e40658, type: 3}
   bulletSpeed: 25
