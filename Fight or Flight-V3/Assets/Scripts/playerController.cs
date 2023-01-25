@@ -56,6 +56,17 @@ public class playerController : MonoBehaviour
     Vector3 movement;
     Vector3 velocity;
     int HPOrig;
+    int playerGravOrg;
+
+    //Connor's wallrunning stuff
+    public LayerMask whatIsWall;
+    public float wallRunForce;
+    public float maxWallSpeed;
+    bool isWallLeft;
+    bool isWallRight;
+    bool isWallRunning;
+    Vector3 normVec;
+
     bool isWalking;
 
     bool isShooting;
@@ -66,6 +77,7 @@ public class playerController : MonoBehaviour
     void Start()
     {
         //Update by Mauricio
+        playerGravOrg = gravity;
         HPOrig = healthPoints;
         updatePlayerHP();
         respawnPlayer();
@@ -91,6 +103,17 @@ public class playerController : MonoBehaviour
             Movement();
             Sprint();
             SelectGun();
+
+            //Connor's wallrunning check
+            //if ((characterController.collisionFlags & CollisionFlags.Sides) != 0 && !characterController.isGrounded)
+            //{
+            //    isWallRunning = true;
+            //}
+            //else
+            //{
+            //    isWallRunning = false;
+            //    gravity = playerGravOrg;
+            //}
 
 
             if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot"))
@@ -138,6 +161,29 @@ public class playerController : MonoBehaviour
             sounds.PlayOneShot(playerJumpAudio[Random.Range(0, playerJumpAudio.Length - 1)], jumpAudioVolume);
             velocity.y = jumpHeight;
             jumpCounter++;
+
+            //if (isWallLeft && !Input.GetKey(KeyCode.D) || isWallRight && !Input.GetKey(KeyCode.A))
+            //{
+            //    movement = (Vector3.up * jumpHeight * 1.5f);
+            //    movement = (normVec * jumpHeight * 0.5f);
+            //}
+
+            //if (isWallRight || isWallLeft && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            //{
+            //    movement = (-velocity * jumpHeight * 1f);
+            //}
+
+            //if (isWallRight && Input.GetKey(KeyCode.A))
+            //{
+            //    movement = (-velocity * jumpHeight * 3.2f);
+            //}
+
+            //if (isWallLeft && Input.GetKey(KeyCode.D))
+            //{
+            //    movement = (velocity * jumpHeight * 3.2f);
+            //}
+
+            //movement = (velocity * jumpHeight * 1f);
         }
 
         velocity.y -= gravity * Time.deltaTime;
@@ -145,7 +191,65 @@ public class playerController : MonoBehaviour
         characterController.Move((velocity + pushBack) * Time.deltaTime);
     }
 
-    void Sprint()
+    //private void OnControllerColliderHit(ControllerColliderHit hit)
+    //{
+    //    if (!characterController.isGrounded && hit.normal.y < 0.1f)
+    //    {
+    //        isWallRight = Physics.Raycast(transform.position, characterController.transform.right, 1f, whatIsWall);
+    //        isWallLeft = Physics.Raycast(transform.position, -characterController.transform.right, 1f, whatIsWall);
+
+    //        if (!isWallLeft && !isWallRight)
+    //        {
+    //            gravity = playerGravOrg;
+    //            isWallRunning = false;
+    //        }
+    //        if (isWallLeft || isWallRight)
+    //        {
+    //            maxJumpAmount = 0;
+    //            gravity = playerGravOrg;
+    //        }
+
+    //        if (Input.GetKey(KeyCode.D) && isWallRight)
+    //        {
+    //            gravity = 0;
+
+    //            if (velocity.magnitude <= maxWallSpeed)
+    //            {
+    //                movement = (hit.normal * wallRunForce * Time.deltaTime);
+
+    //                if (isWallRight)
+    //                {
+    //                    movement = (hit.normal * wallRunForce / 5 * Time.deltaTime);
+    //                }
+    //                else
+    //                {
+    //                    movement = (-hit.normal * wallRunForce / 5 * Time.deltaTime);
+    //                }
+    //            }
+    //        }
+    //        if (Input.GetKey(KeyCode.A) && isWallLeft)
+    //        {
+    //            gravity = 0;
+
+    //            if (velocity.magnitude <= maxWallSpeed)
+    //            {
+    //                movement = (-hit.normal * wallRunForce * Time.deltaTime);
+
+    //                if (isWallLeft)
+    //                {
+    //                    movement = (-hit.normal * wallRunForce / 5 * Time.deltaTime);
+    //                }
+    //                else
+    //                {
+    //                    movement = (hit.normal * wallRunForce / 5 * Time.deltaTime);
+    //                }
+    //            }
+    //        }
+
+    //    }
+    //}
+
+        void Sprint()
     {
         if (Input.GetButtonDown("Sprint"))
         {
