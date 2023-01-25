@@ -16,4 +16,6 @@ public class gunStats : ScriptableObject
     public Vector3 scale;
     [Range(0, 1)] public float gunShotsVolume;
     public Transform gunBulletPos;
+    public GameObject muzzleFlash;
+    public GameObject bulletHoles;
 }
