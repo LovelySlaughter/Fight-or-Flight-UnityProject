@@ -26,10 +26,10 @@ public class MainMenuScript : MonoBehaviour
         mainMenu.SetActive(true);
     }
 
-    public void OpenLoad()
+    public void FightForever()
     {
-        mainMenu.SetActive(false);
-        loadGame.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+
     }
     public void CloseLoad()
     {
