@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 //Coded By Mauricio
 
 public class gameManager : MonoBehaviour
@@ -14,12 +15,9 @@ public class gameManager : MonoBehaviour
     public GameObject playerSpawnPos;
 
 
-    public GameObject altplayer;
-    public playerController altplayerScript;
-
-
     [Header("---- Game Goal ----")]
     public int enemiesRemaining;
+    public int enemiesKilled;
 
     [Header("---- UI ----")]
     public GameObject activeMenu;
@@ -29,6 +27,7 @@ public class gameManager : MonoBehaviour
     public Image playerHPBar;
     public GameObject screenFlash;
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
+    [SerializeField] TextMeshProUGUI enemiesKilledText;
 
     public bool isPaused;
     float timeScaleOrig;
@@ -101,6 +100,12 @@ public class gameManager : MonoBehaviour
             activeMenu.SetActive(true);
         }
         
+    }
+
+    public void UpdateEnemiesKilled(int number)
+    {
+        enemiesKilled += number;
+        enemiesKilledText.text = enemiesKilled.ToString();
     }
 
     public void playerDead()

@@ -36,7 +36,7 @@ public class enemyAI : MonoBehaviour, IDamage
     bool playerInRange;
     float angleToPlayer;
     bool destinationChosen;
-    public float speedOrig;
+    float speedOrig;
     float stoppingDistOrig;
     Vector3 startingPos;
 
@@ -59,6 +59,10 @@ public class enemyAI : MonoBehaviour, IDamage
             if (!canSeePlayer() && !destinationChosen && agent.remainingDistance < 0.1f)
             {
                 StartCoroutine(roam());
+            }
+            if (canSeePlayer())
+            {
+                agent.stoppingDistance = 5;
             }
 
         }
@@ -139,6 +143,7 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             gameManager.instance.updateEnemyRemaining(-1);
             Destroy(gameObject);
+            gameManager.instance.UpdateEnemiesKilled(1);
         }
     }
 
