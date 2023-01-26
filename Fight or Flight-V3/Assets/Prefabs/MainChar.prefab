@@ -254,9 +254,9 @@ MonoBehaviour:
   sounds: {fileID: 1749083309}
   healthPoints: 40
   jumpHeight: 15
-  maxJumpAmount: 2
+  maxJumpAmount: 1
   playerSpeed: 5
-  sprintMod: 2
+  sprintMod: 3
   gravity: 25
   pushBackTime: 2
   playerDamageAudio:
@@ -292,6 +292,11 @@ MonoBehaviour:
   shootDamage: 1
   gunModel: {fileID: 7988858210573824684}
   pushBack: {x: 0, y: 0, z: 0}
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  wallRunForce: 0
+  maxWallSpeed: 0
 --- !u!143 &8864996730310552802
 CharacterController:
   m_ObjectHideFlags: 0
