@@ -2193,7 +2193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7325747906968437548
 Transform:
   m_ObjectHideFlags: 0
@@ -2223,24 +2223,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 7325747906968437539}
-  animator: {fileID: 512927545}
+  anim: {fileID: 512927545}
   model: {fileID: 7325747905433752587}
-  sounds: {fileID: 3011707213325614148}
   headPos: {fileID: 7325747906180728256}
   HP: 20
   playerfaceSpeed: 6
-  viewAngle: 180
-  shootAngle: 90
-  enemyDamageAudio: []
-  damageAudioVolume: 0
-  enemyJumpAudio: []
-  jumpAudioVolume: 0
-  enemyWalkAudio: []
-  walkAudioVolume: 0
+  viewAngle: 90
+  shootAngle: 45
+  waitTime: 0
+  roamDist: 0
   shootPos: {fileID: 7325747906180728256}
   bullet: {fileID: 3313442712892301273, guid: 2f6dc9f9a5aef6a4d8ef7666695af0c4, type: 3}
   bulletSpeed: 25
   shootRate: 0.5
+  shootDist: 0
   shootDamage: 2
 --- !u!195 &7325747906968437539
 NavMeshAgent:

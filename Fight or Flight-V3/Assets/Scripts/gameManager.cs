@@ -100,6 +100,7 @@ public class gameManager : MonoBehaviour
             activeMenu = winMenu;
             activeMenu.SetActive(true);
         }
+        
     }
 
     public void playerDead()

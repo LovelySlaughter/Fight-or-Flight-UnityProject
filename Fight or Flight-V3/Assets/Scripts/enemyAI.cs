@@ -70,15 +70,16 @@ public class enemyAI : MonoBehaviour, IDamage
 
     IEnumerator roam()
     {
-        agent.stoppingDistance = 0;
         destinationChosen = true;
+        agent.stoppingDistance = 0;
+
         yield return new WaitForSeconds(waitTime);
 
         destinationChosen = false;
 
         Vector3 randomDir = Random.insideUnitSphere * roamDist;
+        startingPos = transform.position;
         randomDir += startingPos;
-
         NavMeshHit hit;
         NavMesh.SamplePosition(new Vector3(randomDir.x, 0, randomDir.z), out hit, 1, 1);
         NavMeshPath path = new NavMeshPath();
@@ -93,7 +94,7 @@ public class enemyAI : MonoBehaviour, IDamage
     bool canSeePlayer()
     {
         playerDir = gameManager.instance.player.transform.position - headPos.position;
-        angleToPlayer = Vector3.SignedAngle(playerDir, transform.forward, Vector3.up);
+        angleToPlayer = Vector3.Angle(playerDir, transform.forward);
 
         Debug.Log(angleToPlayer);
         Debug.DrawRay(headPos.position, playerDir);
@@ -118,15 +119,21 @@ public class enemyAI : MonoBehaviour, IDamage
                 return true;
             }
         }
-        agent.stoppingDistance = 0;
+        else
+        {
+            agent.stoppingDistance = 0;
+        } 
         return false;
+
     }
 
     public void takeDamage(int dmg)
     {
         HP -= dmg;
+
         StartCoroutine(flashDamage());
-        
+        agent.stoppingDistance = 0;
+
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
@@ -169,6 +176,7 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         if (other.CompareTag("Player"))
         {
+
             playerInRange = true;
 
         }
@@ -179,7 +187,6 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             agent.stoppingDistance = 0;
             playerInRange = false;
-
         }
     }
 }

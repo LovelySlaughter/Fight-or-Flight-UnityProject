@@ -15,10 +15,10 @@ MonoBehaviour:
   Rate: 0.1
   Range: 40
   Damage: 3
-  weaponModel: {fileID: 414502879257054280, guid: 7c984c1e98145ad47a71e3e1130b059e, type: 3}
+  weaponModel: {fileID: 414502879257054280, guid: 2e1d7a9aa0754394b87c03115734f24a, type: 3}
   gunShots: {fileID: 8300000, guid: 8018acccaecddce498259f8e5a93b440, type: 3}
-  scale: {x: 0, y: 0, z: 0}
-  gunShotsVolume: 0
+  scale: {x: 1, y: 1, z: 0.8}
+  gunShotsVolume: 0.1
   gunBulletPos: {fileID: 0}
   muzzleFlash: {fileID: 4857109970575028840, guid: 63f373890e258704cb4dc994e19a038d, type: 3}
   bulletHoles: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}

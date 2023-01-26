@@ -33,7 +33,7 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     {
         gameManager.instance.player = GameObject.FindGameObjectWithTag("Player");
         gameManager.instance.updateEnemyRemaining(1);
-
+        playerDir.x = Random.Range(5, 10);
 
     }
 
@@ -96,6 +96,7 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     }
     private void Chase()
     {
+        
         playerDir.z += distToPlayer;
         playerDir.y += heightToPlayer;
         transform.position = Vector3.MoveTowards(transform.position, playerDir, flySpeed * Time.deltaTime);
