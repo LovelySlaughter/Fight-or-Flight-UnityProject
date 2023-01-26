@@ -87,7 +87,7 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int sprintSpeed = playerSpeed;
+        //int sprintSpeed = playerSpeed;
 
         //Edit Mauricio
         if (!gameManager.instance.isPaused)
@@ -105,15 +105,15 @@ public class playerController : MonoBehaviour
             SelectGun();
 
             //Connor's wallrunning check
-            //if ((characterController.collisionFlags & CollisionFlags.Sides) != 0 && !characterController.isGrounded)
-            //{
-            //    isWallRunning = true;
-            //}
-            //else
-            //{
-            //    isWallRunning = false;
-            //    gravity = playerGravOrg;
-            //}
+            if ((characterController.collisionFlags & CollisionFlags.Sides) != 0 && !characterController.isGrounded)
+            {
+                isWallRunning = true;
+            }
+            else
+            {
+                isWallRunning = false;
+                gravity = playerGravOrg;
+            }
 
 
             if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot"))
@@ -127,10 +127,10 @@ public class playerController : MonoBehaviour
         }
 
 
-        bool sprint = (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift));
-        bool isSpringting = sprint;
+        //bool sprint = (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift));
+        //bool isSpringting = sprint;
 
-        characterController.Move(movement * Time.deltaTime * sprintSpeed);
+        //characterController.Move(movement * Time.deltaTime * sprintSpeed);
 
 
 
@@ -162,28 +162,28 @@ public class playerController : MonoBehaviour
             velocity.y = jumpHeight;
             jumpCounter++;
 
-            //if (isWallLeft && !Input.GetKey(KeyCode.D) || isWallRight && !Input.GetKey(KeyCode.A))
-            //{
-            //    movement = (Vector3.up * jumpHeight * 1.5f);
-            //    movement = (normVec * jumpHeight * 0.5f);
-            //}
+            if (isWallLeft && !Input.GetKey(KeyCode.D) || isWallRight && !Input.GetKey(KeyCode.A))
+            {
+                movement = (Vector3.up * jumpHeight * 1.5f);
+                movement = (normVec * jumpHeight * 0.5f);
+            }
 
-            //if (isWallRight || isWallLeft && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-            //{
-            //    movement = (-velocity * jumpHeight * 1f);
-            //}
+            if (isWallRight || isWallLeft && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
+                movement = (-velocity * jumpHeight * 1f);
+            }
 
-            //if (isWallRight && Input.GetKey(KeyCode.A))
-            //{
-            //    movement = (-velocity * jumpHeight * 3.2f);
-            //}
+            if (isWallRight && Input.GetKey(KeyCode.A))
+            {
+                movement = (-velocity * jumpHeight * 3.2f);
+            }
 
-            //if (isWallLeft && Input.GetKey(KeyCode.D))
-            //{
-            //    movement = (velocity * jumpHeight * 3.2f);
-            //}
+            if (isWallLeft && Input.GetKey(KeyCode.D))
+            {
+                movement = (velocity * jumpHeight * 3.2f);
+            }
 
-            //movement = (velocity * jumpHeight * 1f);
+            movement = (velocity * jumpHeight * 1f);
         }
 
         velocity.y -= gravity * Time.deltaTime;
@@ -191,65 +191,66 @@ public class playerController : MonoBehaviour
         characterController.Move((velocity + pushBack) * Time.deltaTime);
     }
 
-    //private void OnControllerColliderHit(ControllerColliderHit hit)
-    //{
-    //    if (!characterController.isGrounded && hit.normal.y < 0.1f)
-    //    {
-    //        isWallRight = Physics.Raycast(transform.position, characterController.transform.right, 1f, whatIsWall);
-    //        isWallLeft = Physics.Raycast(transform.position, -characterController.transform.right, 1f, whatIsWall);
+    //Connor's Updates
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (!characterController.isGrounded && hit.normal.y < 0.1f)
+        {
+            isWallRight = Physics.Raycast(transform.position, characterController.transform.right, 1f, whatIsWall);
+            isWallLeft = Physics.Raycast(transform.position, -characterController.transform.right, 1f, whatIsWall);
 
-    //        if (!isWallLeft && !isWallRight)
-    //        {
-    //            gravity = playerGravOrg;
-    //            isWallRunning = false;
-    //        }
-    //        if (isWallLeft || isWallRight)
-    //        {
-    //            maxJumpAmount = 0;
-    //            gravity = playerGravOrg;
-    //        }
+            if (!isWallLeft && !isWallRight)
+            {
+                gravity = playerGravOrg;
+                isWallRunning = false;
+            }
+            if (isWallLeft || isWallRight)
+            {
+                jumpCounter = 0;
+                gravity = playerGravOrg;
+            }
 
-    //        if (Input.GetKey(KeyCode.D) && isWallRight)
-    //        {
-    //            gravity = 0;
+            if (Input.GetKey(KeyCode.D) && isWallRight)
+            {
+                gravity = 0;
 
-    //            if (velocity.magnitude <= maxWallSpeed)
-    //            {
-    //                movement = (hit.normal * wallRunForce * Time.deltaTime);
+                if (velocity.magnitude <= maxWallSpeed)
+                {
+                    movement = (hit.normal * wallRunForce * Time.deltaTime);
 
-    //                if (isWallRight)
-    //                {
-    //                    movement = (hit.normal * wallRunForce / 5 * Time.deltaTime);
-    //                }
-    //                else
-    //                {
-    //                    movement = (-hit.normal * wallRunForce / 5 * Time.deltaTime);
-    //                }
-    //            }
-    //        }
-    //        if (Input.GetKey(KeyCode.A) && isWallLeft)
-    //        {
-    //            gravity = 0;
+                    if (isWallRight)
+                    {
+                        movement = (hit.normal * wallRunForce / 5 * Time.deltaTime);
+                    }
+                    else
+                    {
+                        movement = (-hit.normal * wallRunForce / 5 * Time.deltaTime);
+                    }
+                }
+            }
+            if (Input.GetKey(KeyCode.A) && isWallLeft)
+            {
+                gravity = 0;
 
-    //            if (velocity.magnitude <= maxWallSpeed)
-    //            {
-    //                movement = (-hit.normal * wallRunForce * Time.deltaTime);
+                if (velocity.magnitude <= maxWallSpeed)
+                {
+                    movement = (-hit.normal * wallRunForce * Time.deltaTime);
 
-    //                if (isWallLeft)
-    //                {
-    //                    movement = (-hit.normal * wallRunForce / 5 * Time.deltaTime);
-    //                }
-    //                else
-    //                {
-    //                    movement = (hit.normal * wallRunForce / 5 * Time.deltaTime);
-    //                }
-    //            }
-    //        }
+                    if (isWallLeft)
+                    {
+                        movement = (-hit.normal * wallRunForce / 5 * Time.deltaTime);
+                    }
+                    else
+                    {
+                        movement = (hit.normal * wallRunForce / 5 * Time.deltaTime);
+                    }
+                }
+            }
 
-    //    }
-    //}
+        }
+    }
 
-        void Sprint()
+    void Sprint()
     {
         if (Input.GetButtonDown("Sprint"))
         {
@@ -333,8 +334,8 @@ public class playerController : MonoBehaviour
         characterController.enabled = false;
         healthPoints = HPOrig;
         updatePlayerHP();
+        transform.position = gameManager.instance.playerSpawnPos.transform.position;
         characterController.enabled = true;
-
     }
 
     //Updated by Kat
