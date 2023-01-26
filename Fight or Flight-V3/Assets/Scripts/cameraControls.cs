@@ -14,8 +14,8 @@ public class cameraControls : MonoBehaviour
     [SerializeField] int verticalMax;
     [SerializeField] int verticalMin;
 
-    [SerializeField] bool pilotControls;
-    [SerializeField] bool invertY;
+    public bool pilotControls;
+    public bool invertY;
 
     // Start is called before the first frame update
     void Start()
