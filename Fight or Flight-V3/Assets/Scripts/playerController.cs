@@ -56,7 +56,12 @@ public class playerController : MonoBehaviour
     Vector3 movement;
     Vector3 velocity;
     int HPOrig;
-    int playerGravOrg;
+
+    bool isWalking;
+
+    bool isShooting;
+
+    bool isSprinting;
 
     //Connor's wallrunning stuff
     public LayerMask whatIsWall;
@@ -65,13 +70,8 @@ public class playerController : MonoBehaviour
     bool isWallLeft;
     bool isWallRight;
     bool isWallRunning;
+    int playerGravOrg;
     Vector3 normVec;
-
-    bool isWalking;
-
-    bool isShooting;
-
-    bool isSprinting;
 
     // Start is called before the first frame update
     void Start()
@@ -138,9 +138,6 @@ public class playerController : MonoBehaviour
 
     void Movement()
     {
-
-
-
         //reset jump counter
         if (characterController.isGrounded && velocity.y < 0)
         {
@@ -149,45 +146,20 @@ public class playerController : MonoBehaviour
         }
         // sprint activator
 
-        movement = (transform.right * Input.GetAxis("Horizontal")) +
-            (transform.forward * Input.GetAxis("Vertical"));
+        movement = (transform.right * Input.GetAxis("Horizontal") +
+                   (transform.forward * Input.GetAxis("Vertical")));
 
-
-        characterController.Move(playerSpeed * Time.deltaTime * movement); //controls our move input
+        characterController.Move(movement * Time.deltaTime * playerSpeed); //controls our move input
 
         // jump controlss
         if (Input.GetButtonDown("Jump") && jumpCounter < maxJumpAmount)
         {
-            sounds.PlayOneShot(playerJumpAudio[Random.Range(0, playerJumpAudio.Length - 1)], jumpAudioVolume);
             velocity.y = jumpHeight;
             jumpCounter++;
-
-            //if (isWallLeft && !Input.GetKey(KeyCode.D) || isWallRight && !Input.GetKey(KeyCode.A))
-            //{
-            //    movement = (Vector3.up * jumpHeight * 1.5f);
-            //    movement = (normVec * jumpHeight * 0.5f);
-            //}
-
-            //if (isWallRight || isWallLeft && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-            //{
-            //    movement = (-velocity * jumpHeight * 1f);
-            //}
-
-            //if (isWallRight && Input.GetKey(KeyCode.A))
-            //{
-            //    movement = (-velocity * jumpHeight * 3.2f);
-            //}
-
-            //if (isWallLeft && Input.GetKey(KeyCode.D))
-            //{
-            //    movement = (velocity * jumpHeight * 3.2f);
-            //}
-
-            //movement = (velocity * jumpHeight * 1f);
+            sounds.PlayOneShot(playerJumpAudio[Random.Range(0, playerJumpAudio.Length - 1)], jumpAudioVolume);
         }
 
         velocity.y -= gravity * Time.deltaTime;
-
         characterController.Move((velocity + pushBack) * Time.deltaTime);
     }
 
@@ -249,7 +221,7 @@ public class playerController : MonoBehaviour
     //    }
     //}
 
-        void Sprint()
+    void Sprint()
     {
         if (Input.GetButtonDown("Sprint"))
         {
