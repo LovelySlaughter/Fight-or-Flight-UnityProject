@@ -7,7 +7,7 @@ public class PostTutorialMeniScript : MonoBehaviour
 {
     public void GoToLevelOne()
     {
-        SceneManager.LoadScene("kat");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void SaveGame()
     {
