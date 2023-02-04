@@ -21,13 +21,14 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int shootAngle;
     [SerializeField] int waitTime;
     [SerializeField] int roamDist;
+    [SerializeField] bool enemySniper;
 
     [Header("---- Gun Stats ----")]
     [SerializeField] Transform shootPos;
     [SerializeField] GameObject bullet;
-    [Range(15, 35)] [SerializeField] int bulletSpeed;
+    [Range(15, 70)] [SerializeField] int bulletSpeed;
     [Range(0.1f, 2)] [SerializeField] float shootRate;
-    [Range(10, 50)] [SerializeField] int shootDist;
+    [Range(10, 70)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
 
 
@@ -60,9 +61,13 @@ public class enemyAI : MonoBehaviour, IDamage
             {
                 StartCoroutine(roam());
             }
-            if (canSeePlayer())
+            if (canSeePlayer()&& !enemySniper)
             {
                 agent.stoppingDistance = 5;
+            }
+            else if(canSeePlayer() && enemySniper)
+            {
+                agent.stoppingDistance = stoppingDistOrig;
             }
 
         }
