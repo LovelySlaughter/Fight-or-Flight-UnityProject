@@ -33,6 +33,7 @@ public class buttonFunctions : MonoBehaviour
     public void nextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1;
 
     }
 }

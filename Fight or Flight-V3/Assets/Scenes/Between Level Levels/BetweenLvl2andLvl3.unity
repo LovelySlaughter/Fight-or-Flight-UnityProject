@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1
+  m_text: Level 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -766,7 +766,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128996908}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: f1e3cfa057748f340b2ad600ca57b05b, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 8b1af91764695cb4d902704ea3d0e0f0, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 102460971}
@@ -1335,7 +1335,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1847130527}
         m_TargetAssemblyTypeName: PostTutorialMeniScript, Assembly-CSharp
-        m_MethodName: GoToLevelOne
+        m_MethodName: GoToNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

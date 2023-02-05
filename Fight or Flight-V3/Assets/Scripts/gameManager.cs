@@ -42,8 +42,8 @@ public class gameManager : MonoBehaviour
         playerScript = player.GetComponent<playerController>();
 
         playerSpawnPos = GameObject.FindGameObjectWithTag("PlayerSpawnPos");
-
         timeScaleOrig = Time.timeScale;
+        Debug.Log(Time.timeScale);
     }
 
     // Update is called once per frame
@@ -74,6 +74,7 @@ public class gameManager : MonoBehaviour
     public void pause()
     {
         Time.timeScale = 0;
+        Debug.Log("TimeScale is 0");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
     }
@@ -81,6 +82,7 @@ public class gameManager : MonoBehaviour
     public void unPause()
     {
         Time.timeScale = timeScaleOrig;
+        Debug.Log("TimeScale is not 0");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);

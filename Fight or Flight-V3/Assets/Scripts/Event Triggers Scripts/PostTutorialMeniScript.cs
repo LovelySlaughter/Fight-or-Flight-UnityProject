@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PostTutorialMeniScript : MonoBehaviour
 {
-    public void GoToLevelOne()
+    public void GoToNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1;
     }
+
     public void SaveGame()
     {
 

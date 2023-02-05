@@ -64,6 +64,7 @@ public class playerController : MonoBehaviour
     bool isWallRight;
     bool isWallRunning;
     Vector3 normVec;
+    float time;
 
     bool isWalking;
 
@@ -72,6 +73,16 @@ public class playerController : MonoBehaviour
     bool isSprinting;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        
+    }
+
+    public void ResetTimer()
+    {
+
+    }
+
     void Start()
     {
         //Update by Mauricio

@@ -13,6 +13,7 @@ public class MainMenuScript : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1;
     }
 
     public void OpenSettings()
