@@ -42103,7 +42103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1533243227214879
 GameObject:
   m_ObjectHideFlags: 0
@@ -45910,6 +45910,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Engie Sniper
       objectReference: {fileID: 0}
+    - target: {fileID: 324264330576548699, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00011
+      objectReference: {fileID: 0}
+    - target: {fileID: 324264330576548699, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00358
+      objectReference: {fileID: 0}
+    - target: {fileID: 324264330576548699, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00083
+      objectReference: {fileID: 0}
+    - target: {fileID: 324264330576548699, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5426038
+      objectReference: {fileID: 0}
+    - target: {fileID: 324264330576548699, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.613416
+      objectReference: {fileID: 0}
+    - target: {fileID: 324264330576548699, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.23882319
+      objectReference: {fileID: 0}
+    - target: {fileID: 324264330576548699, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5217907
+      objectReference: {fileID: 0}
+    - target: {fileID: 324264330576548699, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 66.194
+      objectReference: {fileID: 0}
+    - target: {fileID: 324264330576548699, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -70.706
+      objectReference: {fileID: 0}
+    - target: {fileID: 324264330576548699, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 222.607
+      objectReference: {fileID: 0}
     - target: {fileID: 590285720615703166, guid: 2c638000d0c24b541919df960025bf13, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -45953,6 +45993,18 @@ PrefabInstance:
     - target: {fileID: 590285720615703166, guid: 2c638000d0c24b541919df960025bf13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665335025722165434, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665335025722165434, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -74.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665335025722165434, guid: 2c638000d0c24b541919df960025bf13, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c638000d0c24b541919df960025bf13, type: 3}
