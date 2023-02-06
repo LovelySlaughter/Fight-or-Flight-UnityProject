@@ -85,7 +85,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &590285720615703166
 Transform:
   m_ObjectHideFlags: 0
@@ -264,8 +264,8 @@ MonoBehaviour:
   headPos: {fileID: 6665335025722165434}
   HP: 15
   playerfaceSpeed: 10
-  viewAngle: 90
-  shootAngle: 45
+  viewAngle: 135
+  shootAngle: 90
   waitTime: 7
   roamDist: 2
   enemySniper: 1
@@ -700,7 +700,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840112963958312993}
-  m_LocalRotation: {x: -0.16500092, y: -0.8140827, z: -0.35173288, w: 0.43165725}
+  m_LocalRotation: {x: -0.16500093, y: -0.81408274, z: -0.3517329, w: 0.43165728}
   m_LocalPosition: {x: 0.0000000025611373, y: 0.0038100714, z: 0.0000000020954758}
   m_LocalScale: {x: 1, y: 0.9999998, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2687,7 +2687,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4473496685961344531}
-  m_LocalRotation: {x: 0.55281246, y: -0.33318773, z: 0.62753075, w: 0.43541867}
+  m_LocalRotation: {x: 0.55281246, y: -0.33318776, z: 0.62753075, w: 0.4354187}
   m_LocalPosition: {x: -0.0009837172, y: -0.000031040392, z: -0.000052535295}
   m_LocalScale: {x: 0.9999997, y: 0.9999998, z: 0.9999998}
   m_ConstrainProportionsScale: 0
@@ -4064,7 +4064,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7693494894028972713}
-  m_LocalRotation: {x: -0.017073352, y: 0.022217698, z: -0.00036895208, w: 0.99960726}
+  m_LocalRotation: {x: -0.017073354, y: 0.022217698, z: -0.0003689521, w: 0.99960726}
   m_LocalPosition: {x: -1.6065314e-10, y: 0.000056981564, z: 2.2060703e-10}
   m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0

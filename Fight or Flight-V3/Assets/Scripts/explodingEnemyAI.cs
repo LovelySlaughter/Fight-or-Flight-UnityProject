@@ -21,10 +21,12 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
     [SerializeField] int waitTime;
     [SerializeField] int roamDist;
 
-    [Header("---- Gun Stats ----")]
+    [Header("---- Explosion Stats ----")]
     [SerializeField] Transform explosionPos;
     [SerializeField] GameObject explosion;
-    [Range(1, 10)] [SerializeField] int explosionDamage;
+    [Range(1, 100)] [SerializeField] int explosionDamage;
+
+   
 
 
     bool explode;
@@ -157,9 +159,10 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
         explode = true;
 
         anim.SetTrigger("Explode");
-
+       
         GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
-        explosionClone.GetComponent<bullet>().bulletDamage = explosionDamage;
+        explosionClone.GetComponent<enemyExplosion>().explosionDamage = explosionDamage;
+
 
         yield return new WaitForSeconds(1);
 
