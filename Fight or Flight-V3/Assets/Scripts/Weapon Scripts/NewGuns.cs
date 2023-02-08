@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NewGuns : MonoBehaviour
 {
-    public Camera camera;
+    public Camera cameraMC;
     public Transform attackPos;
     public RaycastHit rayhit;
     public LayerMask whatIsEnemy;
@@ -65,10 +65,10 @@ public class NewGuns : MonoBehaviour
         float spreadY = Random.Range(-spread, spread);
 
         //Direction with Spread
-        Vector3 spreadDirection = camera.transform.forward + new Vector3(spreadX, spreadY, 0);
+        Vector3 spreadDirection = cameraMC.transform.forward + new Vector3(spreadX, spreadY, 0);
 
         // Raycast
-        if (Physics.Raycast(camera.transform.position, spreadDirection, out rayhit, range, whatIsEnemy))
+        if (Physics.Raycast(cameraMC.transform.position, spreadDirection, out rayhit, range, whatIsEnemy))
         {
             if (rayhit.collider.CompareTag("Enemy"))
             {

@@ -5,8 +5,6 @@ using UnityEngine;
 public class PickUpController : MonoBehaviour
 {
     public NewGuns gunScript;
-    public Rigidbody rb;
-    public BoxCollider colli;
     public Transform player, anchor, cameraMc;
     public float pickUpRange, dropForce, dropUpForce;
     public bool quipped;
@@ -23,8 +21,6 @@ public class PickUpController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         transform.localScale = Vector3.one;
 
-        rb.isKinematic = true;
-        colli.isTrigger = true;
 
         gunScript.enabled = true;
     }
@@ -35,13 +31,6 @@ public class PickUpController : MonoBehaviour
         slotFull = false;
 
         transform.SetParent(null);
-
-        rb.isKinematic = false;
-        colli.isTrigger = false;
-
-        rb.velocity = player.GetComponent<Rigidbody>().velocity;
-        rb.AddForce(cameraMc.forward * dropForce, ForceMode.Impulse);
-        rb.AddForce(cameraMc.up * dropUpForce, ForceMode.Impulse);
         gunScript.enabled = false;
     }
 
@@ -51,15 +40,13 @@ public class PickUpController : MonoBehaviour
         if (!quipped)
         {
             gunScript.enabled = false;
-            rb.isKinematic = false;
-            colli.isTrigger = false;
+            //rb.isKinematic = false;
 
         }
         if (quipped) 
         { 
             gunScript.enabled = true;
-            rb.isKinematic = true;
-            colli.isTrigger = true;
+            //rb.isKinematic = true;
             slotFull = true;
         }
     }
