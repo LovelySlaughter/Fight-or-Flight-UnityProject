@@ -56,7 +56,7 @@ public class NewGuns : MonoBehaviour
         isReloading = false;
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         readyToShoot = false;
 
@@ -77,8 +77,9 @@ public class NewGuns : MonoBehaviour
         }
 
         // Flash and pullet Marks
-        Instantiate(bulletHole, rayhit.point, Quaternion.Euler(0, 180, 0));
         Instantiate(muzzzleFlash, attackPos.position, Quaternion.identity);
+        Instantiate(bulletHole, rayhit.point, Quaternion.Euler(0, 180, 0));
+       
 
         bulletsInMag--;
         bulletsShot++;

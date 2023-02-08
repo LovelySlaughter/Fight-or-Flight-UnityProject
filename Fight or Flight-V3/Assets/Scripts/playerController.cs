@@ -13,7 +13,7 @@ public class playerController : MonoBehaviour
     [Header("--- Character Components ---")]
     [SerializeField] CharacterController characterController;
     [SerializeField] GameObject MainCamera;
-    [SerializeField] GameObject weapon;
+    [SerializeField] NewGuns weapon;
     [SerializeField] AudioSource sounds;
 
     [Header("--- Character Stats ---")]
@@ -125,8 +125,9 @@ public class playerController : MonoBehaviour
             }
 
 
-            if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot"))
-                StartCoroutine(Shoot());
+            if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot")) { Shoot(); }
+                //StartCoroutine(Shoot());
+
 
         }
 
@@ -295,26 +296,28 @@ public class playerController : MonoBehaviour
 
 
     //Updated Shoot Method By Mauricio
-    IEnumerator Shoot()
+    public void Shoot()
     {
         isShooting = true;
+        weapon.GetComponent<NewGuns>().Shoot();
+        
 
-        sounds.PlayOneShot(gunObjects[selectedGun].gunShots, gunObjects[selectedGun].gunShotsVolume);
+        //sounds.PlayOneShot(gunObjects[selectedGun].gunShots, gunObjects[selectedGun].gunShotsVolume);
 
-        GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        bulletClone.GetComponent<Rigidbody>().velocity = MainCamera.transform.forward * bulletSpeed;
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-        {
-            if (hit.collider.GetComponent<IDamage>() != null)
-            {
-                hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
+        //GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+        //bulletClone.GetComponent<Rigidbody>().velocity = MainCamera.transform.forward * bulletSpeed;
+        //RaycastHit hit;
+        //if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        //{
+        //    if (hit.collider.GetComponent<IDamage>() != null)
+        //    {
+        //        hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
 
-            }
-        }
+        //    }
+        //}
 
 
-        yield return new WaitForSeconds(shootRate);
+        //yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
 
