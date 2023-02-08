@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialTrigger1 : MonoBehaviour
+public class TutorialTriggerWalk : MonoBehaviour
 {
-    public GameObject areaTwo;
-    
+    public GameObject WalkTutorial;
 
     private void OnTriggerEnter(Collider other)
     {
-        areaTwo.SetActive(true);
+        WalkTutorial.SetActive(false);
     }
 }
