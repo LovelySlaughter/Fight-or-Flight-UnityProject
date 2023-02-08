@@ -1,49 +1,94 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class NewGuns : MonoBehaviour
 {
     public Camera camera;
-    public Transform shootPos;
-    public RaycastHit raycast;
-    public LayerMask _enemies;
+    public Transform attackPos;
+    public RaycastHit rayhit;
+    public LayerMask whatIsEnemy;
     public int damage, magazineSize, bulletsPerPress;
-    public float timeBetweenShots, range, reloadTime, spread, timeBetweenShooting;
+    public string nameID;
+    public string description;
+    public float spread, range, timeBetweenShoots, timeBetweenShooting, reloadTime;
     public bool automatic;
     int bulletsInMag, bulletsShot;
-    bool isShooting, isReadyToShoot, isReloading;
+    bool isShooting, readyToShoot, isReloading;
+    public GameObject muzzzleFlash, bulletHole;
 
-    public void PlayerInput()
+
+    private void Awake()
+    {
+        bulletsInMag = magazineSize;
+        readyToShoot = true;
+    }
+    private void Update()
+    {
+        PlayerInput();
+    }
+
+
+    private void PlayerInput()
     {
         if (automatic) { isShooting = Input.GetKey(KeyCode.Mouse0); }
         else if (!automatic) { isShooting = Input.GetKeyDown(KeyCode.Mouse0); }
 
-        if (isReadyToShoot && isShooting && !isReloading && bulletsInMag > 0) { Shoot(); }
+        if (Input.GetKeyDown(KeyCode.R) && bulletsInMag < magazineSize && !isReloading) { Reload(); }
+
+        if (readyToShoot && isShooting && !isReloading && bulletsInMag > 0)
+        {
+                Shoot();
+        }
+
     }
 
     private void Reload()
     {
-        if (isReadyToShoot) { }
+        isReloading = true;
+        Invoke("FinishedReload", reloadTime);
+    }
+
+    private void FinishedReload()
+    {
+        bulletsInMag = magazineSize;
+        isReloading = false;
     }
 
     private void Shoot()
     {
-        isReadyToShoot = false;
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out raycast, range, _enemies))
+        readyToShoot = false;
+
+        // spread variables
+        float spreadX = Random.Range(-spread, spread);
+        float spreadY = Random.Range(-spread, spread);
+
+        //Direction with Spread
+        Vector3 spreadDirection = camera.transform.forward + new Vector3(spreadX, spreadY, 0);
+
+        // Raycast
+        if (Physics.Raycast(camera.transform.position, spreadDirection, out rayhit, range, whatIsEnemy))
         {
-            if (raycast.collider.CompareTag("Enemy"))
+            if (rayhit.collider.CompareTag("Enemy"))
             {
-                raycast.collider.GetComponent<enemyAI>().takeDamage(damage);
+                rayhit.collider.GetComponent<enemyAI>().takeDamage(damage);
             }
         }
 
+        // Flash and pullet Marks
+        Instantiate(bulletHole, rayhit.point, Quaternion.Euler(0, 180, 0));
+        Instantiate(muzzzleFlash, attackPos.position, Quaternion.identity);
+
         bulletsInMag--;
+        bulletsShot++;
         Invoke("ResetShoot", timeBetweenShooting);
+
+
     }
 
     private void ResetShoot()
     {
-        isReadyToShoot = false;
+        readyToShoot = true;
     }
 }
