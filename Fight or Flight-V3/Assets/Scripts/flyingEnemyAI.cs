@@ -8,7 +8,7 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     public bool chase = false;
     public Transform startingPoint;
     public int distToPlayer;
-    public int heightToPlayer;
+    [Range(5,15)][SerializeField]public int heightToPlayer;
     [SerializeField] Renderer model;
 
 
@@ -96,9 +96,12 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     }
     private void Chase()
     {
-        
-        playerDir.z += distToPlayer;
-        playerDir.y += heightToPlayer;
+        int randx = Random.Range(0,10);
+        int randy = Random.Range(0, 10);
+        int randz = Random.Range(0, 10);
+        playerDir.z += distToPlayer * randz;
+        playerDir.y += heightToPlayer * randy;
+        playerDir.x += randx;
         transform.position = Vector3.MoveTowards(transform.position, playerDir, flySpeed * Time.deltaTime);
     }
 
