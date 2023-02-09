@@ -125,8 +125,8 @@ public class playerController : MonoBehaviour
             }
 
 
-            if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot")) { Shoot(); }
-                //StartCoroutine(Shoot());
+            if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot")) //{ Shoot(); }
+                StartCoroutine(Shoot());
 
 
         }
@@ -296,28 +296,28 @@ public class playerController : MonoBehaviour
 
 
     //Updated Shoot Method By Mauricio
-    public void Shoot()
+    IEnumerator Shoot()
     {
         isShooting = true;
-        weapon.GetComponent<NewGuns>().Shoot();
-        
-
-        //sounds.PlayOneShot(gunObjects[selectedGun].gunShots, gunObjects[selectedGun].gunShotsVolume);
-
-        //GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        //bulletClone.GetComponent<Rigidbody>().velocity = MainCamera.transform.forward * bulletSpeed;
-        //RaycastHit hit;
-        //if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-        //{
-        //    if (hit.collider.GetComponent<IDamage>() != null)
-        //    {
-        //        hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
-
-        //    }
-        //}
+        //weapon.GetComponent<NewGuns>().Shoot();
 
 
-        //yield return new WaitForSeconds(shootRate);
+        sounds.PlayOneShot(gunObjects[selectedGun].gunShots, gunObjects[selectedGun].gunShotsVolume);
+
+        GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+        bulletClone.GetComponent<Rigidbody>().velocity = MainCamera.transform.forward * bulletSpeed;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        {
+            if (hit.collider.GetComponent<IDamage>() != null)
+            {
+                hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
+
+            }
+        }
+
+
+        yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
 
