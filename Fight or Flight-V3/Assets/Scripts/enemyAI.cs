@@ -31,7 +31,13 @@ public class enemyAI : MonoBehaviour, IDamage
     [Range(10, 70)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
 
+    [Header("---- Explosion Stats ----")]
+    [SerializeField] bool explodeOnDead;
+    [SerializeField] Transform explosionPos;
+    [SerializeField] GameObject explosion;
+    [Range(1, 100)] [SerializeField] int explosionDamage;
 
+    bool explode;
     bool isShotting;
     Vector3 playerDir;
     bool playerInRange;
@@ -150,7 +156,12 @@ public class enemyAI : MonoBehaviour, IDamage
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
+            if(explodeOnDead)
+                {
+                StartCoroutine(startExplosion());
+            }
             gameManager.instance.updateEnemyRemaining(-1);
+            
             Destroy(gameObject);
             gameManager.instance.UpdateEnemiesKilled(1);
         }
@@ -174,6 +185,7 @@ public class enemyAI : MonoBehaviour, IDamage
         bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
 
         yield return new WaitForSeconds(shootRate);
+        
         isShotting = false;
     }
 
@@ -202,5 +214,20 @@ public class enemyAI : MonoBehaviour, IDamage
             agent.stoppingDistance = 0;
             playerInRange = false;
         }
+    }
+
+    IEnumerator startExplosion()
+    {
+        explode = true;
+
+        anim.SetTrigger("Explode");
+
+        GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
+        explosionClone.GetComponent<enemyExplosion>().explosionDamage = explosionDamage;
+
+
+        yield return new WaitForSeconds(1);
+
+        explode = false;
     }
 }

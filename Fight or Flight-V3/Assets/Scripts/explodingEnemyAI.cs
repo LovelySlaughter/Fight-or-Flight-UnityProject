@@ -25,7 +25,7 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
     [SerializeField] Transform explosionPos;
     [SerializeField] GameObject explosion;
     [Range(1, 100)] [SerializeField] int explosionDamage;
-
+    
    
 
 

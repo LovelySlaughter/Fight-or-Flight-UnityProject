@@ -13,7 +13,7 @@ public class playerController : MonoBehaviour
     [Header("--- Character Components ---")]
     [SerializeField] CharacterController characterController;
     [SerializeField] GameObject MainCamera;
-    [SerializeField] GameObject weapon;
+    [SerializeField] NewGuns weapon;
     [SerializeField] AudioSource sounds;
 
     [Header("--- Character Stats ---")]
@@ -125,8 +125,9 @@ public class playerController : MonoBehaviour
             }
 
 
-            if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot"))
+            if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot")) //{ Shoot(); }
                 StartCoroutine(Shoot());
+
 
         }
 
@@ -298,6 +299,8 @@ public class playerController : MonoBehaviour
     IEnumerator Shoot()
     {
         isShooting = true;
+        //weapon.GetComponent<NewGuns>().Shoot();
+
 
         sounds.PlayOneShot(gunObjects[selectedGun].gunShots, gunObjects[selectedGun].gunShotsVolume);
 

@@ -20,5 +20,11 @@ public class PostTutorialMeniScript : MonoBehaviour
     {
 
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+        Time.timeScale = 1;
+    }
     
 }

@@ -5,9 +5,13 @@ using UnityEngine;
 public class TutorialTrigger1 : MonoBehaviour
 {
     public GameObject areaTwo;
+    public GameObject areaThree;
+    public bool trigger = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        areaTwo.SetActive(true);
+        if (!trigger) { areaTwo.SetActive(true); }
+        else { areaTwo.SetActive(false); areaThree.SetActive(true); }
+        
     }
 }
