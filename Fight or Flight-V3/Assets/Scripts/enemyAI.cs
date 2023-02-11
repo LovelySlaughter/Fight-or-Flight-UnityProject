@@ -157,7 +157,7 @@ public class enemyAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             if(explodeOnDead)
-                {
+            {
                 StartCoroutine(startExplosion());
             }
             gameManager.instance.updateEnemyRemaining(-1);
@@ -220,6 +220,7 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         explode = true;
 
+        
         anim.SetTrigger("Explode");
 
         GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
