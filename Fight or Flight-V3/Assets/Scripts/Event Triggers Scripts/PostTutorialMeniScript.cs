@@ -18,7 +18,7 @@ public class PostTutorialMeniScript : MonoBehaviour
 
     public void QuitGame()
     {
-
+        Application.Quit();
     }
 
     public void MainMenu()
