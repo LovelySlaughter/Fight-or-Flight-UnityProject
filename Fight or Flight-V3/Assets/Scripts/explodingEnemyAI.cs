@@ -118,7 +118,6 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
                 if (!explode && angleToPlayer <= explodeTriggerAngle && agent.remainingDistance <= stoppingDistOrig)
                 {
                     StartCoroutine(startExplosion());
-                    Destroy(gameObject);
                 }
                 return true;
             }
@@ -158,10 +157,14 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
     {
         explode = true;
 
+        Destroy(gameObject);
+        gameManager.instance.updateEnemyRemaining(-1);
+        gameManager.instance.UpdateEnemiesKilled(1);
         anim.SetTrigger("Explode");
        
         GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
         explosionClone.GetComponent<enemyExplosion>().explosionDamage = explosionDamage;
+       
 
 
         yield return new WaitForSeconds(1);
