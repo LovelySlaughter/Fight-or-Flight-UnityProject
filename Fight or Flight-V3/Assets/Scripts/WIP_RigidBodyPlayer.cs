@@ -163,29 +163,35 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
             Invoke(nameof(ResetPlayerJump), timeBeforeNextJump);
         }
 
-        //if(isPlayerWallRunning)
-        //{
-        //    if(isWallLeftOfPlayer && !Input.GetKey(KeyCode.D) || isWallRightOfPlayer && !Input.GetKey(KeyCode.A))
-        //    {
-        //        playersRigidBody.AddForce(Vector2.up * jumpHeight * 1.5f);
-        //        playersRigidBody.AddForce(plainVector * jumpHeight * 0.5f);
-        //    }
+        if (isPlayerWallRunning)
+        {
+            //still figuring out how to implement a function where the player is on a certain wall and isn't holding down the opposite walls input and then jumping
+            //if (isWallLeftOfPlayer && !Input.GetKey(KeyCode.D) || isWallRightOfPlayer && !Input.GetKey(KeyCode.A))
+            //{
+            //    playersRigidBody.AddForce(Vector2.up * jumpHeight * 1.5f);
+            //    playersRigidBody.AddForce(plainVector * jumpHeight * 0.5f);
+            //}
 
-        //    if(isWallRightOfPlayer || isWallLeftOfPlayer && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        //    {
-        //        playersRigidBody.AddForce(-playerOrientation.up * jumpHeight * 1f);
-        //    }
-        //    if (isWallRightOfPlayer && Input.GetKey(KeyCode.A))
-        //    {
-        //        playersRigidBody.AddForce(-playerOrientation.right * jumpHeight * 0.5f);
-        //    }
-        //    if (isWallLeftOfPlayer && Input.GetKey(KeyCode.D))
-        //    {
-        //        playersRigidBody.AddForce(playerOrientation.right * jumpHeight * 0.5f);
-        //    }
+            //if (isWallRightOfPlayer || isWallLeftOfPlayer && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            //{
+            //    playersRigidBody.AddForce(-playerOrientation.up * jumpHeight * 1f);
+            //}
+            if (isWallRightOfPlayer && Input.GetKey(KeyCode.A))
+            {
+                playersRigidBody.AddForce(playerOrientation.up * jumpHeight * 0.55f);
+                playersRigidBody.AddForce(playerOrientation.forward * jumpHeight * 0.15f);
+                playersRigidBody.AddForce(-playerOrientation.right * jumpHeight * 0.55f);
+                
+            }
+            if (isWallLeftOfPlayer && Input.GetKey(KeyCode.D))
+            {
+                playersRigidBody.AddForce(playerOrientation.up * jumpHeight * 0.55f);
+                playersRigidBody.AddForce(playerOrientation.forward * jumpHeight * 0.15f);
+                playersRigidBody.AddForce(playerOrientation.right * jumpHeight * 0.55f);
+            }
 
-        //    playersRigidBody.AddForce(playerOrientation.forward * jumpHeight * 1f);
-        //}
+            //playersRigidBody.AddForce(playerOrientation.forward * jumpHeight * 1f);
+        }
 
     }
 
@@ -343,7 +349,7 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
         //if statement for double jump, still need to figure out how to implment 
         if (isWallLeftOfPlayer || isWallRightOfPlayer)
         {
-            //still need to figure out double jum
+            ResetPlayerJump();
         }
     }
 }
