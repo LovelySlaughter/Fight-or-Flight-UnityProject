@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using static Unity.VisualScripting.Member;
 
 public class CreditsScript : MonoBehaviour
 {
@@ -13,12 +14,9 @@ public class CreditsScript : MonoBehaviour
         StartCoroutine(CreditSwap());
     }
     public void SkipButton()
-	{
-		if (Input.GetKeyDown(KeyCode.S))
-		{
-            SceneManager.LoadScene("MainMenuScene");
-        }
-	}
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 9);
+    }
 
     public IEnumerator CreditSwap()
     {

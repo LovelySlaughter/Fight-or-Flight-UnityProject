@@ -44,4 +44,9 @@ public class MainMenuScript : MonoBehaviour
     {
         mixer.SetFloat("MasterVolume", Volume);
     }
+
+    public void CreditsButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 9);
+    }
 }
