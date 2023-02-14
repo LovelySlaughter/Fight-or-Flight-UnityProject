@@ -306,9 +306,12 @@ public class playerController : MonoBehaviour
 
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = MainCamera.transform.forward * bulletSpeed;
+      
         RaycastHit hit;
+
+        
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-        {
+         {
             if (hit.collider.GetComponent<IDamage>() != null)
             {
                 hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
