@@ -211,8 +211,28 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
         cameraXRotation -= yPosOfMouse;
         cameraXRotation = Mathf.Clamp(cameraXRotation, -90f, 90f);
 
-        playerCamera.transform.localRotation = Quaternion.Euler(cameraXRotation, playersDesiredXPos, 0);
+        playerCamera.transform.localRotation = Quaternion.Euler(cameraXRotation, playersDesiredXPos, wallRunCameraTilt);
         playerOrientation.transform.localRotation = Quaternion.Euler(0, playersDesiredXPos, 0);
+
+        //tilt the camera left or right based on if the wall is to the left or right of the player
+        if (Mathf.Abs(wallRunCameraTilt) < maxCameraTilt && isPlayerWallRunning && isWallRightOfPlayer)
+        {
+            wallRunCameraTilt += Time.deltaTime * maxCameraTilt * 2;
+        }
+        if (Mathf.Abs(wallRunCameraTilt) < maxCameraTilt && isPlayerWallRunning && isWallLeftOfPlayer)
+        {
+            wallRunCameraTilt -= Time.deltaTime * maxCameraTilt * 2;
+        }
+
+        //tilt the camera back to normal
+        if (wallRunCameraTilt > 0 && !isWallRightOfPlayer && !isWallLeftOfPlayer)
+        {
+            wallRunCameraTilt -= Time.deltaTime * maxCameraTilt * 2;
+        }
+        if (wallRunCameraTilt < 0 && !isWallRightOfPlayer && !isWallLeftOfPlayer)
+        {
+            wallRunCameraTilt += Time.deltaTime * maxCameraTilt * 2;
+        }
     }
 
     //helps limit players mobility when preforming certain movment functions
