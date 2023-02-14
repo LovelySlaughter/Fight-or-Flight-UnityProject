@@ -13,6 +13,7 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public playerController playerScript;
     public GameObject playerSpawnPos;
+    public WIP_RigidBodyPlayer rbPlayerScript;
 
 
     [Header("---- Game Goal ----")]
