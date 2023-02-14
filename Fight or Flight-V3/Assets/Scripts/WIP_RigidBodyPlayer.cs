@@ -97,6 +97,11 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
         PlayersLookDirection();
         CheckForWhichWallSidePlayerIsOn();
         InputsToWallRun();
+        if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot"))
+        {
+            StartCoroutine(Shoot());
+        }
+        SelectGun();
     }
 
     private void MyPlayersInput()
