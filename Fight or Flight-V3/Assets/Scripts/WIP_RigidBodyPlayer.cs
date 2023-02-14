@@ -163,29 +163,35 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
             Invoke(nameof(ResetPlayerJump), timeBeforeNextJump);
         }
 
-        //if(isPlayerWallRunning)
-        //{
-        //    if(isWallLeftOfPlayer && !Input.GetKey(KeyCode.D) || isWallRightOfPlayer && !Input.GetKey(KeyCode.A))
-        //    {
-        //        playersRigidBody.AddForce(Vector2.up * jumpHeight * 1.5f);
-        //        playersRigidBody.AddForce(plainVector * jumpHeight * 0.5f);
-        //    }
+        if (isPlayerWallRunning)
+        {
+            //still figuring out how to implement a function where the player is on a certain wall and isn't holding down the opposite walls input and then jumping
+            //if (isWallLeftOfPlayer && !Input.GetKey(KeyCode.D) || isWallRightOfPlayer && !Input.GetKey(KeyCode.A))
+            //{
+            //    playersRigidBody.AddForce(Vector2.up * jumpHeight * 1.5f);
+            //    playersRigidBody.AddForce(plainVector * jumpHeight * 0.5f);
+            //}
 
-        //    if(isWallRightOfPlayer || isWallLeftOfPlayer && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        //    {
-        //        playersRigidBody.AddForce(-playerOrientation.up * jumpHeight * 1f);
-        //    }
-        //    if (isWallRightOfPlayer && Input.GetKey(KeyCode.A))
-        //    {
-        //        playersRigidBody.AddForce(-playerOrientation.right * jumpHeight * 0.5f);
-        //    }
-        //    if (isWallLeftOfPlayer && Input.GetKey(KeyCode.D))
-        //    {
-        //        playersRigidBody.AddForce(playerOrientation.right * jumpHeight * 0.5f);
-        //    }
+            //if (isWallRightOfPlayer || isWallLeftOfPlayer && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            //{
+            //    playersRigidBody.AddForce(-playerOrientation.up * jumpHeight * 1f);
+            //}
+            if (isWallRightOfPlayer && Input.GetKey(KeyCode.A))
+            {
+                playersRigidBody.AddForce(playerOrientation.up * jumpHeight * 0.55f);
+                playersRigidBody.AddForce(playerOrientation.forward * jumpHeight * 0.15f);
+                playersRigidBody.AddForce(-playerOrientation.right * jumpHeight * 0.55f);
+                
+            }
+            if (isWallLeftOfPlayer && Input.GetKey(KeyCode.D))
+            {
+                playersRigidBody.AddForce(playerOrientation.up * jumpHeight * 0.55f);
+                playersRigidBody.AddForce(playerOrientation.forward * jumpHeight * 0.15f);
+                playersRigidBody.AddForce(playerOrientation.right * jumpHeight * 0.55f);
+            }
 
-        //    playersRigidBody.AddForce(playerOrientation.forward * jumpHeight * 1f);
-        //}
+            //playersRigidBody.AddForce(playerOrientation.forward * jumpHeight * 1f);
+        }
 
     }
 
@@ -205,8 +211,28 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
         cameraXRotation -= yPosOfMouse;
         cameraXRotation = Mathf.Clamp(cameraXRotation, -90f, 90f);
 
-        playerCamera.transform.localRotation = Quaternion.Euler(cameraXRotation, playersDesiredXPos, 0);
+        playerCamera.transform.localRotation = Quaternion.Euler(cameraXRotation, playersDesiredXPos, wallRunCameraTilt);
         playerOrientation.transform.localRotation = Quaternion.Euler(0, playersDesiredXPos, 0);
+
+        //tilt the camera left or right based on if the wall is to the left or right of the player
+        if (Mathf.Abs(wallRunCameraTilt) < maxCameraTilt && isPlayerWallRunning && isWallRightOfPlayer)
+        {
+            wallRunCameraTilt += Time.deltaTime * maxCameraTilt * 2;
+        }
+        if (Mathf.Abs(wallRunCameraTilt) < maxCameraTilt && isPlayerWallRunning && isWallLeftOfPlayer)
+        {
+            wallRunCameraTilt -= Time.deltaTime * maxCameraTilt * 2;
+        }
+
+        //tilt the camera back to normal
+        if (wallRunCameraTilt > 0 && !isWallRightOfPlayer && !isWallLeftOfPlayer)
+        {
+            wallRunCameraTilt -= Time.deltaTime * maxCameraTilt * 2;
+        }
+        if (wallRunCameraTilt < 0 && !isWallRightOfPlayer && !isWallLeftOfPlayer)
+        {
+            wallRunCameraTilt += Time.deltaTime * maxCameraTilt * 2;
+        }
     }
 
     //helps limit players mobility when preforming certain movment functions
@@ -343,7 +369,7 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
         //if statement for double jump, still need to figure out how to implment 
         if (isWallLeftOfPlayer || isWallRightOfPlayer)
         {
-            //still need to figure out double jum
+            ResetPlayerJump();
         }
     }
 }
