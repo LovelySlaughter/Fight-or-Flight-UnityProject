@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class WIP_RigidBodyPlayer : MonoBehaviour
 {
-    //I (Connor) wrote this script, it is still a work in progress, as it has been a struggle to learn how rigidbody works, I have used a multiple videos
-    //to write this script, and are still struggling to get it to work completely, I have gotten movement to work, but I am struggling to get the wall running to work\
-    //but my goal is to get this working by the beta
-
-
+    [Header("--- Character Components ---")]
     public Transform playerCamera;
     public Transform playerOrientation;
+    [SerializeField] AudioSource sounds;
 
     // Other
     private Rigidbody playersRigidBody;
     private float playersDesiredXPos;
 
+    [Header("--- Camera Components ---")]
     //Floats for the players rotation and camera sensitivity
     private float cameraXRotation;
     [SerializeField] float cameraSensitivity; //found 25 to 50 to be a good range
     [SerializeField] float sensitivityMultiplier; // found 1-3 to be a good range
 
+    [Header("--- Movement Components ---")]
     //Variables for the players movement
     [SerializeField] float playerMovementSpeed; // found 2000 - 4500 to be a good range
     [SerializeField] float playersMaxSpeed; // found 10 - 20 to be a good range
@@ -32,12 +31,14 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
     private bool isGround;
     public LayerMask whatIsGround;
 
+    [Header("--- Jump Comonents ---")]
     //Variables for the players Jump
     [SerializeField] float timeBeforeNextJump; //found 0.1 to 0.25 to be a good range
     [SerializeField] float jumpHeight; //found 350 - 550 to be a good range
     [SerializeField] int jumpAmount; // need to figur out hot make a double jump
     private bool isJumpReady = true;
 
+    [Header("--- Wall Running Components ---")]
     //WallRunning Code
     public LayerMask whatIsAWall;
     public float wallRunForce;
@@ -46,6 +47,16 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
     bool isWallRightOfPlayer;
     bool isWallLeftOfPlayer;
     bool isPlayerWallRunning;
+
+    [Header("---- Gun Stats ----")]
+    [SerializeField] List<gunStats> gunObjects = new List<gunStats>();
+    [SerializeField] Transform shootPos;
+    [SerializeField] GameObject bullet;
+    [Range(15, 35)] [SerializeField] int bulletSpeed;
+    [SerializeField] float shootRate;
+    [SerializeField] int shootDist;
+    [Range(1, 9)] [SerializeField] int shootDamage;
+    [SerializeField] GameObject gunModel;
 
     //WallRunning Camera variables
     public float maxCameraTilt;
@@ -59,6 +70,8 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
     bool isJumping;
     bool isSprinting;
     private Vector3 plainVector = Vector3.up;
+    bool isShooting;
+    int selectedGun;
 
     private void Awake()
     {
@@ -370,6 +383,73 @@ public class WIP_RigidBodyPlayer : MonoBehaviour
         if (isWallLeftOfPlayer || isWallRightOfPlayer)
         {
             ResetPlayerJump();
+        }
+    }
+
+    IEnumerator Shoot()
+    {
+        isShooting = true;
+        //weapon.GetComponent<NewGuns>().Shoot();
+        sounds.PlayOneShot(gunObjects[selectedGun].gunShots, gunObjects[selectedGun].gunShotsVolume);
+
+        GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+        bulletClone.GetComponent<Rigidbody>().velocity = playerCamera.transform.forward * bulletSpeed;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        {
+            if (hit.collider.GetComponent<IDamage>() != null)
+            {
+                hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
+
+            }
+        }
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
+    }
+
+    public void GunPickUp(gunStats gunObj)
+    {
+        if (gunModel.CompareTag("Untagged"))
+        {
+            gunObjects.Add(gunObj);
+
+            shootRate = gunObj.Rate;
+            shootDist = gunObj.Range;
+            shootDamage = gunObj.Damage;
+            gunObj.gunBulletPos = shootPos;
+
+            gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
+            gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
+            gunModel.transform.localScale = gunObj.scale;
+
+            selectedGun = gunObjects.Count - 1;
+        }
+    }
+
+    void ChangeGun()
+    {
+        shootRate = gunObjects[selectedGun].Rate;
+        shootDist = gunObjects[selectedGun].Range;
+        shootDamage = gunObjects[selectedGun].Damage;
+
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunObjects[selectedGun].weaponModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObjects[selectedGun].weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
+        gunModel.transform.localScale = gunObjects[selectedGun].scale;
+    }
+
+    void SelectGun()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunObjects.Count - 1)
+        {
+            selectedGun++;
+            ChangeGun();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        {
+            selectedGun--;
+            ChangeGun();
         }
     }
 }
