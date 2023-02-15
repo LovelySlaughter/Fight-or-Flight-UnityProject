@@ -376,7 +376,7 @@ MonoBehaviour:
   HP: 10
   playerfaceSpeed: 20
   viewAngle: 45
-  explodeTriggerDist: 0
+  explodeTriggerDist: 0.002
   waitTime: 5
   roamDist: 10
   explosionPos: {fileID: 691630583163609333}
@@ -435,7 +435,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 60
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &6261959730227128334
 CapsuleCollider:
