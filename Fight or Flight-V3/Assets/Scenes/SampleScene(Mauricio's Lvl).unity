@@ -5750,6 +5750,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255059970}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!82 &258877467 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1919573581930078638, guid: 63e9e1b0ac06d4f43b8f88f46de7c814, type: 3}
+  m_PrefabInstance: {fileID: 652094324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &290642124
 GameObject:
   m_ObjectHideFlags: 0
@@ -34029,6 +34034,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
+      propertyPath: sounds
+      value: 
+      objectReference: {fileID: 258877467}
     - target: {fileID: 8864996730310552800, guid: 92780988724eb44438622137481e371f, type: 3}
       propertyPath: maxJumpAmount
       value: 2
