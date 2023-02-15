@@ -11,7 +11,6 @@ public class gunPickUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameManager.instance.playerScript.GunPickUp(gun);
-            gameManager.instance.rbPlayerScript.GunPickUp(gun);
             Destroy(gameObject);
         }
     }
