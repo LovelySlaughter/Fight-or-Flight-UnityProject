@@ -14452,9 +14452,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4449905510790332509}
+  - component: {fileID: -5786499558873668061}
   - component: {fileID: 1610902226300408086}
   - component: {fileID: 2958979612050733277}
-  - component: {fileID: -5570895128897588378}
   - component: {fileID: 4571267382815975021}
   - component: {fileID: 4543558035336667659}
   - component: {fileID: 2283794532980993244}
@@ -14483,6 +14483,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &-5786499558873668061
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4453080369793105703}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1610902226300408086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14514,19 +14527,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushBackAmount: 20
   pull: 0
---- !u!65 &-5570895128897588378
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4453080369793105703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 0.5, z: 3}
-  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!198 &4571267382815975021
 ParticleSystem:
   m_ObjectHideFlags: 0
