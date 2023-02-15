@@ -14496,10 +14496,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionDamage: 100
-  timer: 2
   explosionSource: {fileID: 8475985726765568144}
   explosionAudio: {fileID: 8300000, guid: 1b7344e060ab7474f9b2e3e3eb62886b, type: 3}
   explosionAudioVolume: 1
+  timer: 0.5
 --- !u!114 &4828143973124211857
 MonoBehaviour:
   m_ObjectHideFlags: 0

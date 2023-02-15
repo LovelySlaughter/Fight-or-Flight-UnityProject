@@ -5,13 +5,13 @@ using UnityEngine;
 public class enemyExplosion : MonoBehaviour
 {
     public int explosionDamage;
-    [SerializeField] int timer;
+   
 
     [Header("---- Explosion Sounds ----")]
     [SerializeField] AudioSource explosionSource;
     [SerializeField] AudioClip explosionAudio;
     [Range(0, 1)] [SerializeField] float explosionAudioVolume;
-
+    [SerializeField] float timer;
     // Start is called before the first frame update
     void Start()
     {

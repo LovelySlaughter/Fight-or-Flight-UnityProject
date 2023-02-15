@@ -1237,7 +1237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1146407882834255762
 Transform:
   m_ObjectHideFlags: 0
@@ -1285,6 +1285,10 @@ MonoBehaviour:
   shootRate: 2
   shootDist: 10
   shootDamage: 10
+  explodeOnDead: 0
+  explosionPos: {fileID: 0}
+  explosion: {fileID: 0}
+  explosionDamage: 0
 --- !u!95 &1146407882843877488
 Animator:
   serializedVersion: 5
@@ -1352,7 +1356,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 35
+  m_Radius: 60
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1146407882834346932
 GameObject:

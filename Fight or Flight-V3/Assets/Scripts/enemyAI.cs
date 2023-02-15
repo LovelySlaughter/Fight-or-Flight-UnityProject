@@ -156,12 +156,15 @@ public class enemyAI : MonoBehaviour, IDamage
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
-            if(explodeOnDead)
+            
+            gameManager.instance.updateEnemyRemaining(-1);
+
+            if (explodeOnDead)
             {
                 StartCoroutine(startExplosion());
+
             }
-            gameManager.instance.updateEnemyRemaining(-1);
-            
+
             Destroy(gameObject);
             gameManager.instance.UpdateEnemiesKilled(1);
         }
@@ -219,16 +222,24 @@ public class enemyAI : MonoBehaviour, IDamage
     IEnumerator startExplosion()
     {
         explode = true;
-
+ 
+       
+        
         
         anim.SetTrigger("Explode");
 
         GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
+        
         explosionClone.GetComponent<enemyExplosion>().explosionDamage = explosionDamage;
 
+        
 
         yield return new WaitForSeconds(1);
 
-        explode = false;
+
+
+        Destroy(explosionClone);
+    explode = false;
+       
     }
 }

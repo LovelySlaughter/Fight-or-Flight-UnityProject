@@ -17,7 +17,7 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
     [Range(10, 150)] [SerializeField] int HP;
     [SerializeField] int playerfaceSpeed;
     [SerializeField] int viewAngle;
-    [SerializeField] int explodeTriggerAngle;
+    [SerializeField] float explodeTriggerDist;
     [SerializeField] int waitTime;
     [SerializeField] int roamDist;
 
@@ -114,8 +114,9 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
                 {
                     facePlayer();
                 }
+                
 
-                if (!explode && angleToPlayer <= explodeTriggerAngle && agent.remainingDistance <= stoppingDistOrig)
+                if (!explode  && agent.remainingDistance <= agent.stoppingDistance )
                 {
                     StartCoroutine(startExplosion());
                 }
