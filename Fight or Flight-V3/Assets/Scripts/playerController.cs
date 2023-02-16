@@ -315,7 +315,7 @@ public class playerController : MonoBehaviour
             if (hit.collider.GetComponent<IDamage>() != null)
             {
                 hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
-
+                
             }
         }
 
@@ -363,7 +363,7 @@ public class playerController : MonoBehaviour
             shootRate = gunObj.Rate;
             shootDist = gunObj.Range;
             shootDamage = gunObj.Damage;
-            gunObj.gunBulletPos = shootPos;
+            //gunObj.gunBulletPos = shootPos;
 
             gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
             gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;

@@ -15,7 +15,7 @@ public class CreditsScript : MonoBehaviour
     }
     public void SkipButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 9);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 12);
     }
 
     public IEnumerator CreditSwap()

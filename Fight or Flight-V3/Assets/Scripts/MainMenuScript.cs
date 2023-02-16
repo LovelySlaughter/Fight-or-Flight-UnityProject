@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using JetBrains.Annotations;
 
 public class MainMenuScript : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject options;
     [SerializeField] GameObject loadGame;
+    public GameObject transitionVid;
+    public GameObject MainMenuVid;
     public AudioMixer mixer;
     public void NewGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        mainMenu.SetActive(false);
+        MainMenuVid.SetActive(false);
+        transitionVid.SetActive(true);
+        Invoke("waitingOnTheWorldToChange", 11);
         Time.timeScale = 1;
     }
 
+    public void waitingOnTheWorldToChange() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }
     public void OpenSettings()
     {
         mainMenu.SetActive(false);
@@ -47,6 +54,6 @@ public class MainMenuScript : MonoBehaviour
 
     public void CreditsButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 9);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 12);
     }
 }
