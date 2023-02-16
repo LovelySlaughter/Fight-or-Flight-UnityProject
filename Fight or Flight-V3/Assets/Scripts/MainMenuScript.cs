@@ -56,6 +56,6 @@ public class MainMenuScript : MonoBehaviour
 
     public void CreditsButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 12);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 8);
     }
 }
