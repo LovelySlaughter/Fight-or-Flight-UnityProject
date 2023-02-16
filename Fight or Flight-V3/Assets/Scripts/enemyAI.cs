@@ -67,11 +67,11 @@ public class enemyAI : MonoBehaviour, IDamage
             {
                 StartCoroutine(roam());
             }
-            if (canSeePlayer()&& !enemySniper)
+            if (canSeePlayer() && !enemySniper)
             {
                 agent.stoppingDistance = 5;
             }
-            else if(canSeePlayer() && enemySniper)
+            else if (canSeePlayer() && enemySniper)
             {
                 agent.stoppingDistance = stoppingDistOrig;
             }
@@ -141,7 +141,7 @@ public class enemyAI : MonoBehaviour, IDamage
         else
         {
             agent.stoppingDistance = 0;
-        } 
+        }
         return false;
 
     }
@@ -156,7 +156,7 @@ public class enemyAI : MonoBehaviour, IDamage
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
-            
+
             gameManager.instance.updateEnemyRemaining(-1);
 
             if (explodeOnDead)
@@ -181,14 +181,17 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         isShotting = true;
 
-        anim.SetTrigger("Shoot");
+        if (!explodeOnDead)
+        {
+            anim.SetTrigger("Shoot");
+        }
 
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = (gameManager.instance.player.transform.position - headPos.transform.position).normalized * bulletSpeed;
         bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
 
         yield return new WaitForSeconds(shootRate);
-        
+
         isShotting = false;
     }
 
@@ -222,24 +225,24 @@ public class enemyAI : MonoBehaviour, IDamage
     IEnumerator startExplosion()
     {
         explode = true;
- 
-       
-        
-        
+
+
+
+
         anim.SetTrigger("Explode");
 
         GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
-        
+
         explosionClone.GetComponent<enemyExplosion>().explosionDamage = explosionDamage;
 
-        
+
 
         yield return new WaitForSeconds(1);
 
 
 
         Destroy(explosionClone);
-    explode = false;
-       
+        explode = false;
+
     }
 }

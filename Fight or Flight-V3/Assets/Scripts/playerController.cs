@@ -37,6 +37,8 @@ public class playerController : MonoBehaviour
     [Header("---- Gun Stats ----")]
     [SerializeField] List<gunStats> gunObjects = new List<gunStats>();
     [SerializeField] Transform shootPos;
+    public GameObject MuzzleFlash;
+    public GameObject bulletEffect;
     [SerializeField] GameObject bullet;
     [Range(15, 35)][SerializeField] int bulletSpeed;
     [SerializeField] float shootRate;
@@ -309,6 +311,7 @@ public class playerController : MonoBehaviour
         
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
          {
+            
             if (hit.collider.GetComponent<IDamage>() != null)
             {
                 hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
@@ -360,7 +363,8 @@ public class playerController : MonoBehaviour
             shootRate = gunObj.Rate;
             shootDist = gunObj.Range;
             shootDamage = gunObj.Damage;
-            gunObj.gunBulletPos = shootPos;
+           // gunObj.gunBulletPos = shootPos;
+           
 
             gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
             gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;

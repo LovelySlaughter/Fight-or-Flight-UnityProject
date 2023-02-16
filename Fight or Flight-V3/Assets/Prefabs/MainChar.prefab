@@ -255,7 +255,7 @@ MonoBehaviour:
   sounds: {fileID: 7017982313138655934}
   healthPoints: 40
   jumpHeight: 15
-  maxJumpAmount: 1
+  maxJumpAmount: 2
   playerSpeed: 5
   sprintMod: 3
   gravity: 25
@@ -286,7 +286,7 @@ MonoBehaviour:
   walkAudioVolume: 0.2
   gunObjects: []
   shootPos: {fileID: 1089091653}
-  bullet: {fileID: 5777184380615178806, guid: b9501d5f3a6754042a3b2a14d6e40658, type: 3}
+  bulletFX: {fileID: 0}
   bulletSpeed: 25
   shootRate: 0.1
   shootDist: 10000
@@ -568,6 +568,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8864996730310552801}
     m_Modifications:
+    - target: {fileID: 260411647908562375, guid: 4d82819ca2545094083cd65e17870235, type: 3}
+      propertyPath: m_Volume
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 260411648201667105, guid: 4d82819ca2545094083cd65e17870235, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d91b75d1f8d6336408afffca440cabbe, type: 3}
     - target: {fileID: 3270000505178003334, guid: 4d82819ca2545094083cd65e17870235, type: 3}
       propertyPath: m_Pivot.x
       value: 0
