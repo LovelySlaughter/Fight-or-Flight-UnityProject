@@ -126,8 +126,8 @@ public class enemyAI : MonoBehaviour, IDamage
                 {
                     facePlayer();
                 }
-
-                if (!enemySniper && !isShotting && angleToPlayer <= shootAngle)
+                //&& agent.remainingDistance <stoppingDistOrig
+                if (!enemySniper && !isShotting && angleToPlayer <= shootAngle && agent.remainingDistance < 20)
                 {
                     StartCoroutine(shoot());
                 }
