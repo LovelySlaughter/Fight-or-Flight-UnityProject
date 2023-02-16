@@ -1286,7 +1286,6 @@ GameObject:
   - component: {fileID: 939661969}
   - component: {fileID: 939661968}
   - component: {fileID: 939661967}
-  - component: {fileID: 939661971}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1379,19 +1378,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &939661971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939661966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27bc857a36fd6f845aded47d59666dbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioClip: {fileID: 8300000, guid: 5116ec20a898b16408601e769d4130e1, type: 3}
 --- !u!1 &962196642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1728,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023601699}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: c16c4c30517db10458e754a1b81766b2, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 2daa6ed4d5a5d89479831f17bccdcf26, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1771285883}
@@ -1761,7 +1747,7 @@ VideoPlayer:
   - 1
   m_Url: 
   m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 01
+  m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
@@ -2696,7 +2682,7 @@ MonoBehaviour:
   transitionVid: {fileID: 1023601699}
   MainMenuVid: {fileID: 319172349}
   mixer: {fileID: 24100000, guid: 0c72e933c367452448989baad8670370, type: 2}
-  musicStuff: {fileID: 1779289037}
+  musicStuff: {fileID: 1913511224}
 --- !u!114 &1680951128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3061,11 +3047,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSwitch: 0
   _effectsSwitch: 1
---- !u!82 &1779289037 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1919573582173918792, guid: 63e9e1b0ac06d4f43b8f88f46de7c814, type: 3}
-  m_PrefabInstance: {fileID: 1919573583551894347}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1779530096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,6 +3518,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893138874}
   m_CullTransparentMesh: 1
+--- !u!1 &1913511224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1919573582173918793, guid: 63e9e1b0ac06d4f43b8f88f46de7c814, type: 3}
+  m_PrefabInstance: {fileID: 1919573583551894347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1914062061
 GameObject:
   m_ObjectHideFlags: 0

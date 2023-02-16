@@ -13,14 +13,15 @@ public class MainMenuScript : MonoBehaviour
     public GameObject transitionVid;
     public GameObject MainMenuVid;
     public AudioMixer mixer;
-    public AudioSource musicStuff;
+    public GameObject musicStuff;
     public void NewGame()
     {
         mainMenu.SetActive(false);
         MainMenuVid.SetActive(false);
+        musicStuff.SetActive(false);
         transitionVid.SetActive(true);
-        Invoke("waitingOnTheWorldToChange", 11);
-        musicStuff.Stop();
+        Invoke("waitingOnTheWorldToChange", 87);
+        
         Time.timeScale = 1;
     }
 

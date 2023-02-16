@@ -5,7 +5,7 @@ using UnityEngine;
 public class CCNeonFlash : MonoBehaviour 
 {
     public bool IsActive;
-    [ColorUsageAttribute (true, true, 0, 4, 0, 1)]
+    [ColorUsageAttribute (true, true)]
     public Color MaxBright;
     public float SwitchTime = 0.1f;
     public enum SwitchMode
