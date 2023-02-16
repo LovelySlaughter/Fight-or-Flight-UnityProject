@@ -2696,6 +2696,7 @@ MonoBehaviour:
   transitionVid: {fileID: 1023601699}
   MainMenuVid: {fileID: 319172349}
   mixer: {fileID: 24100000, guid: 0c72e933c367452448989baad8670370, type: 2}
+  musicStuff: {fileID: 1779289037}
 --- !u!114 &1680951128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3060,6 +3061,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSwitch: 0
   _effectsSwitch: 1
+--- !u!82 &1779289037 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1919573582173918792, guid: 63e9e1b0ac06d4f43b8f88f46de7c814, type: 3}
+  m_PrefabInstance: {fileID: 1919573583551894347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1779530096
 GameObject:
   m_ObjectHideFlags: 0

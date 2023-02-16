@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.06859559, g: 0.016903713, b: 0.047500405, a: 1}
+  m_IndirectSpecularColor: {r: 0.06859799, g: 0.016903432, b: 0.047504976, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12661,7 +12661,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.89589435, g: 0.67105734, b: 0.9811321, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -21127,6 +21127,10 @@ PrefabInstance:
     - target: {fileID: 8157931537486973139, guid: 704bf004332697e47aeb92ca1bbaa0c2, type: 3}
       propertyPath: m_Name
       value: Implosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157931537486973139, guid: 704bf004332697e47aeb92ca1bbaa0c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8157931537486973140, guid: 704bf004332697e47aeb92ca1bbaa0c2, type: 3}
       propertyPath: m_RootOrder
@@ -35141,6 +35145,10 @@ PrefabInstance:
     - target: {fileID: 4484847951545200853, guid: ddaeb713b59e7e647a87e1bc096f927e, type: 3}
       propertyPath: m_Name
       value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484847951545200853, guid: ddaeb713b59e7e647a87e1bc096f927e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddaeb713b59e7e647a87e1bc096f927e, type: 3}

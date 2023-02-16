@@ -286,7 +286,9 @@ MonoBehaviour:
   walkAudioVolume: 0.2
   gunObjects: []
   shootPos: {fileID: 1089091653}
-  bulletFX: {fileID: 0}
+  MuzzleFlash: {fileID: 0}
+  bulletEffect: {fileID: 0}
+  bullet: {fileID: 0}
   bulletSpeed: 25
   shootRate: 0.1
   shootDist: 10000
@@ -575,7 +577,7 @@ PrefabInstance:
     - target: {fileID: 260411648201667105, guid: 4d82819ca2545094083cd65e17870235, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: d91b75d1f8d6336408afffca440cabbe, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 3270000505178003334, guid: 4d82819ca2545094083cd65e17870235, type: 3}
       propertyPath: m_Pivot.x
       value: 0
