@@ -14495,7 +14495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57aa71ffaf4f10c4586729be52096fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionDamage: 100
+  explosionDamage: 0
   explosionSource: {fileID: 8475985726765568144}
   explosionAudio: {fileID: 8300000, guid: 1b7344e060ab7474f9b2e3e3eb62886b, type: 3}
   explosionAudioVolume: 1
@@ -19308,5 +19308,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3.5
   m_Center: {x: 0, y: 0, z: 0}

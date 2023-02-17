@@ -126,21 +126,17 @@ public class enemyAI : MonoBehaviour, IDamage
                 {
                     facePlayer();
                 }
-                //&& agent.remainingDistance <stoppingDistOrig
-                if (!enemySniper && !isShotting && angleToPlayer <= shootAngle && agent.remainingDistance < 20)
+                if (!isShotting && angleToPlayer <= shootAngle)
                 {
                     StartCoroutine(shoot());
                 }
-                else if (!isShotting && angleToPlayer <= shootAngle && agent.remainingDistance <= stoppingDistOrig)
-                {
-                    StartCoroutine(shoot());
-                }
+
                 return true;
             }
-        }
-        else
-        {
-            agent.stoppingDistance = 0;
+            else if (angleToPlayer > viewAngle)
+            {
+                agent.stoppingDistance = 0;
+            }
         }
         return false;
 
@@ -156,16 +152,12 @@ public class enemyAI : MonoBehaviour, IDamage
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
-
-            gameManager.instance.updateEnemyRemaining(-1);
-
             if (explodeOnDead)
             {
                 StartCoroutine(startExplosion());
-
             }
-
             Destroy(gameObject);
+            gameManager.instance.updateEnemyRemaining(-1);
             gameManager.instance.UpdateEnemiesKilled(1);
         }
     }
@@ -225,24 +217,11 @@ public class enemyAI : MonoBehaviour, IDamage
     IEnumerator startExplosion()
     {
         explode = true;
-
-
-
-
         anim.SetTrigger("Explode");
-
         GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
-
         explosionClone.GetComponent<enemyExplosion>().explosionDamage = explosionDamage;
-
-
-
         yield return new WaitForSeconds(1);
-
-
-
         Destroy(explosionClone);
         explode = false;
-
     }
 }

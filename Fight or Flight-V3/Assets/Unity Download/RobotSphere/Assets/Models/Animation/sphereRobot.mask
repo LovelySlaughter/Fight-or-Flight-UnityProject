@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: sphereRobot
+  m_Mask: 01000000010000000100000000000000000000000100000001000000010000000100000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: main_jt
+    m_Weight: 1
+  - m_Path: main_jt/body
+    m_Weight: 1
+  - m_Path: main_jt/body/eyeLid
+    m_Weight: 1
+  - m_Path: main_jt/eyeDome
+    m_Weight: 1
+  - m_Path: main_jt/eyeDome/eyeDome1
+    m_Weight: 1
+  - m_Path: main_jt/eyeDome/l_eye
+    m_Weight: 1
+  - m_Path: main_jt/eyeDome/r_eye
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm/ballJoint1
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm/ballJoint2
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm/bolt1
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm/bolt2
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm/bolt3
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm/bolt4
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm_jt
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm_jt/arm2
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm_jt/arm2/bolt5
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm_jt/arm2/bolt6
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm_jt/arm2/bolt7
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm_jt/arm2/bolt8
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm_jt/arm2/left_plate
+    m_Weight: 1
+  - m_Path: main_jt/left_elbow_jt/left_arm_jt/left_arm_end
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm/ballJoint1 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm/ballJoint2 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm/bolt1 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm/bolt2 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm/bolt3 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm/bolt4 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm_jt
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm_jt/arm2 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm_jt/arm2 1/bolt5 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm_jt/arm2 1/bolt6 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm_jt/arm2 1/bolt7 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm_jt/arm2 1/bolt8 1
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm_jt/arm2 1/rear_plate
+    m_Weight: 1
+  - m_Path: main_jt/rear_elbow_jt/rear_arm_jt/rear_arm_end
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm/ballJoint1 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm/ballJoint2 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm/bolt1 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm/bolt2 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm/bolt3 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm/bolt4 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm_jt
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm_jt/arm2 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm_jt/arm2 2/bolt5 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm_jt/arm2 2/bolt6 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm_jt/arm2 2/bolt7 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm_jt/arm2 2/bolt8 2
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm_jt/arm2 2/right_plate
+    m_Weight: 1
+  - m_Path: main_jt/right_elbow_jt/right_arm_jt/right_arm_end
+    m_Weight: 1

@@ -22,7 +22,7 @@ public class enemyExplosion : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.playerScript.takeDamage(explosionDamage);
+            gameManager.instance.playerScript.takeDamage(explosionDamage / 2);
             explosionSource.PlayOneShot(explosionAudio, explosionAudioVolume);
         }
         
