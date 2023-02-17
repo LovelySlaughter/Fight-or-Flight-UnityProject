@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 11494
+  controlID: 9995
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 11579
+  controlID: 10124
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,8 +166,8 @@ MonoBehaviour:
     y: 0
     width: 881
     height: 486
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -193,8 +193,8 @@ MonoBehaviour:
     y: 486
     width: 881
     height: 461
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -217,7 +217,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 881
     y: 0
-    width: 255
+    width: 337
     height: 947
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -241,9 +241,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1136
+    x: 1218
     y: 0
-    width: 465
+    width: 383
     height: 947
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
@@ -272,8 +272,8 @@ MonoBehaviour:
     y: 0
     width: 319
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
+  m_EnterPlayModeBehavior: 1
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
@@ -686,9 +686,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 879.74176, y: 486.3375, z: -976.333}
+    m_Target: {x: 23.767826, y: 16.68735, z: -50.66604}
     speed: 2
-    m_Value: {x: 879.74176, y: 486.3375, z: -976.333}
+    m_Value: {x: 23.767826, y: 16.68735, z: -50.66604}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -735,13 +735,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.017696785, y: 0.00003350002, z: 0.0015824181, w: 0.9999842}
+    m_Target: {x: -0.1323489, y: 0.26475716, z: -0.038702965, w: -0.9544868}
     speed: 2
-    m_Value: {x: -0.017694272, y: 0.000033495264, z: 0.0015821934, w: 0.9998422}
+    m_Value: {x: -0.1323965, y: 0.26330465, z: -0.038501408, w: -0.95480865}
   m_Size:
-    m_Target: 1.2041905
+    m_Target: 0.8660254
     speed: 2
-    m_Value: 1.2041905
+    m_Value: 0.8660254
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -920,7 +920,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 881
     y: 73
-    width: 253
+    width: 335
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -928,10 +928,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: f483fdff0e32feff5632feff6632feffea32feff2633feff163dfeffa446fefffa46feff5e4afeffa076feffc076feff989ffeffb89ffeff02b0feff24b0feff74b6feff90b6feff1cfafeff0a07ffff16e9fffffaeeffff0cefffff1aefffff0af9ffff94f9ffff12fbffff4ee50000b8fe03000cff030056a30400b4a30400
+      scrollPos: {x: 0, y: 2359}
+      m_SelectedIDs: ce32feff
+      m_LastClickedID: -118066
+      m_ExpandedIDs: 22cefeff726bffff0695ffffe6efffffeaefffffeeeffffff2effffffeefffffbaf0ffffbef0ffffc2f0ffffe2f0ffff02f1ffff06f1ffff6cf1ffff84f5fffffefaffff00fbffffc6e900008e380100fc3801006e3d0100e6440100a807020060090200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -947,7 +947,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 9}
+        m_ClientGUIView: {fileID: 0}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -975,9 +975,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1136
+    x: 1218
     y: 73
-    width: 463
+    width: 381
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -996,13 +996,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scenes/FightOrFlight(Reimagined)
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scenes/FightOrFlight(Reimagined)
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\User\Documents\GitHub\Fight-or-Flight-UnityProject\Fight
     or Flight-V3
@@ -1010,9 +1010,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 487c0000
-    m_LastClickedID: 31816
-    m_ExpandedIDs: 00000000367c0000e6f2000012f3000078f30000c6fd03006a6404006e640400726404007c64040000ca9a3b
+    m_SelectedIDs: e47d0000
+    m_LastClickedID: 32228
+    m_ExpandedIDs: 00000000aa7d0000ac7d0000ae7d0000b07d0000b27d0000c87d0000cc7d00007e050200840502008a05020000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1040,7 +1040,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000367c0000467c0000527c0000e6f2000012f3000078f3000000ca9a3b
+    m_ExpandedIDs: 00000000aa7d0000ac7d0000ae7d0000b07d0000b27d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1071,15 +1071,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: 72da130094ff03005cee0000163904005ab20000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: zekton free
-      m_OriginalName: zekton free
+      m_Name: Scenes
+      m_OriginalName: Scenes
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 287698
+      m_UserData: 32200
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0

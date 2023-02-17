@@ -9,6 +9,7 @@ public class TutorialAudio : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        TutorialPlayer.Stop();
         TutorialPlayer.PlayOneShot(tutorialMessage);
         gameObject.SetActive(false);
     }
