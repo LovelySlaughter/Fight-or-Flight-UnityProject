@@ -381,7 +381,7 @@ MonoBehaviour:
   explosionPos: {fileID: 691630583163609333}
   explosion: {fileID: 4453080369793105703, guid: f9d2a597feea20940850880b5ab98bdf, type: 3}
   explosionDamage: 39
-  explodeTriggerDist: 2
+  explodeTriggerDist: 2.5
   explodeWaitTime: 0
 --- !u!95 &6261959730227128330
 Animator:
@@ -436,7 +436,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 100
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &6261959730227128334
 CapsuleCollider:

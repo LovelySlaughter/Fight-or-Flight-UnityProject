@@ -9691,7 +9691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1146407882834346930, guid: b59c02256afaaeb4a9b1a587908c8b74, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b59c02256afaaeb4a9b1a587908c8b74, type: 3}
@@ -30831,22 +30831,6 @@ PrefabInstance:
     - target: {fileID: 6261959730217638840, guid: b9ec3abb94021634a9129c42ad9c904d, type: 3}
       propertyPath: m_Name
       value: OrangeSpider (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261959730217638840, guid: b9ec3abb94021634a9129c42ad9c904d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261959730227128329, guid: b9ec3abb94021634a9129c42ad9c904d, type: 3}
-      propertyPath: explosionArea
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261959730227128329, guid: b9ec3abb94021634a9129c42ad9c904d, type: 3}
-      propertyPath: explodeTriggerDist
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261959730227128331, guid: b9ec3abb94021634a9129c42ad9c904d, type: 3}
-      propertyPath: m_Radius
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9ec3abb94021634a9129c42ad9c904d, type: 3}
