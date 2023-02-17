@@ -311,7 +311,9 @@ public class playerController : MonoBehaviour
         
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
          {
-            
+            Instantiate(MuzzleFlash, shootPos);
+            Instantiate(bulletEffect, hit.point, shootPos.rotation);
+
             if (hit.collider.GetComponent<IDamage>() != null)
             {
                 hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
@@ -363,6 +365,8 @@ public class playerController : MonoBehaviour
             shootRate = gunObj.Rate;
             shootDist = gunObj.Range;
             shootDamage = gunObj.Damage;
+            MuzzleFlash = gunObj.muzzleFlash;
+            bulletEffect = gunObj.bulletHoles;
             //gunObj.gunBulletPos = shootPos;
 
             gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
@@ -378,6 +382,8 @@ public class playerController : MonoBehaviour
         shootRate = gunObjects[selectedGun].Rate;
         shootDist = gunObjects[selectedGun].Range;
         shootDamage = gunObjects[selectedGun].Damage;
+        MuzzleFlash = gunObjects[selectedGun].muzzleFlash;
+        bulletEffect = gunObjects[selectedGun].bulletHoles;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunObjects[selectedGun].weaponModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObjects[selectedGun].weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
