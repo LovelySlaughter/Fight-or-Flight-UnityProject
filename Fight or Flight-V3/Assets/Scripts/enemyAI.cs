@@ -126,7 +126,8 @@ public class enemyAI : MonoBehaviour, IDamage
                 {
                     facePlayer();
                 }
-                if (!isShotting && angleToPlayer <= shootAngle)
+                //this remaindistance<20 prevents the enemies from shooting when out of range
+                if (!isShotting && angleToPlayer <= shootAngle && agent.remainingDistance< 20)
                 {
                     StartCoroutine(shoot());
                 }

@@ -3453,7 +3453,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 120
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &7909052558727939209
 CapsuleCollider:
@@ -3513,7 +3513,7 @@ MonoBehaviour:
   roamDist: 5
   enemySniper: 0
   shootPos: {fileID: 3603268784058012770}
-  bullet: {fileID: 3313442712892301273, guid: 2f6dc9f9a5aef6a4d8ef7666695af0c4, type: 3}
+  bullet: {fileID: 299227010061899145, guid: 11aa8f21b7449424aaff0e4a2b9ade96, type: 3}
   bulletSpeed: 27
   shootRate: 0.3
   shootDist: 0
