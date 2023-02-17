@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+
 //Coded By Mauricio
 public class buttonFunctions : MonoBehaviour
 {
+    
 
     public void resume()
     {
+        
         gameManager.instance.unPause();
         gameManager.instance.isPaused = !gameManager.instance.isPaused;
     }
