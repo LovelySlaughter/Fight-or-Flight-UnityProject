@@ -25,7 +25,7 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject explosion;
     [Range(1, 50)] [SerializeField] int explosionDamage;
     [SerializeField] float explodeTriggerDist;
-    [SerializeField] int explodeWaitTime;
+    [Range(0, 3)] [SerializeField] float explodeWaitTime;
 
 
 
@@ -120,7 +120,7 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
 
                 return true;
             }
-            else if(angleToPlayer > viewAngle)
+            else if (angleToPlayer > viewAngle)
             {
                 agent.stoppingDistance = 0;
             }
@@ -154,11 +154,8 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
         exploded = true;
         yield return new WaitForSeconds(explodeWaitTime);
         updateEnemyUI();
-        anim.SetTrigger("Explode");
-
         GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
         explosionClone.GetComponent<enemyExplosion>().explosionDamage = explosionDamage;
-        
     }
 
     void facePlayer()
@@ -176,8 +173,8 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
         {
             playerInRange = true;
         }
-        
-        
+
+
     }
     public void OnTriggerExit(Collider other)
     {
@@ -190,9 +187,8 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
 
     public void updateEnemyUI()
     {
-        Destroy(gameObject);
         gameManager.instance.updateEnemyRemaining(-1);
+        Destroy(gameObject);
         gameManager.instance.UpdateEnemiesKilled(1);
     }
-
 }

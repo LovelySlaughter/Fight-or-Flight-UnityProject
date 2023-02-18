@@ -73,6 +73,7 @@ public class playerController : MonoBehaviour
     bool isShooting;
 
     bool isSprinting;
+    //End of Connor's wallrunning stuff
 
     // Start is called before the first frame update
     private void Awake()
@@ -310,12 +311,12 @@ public class playerController : MonoBehaviour
 
         
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-         {
+        {
             Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);
             //Destroy(gunObjects[selectedGun].muzzleFlash, 0.2f);
             Instantiate(bulletEffect, hit.point, shootPos.rotation);
 
-            if (hit.collider.GetComponent<IDamage>() != null)
+            if (hit.collider.GetComponent<IDamage>() != null /*&& hit.collider == hit.collider.GetComponent<CapsuleCollider>()*/)
             {
                 hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
                 

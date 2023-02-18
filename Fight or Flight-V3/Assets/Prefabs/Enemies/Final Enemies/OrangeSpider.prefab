@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &691630583163609333
 Transform:
   m_ObjectHideFlags: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691630583163609332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00091, z: -0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 6261959730227128334}
   m_Layer: 6
   m_Name: OrangeSpider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,8 +380,8 @@ MonoBehaviour:
   roamDist: 10
   explosionPos: {fileID: 691630583163609333}
   explosion: {fileID: 4453080369793105703, guid: f9d2a597feea20940850880b5ab98bdf, type: 3}
-  explosionDamage: 39
-  explodeTriggerDist: 2.5
+  explosionDamage: 20
+  explodeTriggerDist: 2
   explodeWaitTime: 0
 --- !u!95 &6261959730227128330
 Animator:
@@ -436,7 +436,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 100
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &6261959730227128334
 CapsuleCollider:
@@ -609,7 +609,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6261959730217638846}
-  m_LocalRotation: {x: -0.27059793, y: -0.65328145, z: 0.65328157, w: 0.270598}
+  m_LocalRotation: {x: -0.27059796, y: -0.6532815, z: 0.6532816, w: 0.27059802}
   m_LocalPosition: {x: 0.0000018498522, y: 0.0000049050304, z: -0.0009064552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

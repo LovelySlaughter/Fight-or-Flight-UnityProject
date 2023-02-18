@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemyExplosion : MonoBehaviour
 {
     public int explosionDamage;
-   
+
 
     [Header("---- Explosion Sounds ----")]
     [SerializeField] AudioSource explosionSource;
@@ -20,12 +20,13 @@ public class enemyExplosion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        
+        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
-            gameManager.instance.playerScript.takeDamage(explosionDamage / 2);
+            gameManager.instance.playerScript.takeDamage(explosionDamage);
             explosionSource.PlayOneShot(explosionAudio, explosionAudioVolume);
         }
-        
+
         Destroy(gameObject, timer);
     }
 }

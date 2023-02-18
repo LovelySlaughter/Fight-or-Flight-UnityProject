@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 2141893284742874240}
   m_Layer: 6
   m_Name: Drone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +62,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141893284742874238}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.089126565, y: -0.089126565, z: -0.14349376}
+  m_LocalPosition: {x: 0.089126565, y: -0.392, z: -0.14349376}
   m_LocalScale: {x: 0.017825313, y: 0.017825313, z: 0.017825313}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -135,7 +135,7 @@ MonoBehaviour:
   chase: 0
   startingPoint: {fileID: 8554330720284757152}
   distToPlayer: 2
-  heightToPlayer: 20
+  heightToPlayer: 10
   model: {fileID: 2141893284742874226}
   headPos: {fileID: 2141893284742874231}
   HP: 10
@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8554330720643671662
 Transform:
   m_ObjectHideFlags: 0
@@ -258,6 +258,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyArray:
   - {fileID: 2141893284742874242}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!65 &8554330720643671663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -269,7 +272,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Size: {x: 10, y: 3, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8554330721751018464
 GameObject:
@@ -281,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8554330720284757152}
   m_Layer: 0
-  m_Name: StartingPoint
+  m_Name: StartingPoint Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
