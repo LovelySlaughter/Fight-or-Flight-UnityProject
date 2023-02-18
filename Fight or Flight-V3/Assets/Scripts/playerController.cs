@@ -37,6 +37,8 @@ public class playerController : MonoBehaviour
     [Header("---- Gun Stats ----")]
     [SerializeField] List<gunStats> gunObjects = new List<gunStats>();
     [SerializeField] Transform shootPos;
+    public GameObject MuzzleFlash;
+    public GameObject bulletEffect;
     [SerializeField] GameObject bullet;
     [Range(15, 35)][SerializeField] int bulletSpeed;
     [SerializeField] float shootRate;
@@ -71,6 +73,7 @@ public class playerController : MonoBehaviour
     bool isShooting;
 
     bool isSprinting;
+    //End of Connor's wallrunning stuff
 
     // Start is called before the first frame update
     private void Awake()
@@ -168,32 +171,32 @@ public class playerController : MonoBehaviour
         // jump controlss
         if (Input.GetButtonDown("Jump") && jumpCounter < maxJumpAmount)
         {
-            sounds.PlayOneShot(playerJumpAudio[Random.Range(0, playerJumpAudio.Length - 1)], jumpAudioVolume);
             velocity.y = jumpHeight;
             jumpCounter++;
+            sounds.PlayOneShot(playerJumpAudio[Random.Range(0, playerJumpAudio.Length - 1)], jumpAudioVolume);
 
-            if (isWallLeft && !Input.GetKey(KeyCode.D) || isWallRight && !Input.GetKey(KeyCode.A))
-            {
-                movement = (Vector3.up * jumpHeight * 1.5f);
-                movement = (normVec * jumpHeight * 0.5f);
-            }
+            //if (isWallLeft && !Input.GetKey(KeyCode.D) || isWallRight && !Input.GetKey(KeyCode.A))
+            //{
+            //    movement = (Vector3.up * jumpHeight * 1.5f);
+            //    movement = (normVec * jumpHeight * 0.5f);
+            //}
 
-            if (isWallRight || isWallLeft && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-            {
-                movement = (-velocity * jumpHeight * 1f);
-            }
+            //if (isWallRight || isWallLeft && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            //{
+            //    movement = (-velocity * jumpHeight * 1f);
+            //}
 
-            if (isWallRight && Input.GetKey(KeyCode.A))
-            {
-                movement = (-velocity * jumpHeight * 3.2f);
-            }
+            //if (isWallRight && Input.GetKey(KeyCode.A))
+            //{
+            //    movement = (-velocity * jumpHeight * 3.2f);
+            //}
 
-            if (isWallLeft && Input.GetKey(KeyCode.D))
-            {
-                movement = (velocity * jumpHeight * 3.2f);
-            }
+            //if (isWallLeft && Input.GetKey(KeyCode.D))
+            //{
+            //    movement = (velocity * jumpHeight * 3.2f);
+            //}
 
-            movement = (velocity * jumpHeight * 1f);
+            //movement = (velocity * jumpHeight * 1f);
         }
 
         velocity.y -= gravity * Time.deltaTime;
@@ -303,16 +306,20 @@ public class playerController : MonoBehaviour
 
 
         sounds.PlayOneShot(gunObjects[selectedGun].gunShots, gunObjects[selectedGun].gunShotsVolume);
-
-        GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        bulletClone.GetComponent<Rigidbody>().velocity = MainCamera.transform.forward * bulletSpeed;
+      
         RaycastHit hit;
+
+        
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
-            if (hit.collider.GetComponent<IDamage>() != null)
+            Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);
+            //Destroy(gunObjects[selectedGun].muzzleFlash, 0.2f);
+            Instantiate(bulletEffect, hit.point, shootPos.rotation);
+
+            if (hit.collider.GetComponent<IDamage>() != null /*&& hit.collider == hit.collider.GetComponent<CapsuleCollider>()*/)
             {
                 hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
-
+                
             }
         }
 
@@ -360,7 +367,9 @@ public class playerController : MonoBehaviour
             shootRate = gunObj.Rate;
             shootDist = gunObj.Range;
             shootDamage = gunObj.Damage;
-            gunObj.gunBulletPos = shootPos;
+            MuzzleFlash = gunObj.muzzleFlash;
+            bulletEffect = gunObj.bulletHoles;
+            //gunObj.gunBulletPos = shootPos;
 
             gunModel.GetComponent<MeshFilter>().sharedMesh = gunObj.weaponModel.GetComponent<MeshFilter>().sharedMesh;
             gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObj.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
@@ -375,6 +384,8 @@ public class playerController : MonoBehaviour
         shootRate = gunObjects[selectedGun].Rate;
         shootDist = gunObjects[selectedGun].Range;
         shootDamage = gunObjects[selectedGun].Damage;
+        MuzzleFlash = gunObjects[selectedGun].muzzleFlash;
+        bulletEffect = gunObjects[selectedGun].bulletHoles;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunObjects[selectedGun].weaponModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunObjects[selectedGun].weaponModel.GetComponent<MeshRenderer>().sharedMaterial;

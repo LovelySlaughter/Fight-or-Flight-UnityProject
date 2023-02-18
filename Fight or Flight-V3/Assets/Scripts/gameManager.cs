@@ -14,7 +14,6 @@ public class gameManager : MonoBehaviour
     public playerController playerScript;
     public GameObject playerSpawnPos;
 
-
     [Header("---- Game Goal ----")]
     public int enemiesRemaining;
     public int enemiesKilled;

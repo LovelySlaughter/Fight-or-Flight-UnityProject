@@ -1233,7 +1233,7 @@ GameObject:
   - component: {fileID: 1146407882834346929}
   m_Layer: 6
   m_Name: SniperCyborg
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1274,8 +1274,8 @@ MonoBehaviour:
   headPos: {fileID: 4145254402883685639}
   HP: 10
   playerfaceSpeed: 10
-  viewAngle: 135
-  shootAngle: 135
+  viewAngle: 90
+  shootAngle: 90
   waitTime: 3
   roamDist: 2
   enemySniper: 1
@@ -1285,6 +1285,10 @@ MonoBehaviour:
   shootRate: 2
   shootDist: 10
   shootDamage: 10
+  explodeOnDead: 0
+  explosionPos: {fileID: 0}
+  explosion: {fileID: 0}
+  explosionDamage: 0
 --- !u!95 &1146407882843877488
 Animator:
   serializedVersion: 5
@@ -1315,7 +1319,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1352,7 +1356,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 35
+  m_Radius: 150
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1146407882834346932
 GameObject:

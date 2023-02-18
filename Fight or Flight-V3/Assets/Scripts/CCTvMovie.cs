@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CCTvMovie : MonoBehaviour 
 {
-    [ColorUsageAttribute(true, true, 0, 4, 0, 1)]
+    [ColorUsageAttribute(true, true)]
     public Color MaxBright = Color.black;
     public float Speed;
     public int MatId;

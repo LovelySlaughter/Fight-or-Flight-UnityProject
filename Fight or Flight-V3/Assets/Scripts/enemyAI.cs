@@ -67,11 +67,11 @@ public class enemyAI : MonoBehaviour, IDamage
             {
                 StartCoroutine(roam());
             }
-            if (canSeePlayer()&& !enemySniper)
+            if (canSeePlayer() && !enemySniper)
             {
                 agent.stoppingDistance = 5;
             }
-            else if(canSeePlayer() && enemySniper)
+            else if (canSeePlayer() && enemySniper)
             {
                 agent.stoppingDistance = stoppingDistOrig;
             }
@@ -126,22 +126,19 @@ public class enemyAI : MonoBehaviour, IDamage
                 {
                     facePlayer();
                 }
+                //this remaindistance<20 prevents the enemies from shooting when out of range
+                if (!isShotting && angleToPlayer <= shootAngle && agent.remainingDistance< 15)
+                {
+                    StartCoroutine(shoot());
+                }
 
-                if (!enemySniper && !isShotting && angleToPlayer <= shootAngle)
-                {
-                    StartCoroutine(shoot());
-                }
-                else if (!isShotting && angleToPlayer <= shootAngle && agent.remainingDistance <= stoppingDistOrig)
-                {
-                    StartCoroutine(shoot());
-                }
                 return true;
             }
+            else if (angleToPlayer > viewAngle)
+            {
+                agent.stoppingDistance = 0;
+            }
         }
-        else
-        {
-            agent.stoppingDistance = 0;
-        } 
         return false;
 
     }
@@ -156,13 +153,12 @@ public class enemyAI : MonoBehaviour, IDamage
         agent.SetDestination(gameManager.instance.player.transform.position);
         if (HP <= 0)
         {
-            if(explodeOnDead)
+            if (explodeOnDead)
             {
                 StartCoroutine(startExplosion());
             }
-            gameManager.instance.updateEnemyRemaining(-1);
-            
             Destroy(gameObject);
+            gameManager.instance.updateEnemyRemaining(-1);
             gameManager.instance.UpdateEnemiesKilled(1);
         }
     }
@@ -178,14 +174,17 @@ public class enemyAI : MonoBehaviour, IDamage
     {
         isShotting = true;
 
-        anim.SetTrigger("Shoot");
+        if (!explodeOnDead)
+        {
+            anim.SetTrigger("Shoot");
+        }
 
         GameObject bulletClone = Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = (gameManager.instance.player.transform.position - headPos.transform.position).normalized * bulletSpeed;
         bulletClone.GetComponent<bullet>().bulletDamage = shootDamage;
 
         yield return new WaitForSeconds(shootRate);
-        
+
         isShotting = false;
     }
 
@@ -219,16 +218,11 @@ public class enemyAI : MonoBehaviour, IDamage
     IEnumerator startExplosion()
     {
         explode = true;
-
-        
         anim.SetTrigger("Explode");
-
         GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
         explosionClone.GetComponent<enemyExplosion>().explosionDamage = explosionDamage;
-
-
         yield return new WaitForSeconds(1);
-
+        Destroy(explosionClone);
         explode = false;
     }
 }

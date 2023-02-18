@@ -5,13 +5,13 @@ using UnityEngine;
 public class enemyExplosion : MonoBehaviour
 {
     public int explosionDamage;
-    [SerializeField] int timer;
+
 
     [Header("---- Explosion Sounds ----")]
     [SerializeField] AudioSource explosionSource;
     [SerializeField] AudioClip explosionAudio;
     [Range(0, 1)] [SerializeField] float explosionAudioVolume;
-
+    [SerializeField] float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +20,13 @@ public class enemyExplosion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.CompareTag("Player"))
+        
+        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
             gameManager.instance.playerScript.takeDamage(explosionDamage);
             explosionSource.PlayOneShot(explosionAudio, explosionAudioVolume);
         }
-        
+
         Destroy(gameObject, timer);
     }
 }

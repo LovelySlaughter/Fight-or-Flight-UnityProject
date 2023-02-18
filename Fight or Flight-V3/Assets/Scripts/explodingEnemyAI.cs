@@ -17,19 +17,20 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
     [Range(10, 150)] [SerializeField] int HP;
     [SerializeField] int playerfaceSpeed;
     [SerializeField] int viewAngle;
-    [SerializeField] int explodeTriggerAngle;
     [SerializeField] int waitTime;
     [SerializeField] int roamDist;
 
     [Header("---- Explosion Stats ----")]
     [SerializeField] Transform explosionPos;
     [SerializeField] GameObject explosion;
-    [Range(1, 100)] [SerializeField] int explosionDamage;
-    
-   
+    [Range(1, 50)] [SerializeField] int explosionDamage;
+    [SerializeField] float explodeTriggerDist;
+    [Range(0, 3)] [SerializeField] float explodeWaitTime;
 
 
-    bool explode;
+
+    bool exploded = false;
+    float dist;
     Vector3 playerDir;
     bool playerInRange;
     float angleToPlayer;
@@ -51,19 +52,22 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
     void Update()
     {
         anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
+        dist = Vector3.Distance(gameManager.instance.player.transform.position, transform.position);
 
         if (playerInRange)
         {
-            if (!canSeePlayer() && !destinationChosen && agent.remainingDistance < 0.1f)
+            if (dist <= explodeTriggerDist)
+            {
+                StartCoroutine(startExplosion());
+            }
+            else if (!canSeePlayer() && !destinationChosen && agent.remainingDistance < 0.1f)
             {
                 StartCoroutine(roam());
             }
-            if (canSeePlayer())
+            else if (canSeePlayer())
             {
                 agent.stoppingDistance = stoppingDistOrig;
             }
-
-
         }
         else if (!destinationChosen && agent.remainingDistance < 0.1f && agent.destination != gameManager.instance.player.transform.position)
         {
@@ -77,7 +81,6 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
         agent.stoppingDistance = 0;
 
         yield return new WaitForSeconds(waitTime);
-
         destinationChosen = false;
 
         Vector3 randomDir = Random.insideUnitSphere * roamDist;
@@ -115,19 +118,14 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
                     facePlayer();
                 }
 
-                if (!explode && angleToPlayer <= explodeTriggerAngle && agent.remainingDistance <= stoppingDistOrig)
-                {
-                    StartCoroutine(startExplosion());
-                }
                 return true;
             }
-        }
-        else
-        {
-            agent.stoppingDistance = 0;
+            else if (angleToPlayer > viewAngle)
+            {
+                agent.stoppingDistance = 0;
+            }
         }
         return false;
-
     }
 
     public void takeDamage(int dmg)
@@ -138,11 +136,9 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
         agent.stoppingDistance = 0;
 
         agent.SetDestination(gameManager.instance.player.transform.position);
-        if (HP <= 0)
+        if (HP <= 0 && exploded == false)
         {
-            gameManager.instance.updateEnemyRemaining(-1);
-            Destroy(gameObject);
-            gameManager.instance.UpdateEnemiesKilled(1);
+            updateEnemyUI();
         }
     }
 
@@ -155,21 +151,11 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
 
     IEnumerator startExplosion()
     {
-        explode = true;
-
-        Destroy(gameObject);
-        gameManager.instance.updateEnemyRemaining(-1);
-        gameManager.instance.UpdateEnemiesKilled(1);
-        anim.SetTrigger("Explode");
-       
+        exploded = true;
+        yield return new WaitForSeconds(explodeWaitTime);
+        updateEnemyUI();
         GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
         explosionClone.GetComponent<enemyExplosion>().explosionDamage = explosionDamage;
-       
-
-
-        yield return new WaitForSeconds(1);
-
-        explode = false;
     }
 
     void facePlayer()
@@ -187,6 +173,8 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
         {
             playerInRange = true;
         }
+
+
     }
     public void OnTriggerExit(Collider other)
     {
@@ -197,4 +185,10 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
         }
     }
 
+    public void updateEnemyUI()
+    {
+        gameManager.instance.updateEnemyRemaining(-1);
+        Destroy(gameObject);
+        gameManager.instance.UpdateEnemiesKilled(1);
+    }
 }
