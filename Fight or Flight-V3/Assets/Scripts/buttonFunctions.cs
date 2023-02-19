@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 //Coded By Mauricio
 public class buttonFunctions : MonoBehaviour
 {
-    
+
 
     public void resume()
     {
-        
+
         gameManager.instance.unPause();
         gameManager.instance.isPaused = !gameManager.instance.isPaused;
     }
@@ -38,10 +38,20 @@ public class buttonFunctions : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1;
+        if (Input.GetKey(KeyCode.E))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Time.timeScale = 1;
+        }
+
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenuScene");
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SceneManager.LoadScene("MainMenuScene");
+        }
     }
 }

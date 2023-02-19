@@ -4702,7 +4702,7 @@ MonoBehaviour:
   screenFlash: {fileID: 4336907438532119340}
   enemiesRemainingText: {fileID: 6289071812261257645}
   enemiesKilledText: {fileID: 130472025}
-  talkingAudio: {fileID: 0}
+  talkingAudio: {fileID: 260411648201667105}
   isPaused: 0
 --- !u!1001 &1819059538561962895
 PrefabInstance:
@@ -4765,6 +4765,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e9e1b0ac06d4f43b8f88f46de7c814, type: 3}
+--- !u!82 &260411648201667105 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1919573581930078638, guid: 63e9e1b0ac06d4f43b8f88f46de7c814, type: 3}
+  m_PrefabInstance: {fileID: 1819059538561962895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &260411648738678200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1919573583541356087, guid: 63e9e1b0ac06d4f43b8f88f46de7c814, type: 3}
