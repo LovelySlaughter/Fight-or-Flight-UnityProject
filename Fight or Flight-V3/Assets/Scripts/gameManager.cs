@@ -27,6 +27,7 @@ public class gameManager : MonoBehaviour
     public GameObject screenFlash;
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
     [SerializeField] TextMeshProUGUI enemiesKilledText;
+    public AudioSource talkingAudio;
 
     public bool isPaused;
     float timeScaleOrig;
@@ -76,6 +77,7 @@ public class gameManager : MonoBehaviour
         Debug.Log("TimeScale is 0");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        talkingAudio.Pause();
     }
 
     public void unPause()
@@ -86,6 +88,7 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
         activeMenu = null;
+        talkingAudio.UnPause();
     }
 
     public void updateEnemyRemaining(int amount)
