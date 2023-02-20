@@ -28,10 +28,10 @@ public class gameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
     [SerializeField] TextMeshProUGUI enemiesKilledText;
     public AudioSource talkingAudio;
+    public WaveSpawner waveSpawner;
 
     public bool isPaused;
     float timeScaleOrig;
-
 
     // Start is called before the first frame update
     void Awake() //( In the order of operations it is the first thing that happens before Start() )
@@ -97,7 +97,13 @@ public class gameManager : MonoBehaviour
         enemiesRemainingText.text = enemiesRemaining.ToString("F0"); //"F0" makes it an int/how many decimals you want behind it
 
         //Check to see if game in over based on enemy count <= 0
-        if (enemiesRemaining <= 0)
+        if (waveSpawner == null && enemiesRemaining == 0)
+        {
+            pause();
+            activeMenu = winMenu;
+            activeMenu.SetActive(true);
+        }
+        else if (waveSpawner.gameWon == true)
         {
             pause();
             activeMenu = winMenu;
