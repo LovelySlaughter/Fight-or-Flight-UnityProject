@@ -129,7 +129,10 @@ public class playerController : MonoBehaviour
 
 
             if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot")) //{ Shoot(); }
+            {
                 StartCoroutine(Shoot());
+                Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);
+            }
 
 
         }
@@ -306,13 +309,13 @@ public class playerController : MonoBehaviour
 
 
         sounds.PlayOneShot(gunObjects[selectedGun].gunShots, gunObjects[selectedGun].gunShotsVolume);
-      
+       // Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);
         RaycastHit hit;
 
         
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
-            Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);
+          
             //Destroy(gunObjects[selectedGun].muzzleFlash, 0.2f);
             Instantiate(bulletEffect, hit.point, shootPos.rotation);
 
@@ -339,7 +342,9 @@ public class playerController : MonoBehaviour
 
         if (healthPoints <= 0)
         {
+         
             gameManager.instance.playerDead();
+            
         }
     }
 

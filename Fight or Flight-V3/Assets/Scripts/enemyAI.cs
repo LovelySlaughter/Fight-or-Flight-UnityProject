@@ -37,6 +37,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject explosion;
     [Range(1, 100)] [SerializeField] int explosionDamage;
 
+
     bool explode;
     bool isShotting;
     Vector3 playerDir;
@@ -67,13 +68,16 @@ public class enemyAI : MonoBehaviour, IDamage
             {
                 StartCoroutine(roam());
             }
-            if (canSeePlayer() && !enemySniper)
+            if (canSeePlayer())
             {
-                agent.stoppingDistance = 5;
-            }
-            else if (canSeePlayer() && enemySniper)
-            {
-                agent.stoppingDistance = stoppingDistOrig;
+                if (!enemySniper)
+                {
+                    agent.stoppingDistance = 5;
+                }
+                else if (enemySniper)
+                {
+                    agent.stoppingDistance = stoppingDistOrig;
+                }
             }
 
         }

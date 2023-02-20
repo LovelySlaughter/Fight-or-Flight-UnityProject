@@ -59,4 +59,9 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 8);
     }
+
+    public void FullScreenToggle()
+    {
+        Screen.fullScreen= !Screen.fullScreen;
+    }
 }

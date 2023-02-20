@@ -7,8 +7,9 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     [Header("---- Components ----")]
     public bool chase = false;
     public Transform startingPoint;
-    public int distToPlayer;
-    [Range(5,15)][SerializeField]public int heightToPlayer;
+    [Range(-5, 5)] [SerializeField] public int zdistToPlayer;
+    [Range(-5, 5)][SerializeField] public int xdistToPlayer;
+    [Range(-5, 5)][SerializeField] public int heightToPlayer;
     [SerializeField] Renderer model;
 
 
@@ -33,20 +34,20 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     {
         gameManager.instance.player = GameObject.FindGameObjectWithTag("Player");
         gameManager.instance.updateEnemyRemaining(1);
-        playerDir.x = Random.Range(5, 10);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (chase == true)
         {
             if (gameManager.instance.player == null)
             {
                 return;
             }
-            playerDir = gameManager.instance.player.transform.position - headPos.position;
+            playerDir = gameManager.instance.player.transform.position;
 
             facePlayer();
             Chase();
@@ -96,19 +97,17 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     }
     private void Chase()
     {
-        int randx = Random.Range(0,10);
-        int randy = Random.Range(0, 10);
-        int randz = Random.Range(0, 10);
-        playerDir.z += distToPlayer * randz;
-        playerDir.y += heightToPlayer * randy;
-        playerDir.x += randx;
+
+        playerDir.z += zdistToPlayer;
+        playerDir.x += xdistToPlayer;
+        playerDir.y += heightToPlayer;
+
         transform.position = Vector3.MoveTowards(transform.position, playerDir, flySpeed * Time.deltaTime);
     }
 
     void facePlayer()
     {
-
-        Quaternion rot = Quaternion.LookRotation(playerDir);
+        Quaternion rot = Quaternion.LookRotation(playerDir - headPos.position);
 
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceplayerSpeed);
     }
@@ -116,11 +115,13 @@ public class flyingEnemyAI : MonoBehaviour, IDamage
     {
         //Returns to starting point
         transform.position = Vector3.MoveTowards(transform.position, startingPoint.transform.position, flySpeed * Time.deltaTime);
+
         if (transform.position == startingPoint.position && transform.rotation.x != 0)
         {
-            Quaternion rot = Quaternion.Euler(0, 0, 0);
+            Quaternion rot = Quaternion.Euler(0, 180, 0);
             transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceplayerSpeed);
         }
 
     }
+
 }

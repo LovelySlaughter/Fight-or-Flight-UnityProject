@@ -27,10 +27,11 @@ public class gameManager : MonoBehaviour
     public GameObject screenFlash;
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
     [SerializeField] TextMeshProUGUI enemiesKilledText;
+    public AudioSource talkingAudio;
+    public WaveSpawner waveSpawner;
 
     public bool isPaused;
     float timeScaleOrig;
-
 
     // Start is called before the first frame update
     void Awake() //( In the order of operations it is the first thing that happens before Start() )
@@ -76,6 +77,7 @@ public class gameManager : MonoBehaviour
         Debug.Log("TimeScale is 0");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        talkingAudio.Pause();
     }
 
     public void unPause()
@@ -86,6 +88,7 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
         activeMenu = null;
+        talkingAudio.UnPause();
     }
 
     public void updateEnemyRemaining(int amount)
@@ -94,7 +97,13 @@ public class gameManager : MonoBehaviour
         enemiesRemainingText.text = enemiesRemaining.ToString("F0"); //"F0" makes it an int/how many decimals you want behind it
 
         //Check to see if game in over based on enemy count <= 0
-        if (enemiesRemaining <= 0)
+        if (waveSpawner == null && enemiesRemaining == 0)
+        {
+            pause();
+            activeMenu = winMenu;
+            activeMenu.SetActive(true);
+        }
+        else if (waveSpawner.gameWon == true)
         {
             pause();
             activeMenu = winMenu;
