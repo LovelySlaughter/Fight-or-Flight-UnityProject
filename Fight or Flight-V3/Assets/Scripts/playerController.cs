@@ -342,7 +342,9 @@ public class playerController : MonoBehaviour
 
         if (healthPoints <= 0)
         {
+         
             gameManager.instance.playerDead();
+            
         }
     }
 
