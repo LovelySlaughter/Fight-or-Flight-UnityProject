@@ -7,6 +7,7 @@ public class explosion : MonoBehaviour
     [SerializeField] int pushBackAmount;
 
     [SerializeField] bool pull;
+   
 
     public void OnTriggerEnter(Collider other)
     {
@@ -21,6 +22,7 @@ public class explosion : MonoBehaviour
                 gameManager.instance.playerScript.pushBack = (transform.position - gameManager.instance.player.transform.position).normalized * pushBackAmount;
             }
         }
-    }
+        
+}
 
 }

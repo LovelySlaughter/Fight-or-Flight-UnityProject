@@ -11,7 +11,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void resume()
     {
-
+      
         gameManager.instance.unPause();
         gameManager.instance.isPaused = !gameManager.instance.isPaused;
     }
@@ -30,6 +30,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void playerRespawn()
     {
+        gameManager.instance.playerScript.pushBack = Vector3.zero;
         gameManager.instance.playerScript.respawnPlayer();
         gameManager.instance.unPause();
     }
