@@ -10,6 +10,7 @@ public class enemyAI : MonoBehaviour, IDamage
 {
     [Header("---- Components ----")]
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] SphereCollider colliding;
     [SerializeField] Animator anim;
     [SerializeField] Renderer model;
 
@@ -55,6 +56,9 @@ public class enemyAI : MonoBehaviour, IDamage
         speedOrig = agent.speed;
         stoppingDistOrig = agent.stoppingDistance;
         startingPos = transform.position;
+        /*     Begining of Collider Fix tried     */
+        //OnTriggerEnter(colliding);
+        //OnTriggerExit(colliding);
     }
 
     // Update is called once per frame
@@ -203,6 +207,8 @@ public class enemyAI : MonoBehaviour, IDamage
 
     public void OnTriggerEnter(Collider other)
     {
+        /*     Begining of Collider Fix tried     */
+        //other = colliding;
         if (other.CompareTag("Player"))
         {
 
@@ -212,6 +218,8 @@ public class enemyAI : MonoBehaviour, IDamage
     }
     public void OnTriggerExit(Collider other)
     {
+        /*     Begining of Collider Fix tried     */
+        //other = colliding;
         if (other.CompareTag("Player"))
         {
             agent.stoppingDistance = 0;
