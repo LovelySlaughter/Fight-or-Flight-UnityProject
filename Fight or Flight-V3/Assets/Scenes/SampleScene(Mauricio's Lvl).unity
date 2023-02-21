@@ -38004,10 +38004,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Engie Variant  (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7925115069519827996, guid: ab236b0e00ecb1841aab5b6f272844ab, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab236b0e00ecb1841aab5b6f272844ab, type: 3}
 --- !u!1 &2040332862
@@ -41801,6 +41797,14 @@ PrefabInstance:
       propertyPath: enemySniper
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6045939377419946561, guid: ab236b0e00ecb1841aab5b6f272844ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.017073367
+      objectReference: {fileID: 0}
+    - target: {fileID: 6045939377419946561, guid: ab236b0e00ecb1841aab5b6f272844ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00036895231
+      objectReference: {fileID: 0}
     - target: {fileID: 7399548904525745830, guid: ab236b0e00ecb1841aab5b6f272844ab, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -41851,7 +41855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7925115069519827996, guid: ab236b0e00ecb1841aab5b6f272844ab, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab236b0e00ecb1841aab5b6f272844ab, type: 3}
@@ -42809,6 +42813,10 @@ PrefabInstance:
     - target: {fileID: 3709029540977289407, guid: 658c9d75b8706c54d909872e1842ac5a, type: 3}
       propertyPath: m_Name
       value: robotSphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709029540977289407, guid: 658c9d75b8706c54d909872e1842ac5a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 658c9d75b8706c54d909872e1842ac5a, type: 3}
