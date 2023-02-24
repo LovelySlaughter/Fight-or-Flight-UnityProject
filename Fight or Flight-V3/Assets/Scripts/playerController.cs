@@ -197,19 +197,15 @@ public class playerController : MonoBehaviour
             }
             if(isWallLeft && Input.GetButtonDown("Jump"))
             {
-                jumpCounter = 1;
-                if(Input.GetButtonDown("Jump") && isWallRight)
-                {
-                    jumpCounter = 0;
-                }
+                jumpCounter = maxJumpAmount;
             }
             if (isWallRight && Input.GetButtonDown("Jump"))
             {
-                jumpCounter = 1;
-                if (Input.GetButtonDown("Jump") && isWallLeft)
-                {
-                    jumpCounter = 0;
-                }
+                jumpCounter = maxJumpAmount;
+            }
+            if (!isWallRight || !isWallRight)
+            {
+                jumpCounter = 0;
             }
 
             if (Input.GetKey(KeyCode.D) && isWallRight)
