@@ -128,10 +128,15 @@ public class playerController : MonoBehaviour
             }
 
 
-            if (gunObjects.Count > 0 && !isShooting && Input.GetButton("Shoot")) //{ Shoot(); }
+            if (gunObjects.Count > 0 && !isShooting && Input.GetButtonDown("Shoot")) //{ Shoot(); }
             {
                 StartCoroutine(Shoot());
-                Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);
+                
+             
+                    Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);
+                
+               
+
             }
 
 
@@ -288,18 +293,19 @@ public class playerController : MonoBehaviour
     {
         isShooting = true;
         //weapon.GetComponent<NewGuns>().Shoot();
-
+        
 
         sounds.PlayOneShot(gunObjects[selectedGun].gunShots, gunObjects[selectedGun].gunShotsVolume);
-       // Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);
+        //Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);
+     
         RaycastHit hit;
+       
 
-        
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
           
             //Destroy(gunObjects[selectedGun].muzzleFlash, 0.2f);
-            Instantiate(bulletEffect, hit.point, shootPos.rotation);
+           Instantiate(bulletEffect, hit.point, shootPos.rotation);
 
             if (hit.collider.GetComponent<IDamage>() != null /*&& hit.collider == hit.collider.GetComponent<CapsuleCollider>()*/)
             {
@@ -308,8 +314,9 @@ public class playerController : MonoBehaviour
             }
         }
 
-
+        
         yield return new WaitForSeconds(shootRate);
+        
         isShooting = false;
     }
 
