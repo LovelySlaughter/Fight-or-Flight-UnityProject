@@ -142,14 +142,6 @@ public class playerController : MonoBehaviour
             StartCoroutine("Shoot");
         }
 
-
-        //bool sprint = (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift));
-        //bool isSpringting = sprint;
-
-        //characterController.Move(movement * Time.deltaTime * sprintSpeed);
-
-
-
     }
 
     void Movement()
@@ -178,28 +170,6 @@ public class playerController : MonoBehaviour
             jumpCounter++;
             sounds.PlayOneShot(playerJumpAudio[Random.Range(0, playerJumpAudio.Length - 1)], jumpAudioVolume);
 
-            //if (isWallLeft && !Input.GetKey(KeyCode.D) || isWallRight && !Input.GetKey(KeyCode.A))
-            //{
-            //    movement = (Vector3.up * jumpHeight * 1.5f);
-            //    movement = (normVec * jumpHeight * 0.5f);
-            //}
-
-            //if (isWallRight || isWallLeft && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-            //{
-            //    movement = (-velocity * jumpHeight * 1f);
-            //}
-
-            //if (isWallRight && Input.GetKey(KeyCode.A))
-            //{
-            //    movement = (-velocity * jumpHeight * 3.2f);
-            //}
-
-            //if (isWallLeft && Input.GetKey(KeyCode.D))
-            //{
-            //    movement = (velocity * jumpHeight * 3.2f);
-            //}
-
-            //movement = (velocity * jumpHeight * 1f);
         }
 
         velocity.y -= gravity * Time.deltaTime;
@@ -222,8 +192,20 @@ public class playerController : MonoBehaviour
             }
             if (isWallLeft || isWallRight)
             {
-                jumpCounter = 0;
+                //jumpCounter = 0;
                 gravity = playerGravOrg;
+            }
+            if(isWallLeft && Input.GetButtonDown("Jump"))
+            {
+                jumpCounter = maxJumpAmount;
+            }
+            if (isWallRight && Input.GetButtonDown("Jump"))
+            {
+                jumpCounter = maxJumpAmount;
+            }
+            if (!isWallRight || !isWallRight)
+            {
+                jumpCounter = 0;
             }
 
             if (Input.GetKey(KeyCode.D) && isWallRight)

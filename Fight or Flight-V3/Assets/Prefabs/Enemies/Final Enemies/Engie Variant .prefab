@@ -3415,11 +3415,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7399548904525745830}
-  - component: {fileID: 6058630960067401997}
+  - component: {fileID: 2068808539496651014}
   - component: {fileID: 7909052558727939209}
   - component: {fileID: 8883460399547402090}
   - component: {fileID: 761872773224192225}
   - component: {fileID: 5840009635355260775}
+  - component: {fileID: 4987336281577974146}
   m_Layer: 6
   m_Name: 'Engie Variant '
   m_TagString: Enemy
@@ -3444,7 +3445,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 155.046, z: 0}
---- !u!135 &6058630960067401997
+--- !u!135 &2068808539496651014
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3455,7 +3456,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 120
+  m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &7909052558727939209
 CapsuleCollider:
@@ -3504,7 +3505,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5840009635355260775}
-  colliding: {fileID: 7049561010333032849}
   anim: {fileID: 8883460399547402090}
   model: {fileID: 2024817038072646405}
   headPos: {fileID: 3603268784058012770}
@@ -3547,6 +3547,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!135 &4987336281577974146
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7925115069519827996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8146130830210144460
 GameObject:
   m_ObjectHideFlags: 0
@@ -4079,6 +4092,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 349096854786422737, guid: 4be8e0db56ca1c44f86356fbf3ce0708, type: 3}
+      propertyPath: m_TagString
+      value: Collider
+      objectReference: {fileID: 0}
     - target: {fileID: 1057571368351260840, guid: 4be8e0db56ca1c44f86356fbf3ce0708, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4132,10 +4149,5 @@ PrefabInstance:
 --- !u!4 &5565219660518000697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1057571368351260840, guid: 4be8e0db56ca1c44f86356fbf3ce0708, type: 3}
-  m_PrefabInstance: {fileID: 4870254069542906001}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &7049561010333032849 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 2468971116746066176, guid: 4be8e0db56ca1c44f86356fbf3ce0708, type: 3}
   m_PrefabInstance: {fileID: 4870254069542906001}
   m_PrefabAsset: {fileID: 0}

@@ -9,8 +9,9 @@ using UnityEngine.Animations;
 public class enemyAI : MonoBehaviour, IDamage
 {
     [Header("---- Components ----")]
+    //public GameObject colliderIgnore;
+    //public SphereCollider collides;
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] SphereCollider colliding;
     [SerializeField] Animator anim;
     [SerializeField] Renderer model;
 
@@ -52,13 +53,12 @@ public class enemyAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        //colliderIgnore = GameObject.FindGameObjectWithTag("Collider");
+        //collides = colliderIgnore.GetComponent<SphereCollider>();
         gameManager.instance.updateEnemyRemaining(1);
         speedOrig = agent.speed;
         stoppingDistOrig = agent.stoppingDistance;
         startingPos = transform.position;
-        /*     Begining of Collider Fix tried     */
-        //OnTriggerEnter(colliding);
-        //OnTriggerExit(colliding);
     }
 
     // Update is called once per frame
@@ -135,7 +135,7 @@ public class enemyAI : MonoBehaviour, IDamage
                     facePlayer();
                 }
                 //this remaindistance<20 prevents the enemies from shooting when out of range
-                if (!isShotting && angleToPlayer <= shootAngle && agent.remainingDistance< 15)
+                if (!isShotting && angleToPlayer <= shootAngle && agent.remainingDistance < 15)
                 {
                     StartCoroutine(shoot());
                 }
@@ -208,7 +208,7 @@ public class enemyAI : MonoBehaviour, IDamage
     public void OnTriggerEnter(Collider other)
     {
         /*     Begining of Collider Fix tried     */
-        //other = colliding;
+        //other = colliderIgnore.GetComponent<SphereCollider>();
         if (other.CompareTag("Player"))
         {
 
@@ -219,7 +219,7 @@ public class enemyAI : MonoBehaviour, IDamage
     public void OnTriggerExit(Collider other)
     {
         /*     Begining of Collider Fix tried     */
-        //other = colliding;
+        //other = collides;
         if (other.CompareTag("Player"))
         {
             agent.stoppingDistance = 0;
