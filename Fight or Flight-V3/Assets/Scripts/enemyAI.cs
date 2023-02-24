@@ -9,8 +9,6 @@ using UnityEngine.Animations;
 public class enemyAI : MonoBehaviour, IDamage
 {
     [Header("---- Components ----")]
-    //public GameObject colliderIgnore;
-    //public SphereCollider collides;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
     [SerializeField] Renderer model;
@@ -43,7 +41,7 @@ public class enemyAI : MonoBehaviour, IDamage
     bool explode;
     bool isShotting;
     Vector3 playerDir;
-    bool playerInRange;
+    public bool playerInRange;
     float angleToPlayer;
     bool destinationChosen;
     float speedOrig;
@@ -53,8 +51,6 @@ public class enemyAI : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        //colliderIgnore = GameObject.FindGameObjectWithTag("Collider");
-        //collides = colliderIgnore.GetComponent<SphereCollider>();
         gameManager.instance.updateEnemyRemaining(1);
         speedOrig = agent.speed;
         stoppingDistOrig = agent.stoppingDistance;
@@ -68,13 +64,13 @@ public class enemyAI : MonoBehaviour, IDamage
 
         if (playerInRange)
         {
-            facePlayer();
             if (!canSeePlayer() && !destinationChosen && agent.remainingDistance < 0.1f)
             {
                 StartCoroutine(roam());
             }
             if (canSeePlayer())
             {
+                facePlayer();
                 if (!enemySniper)
                 {
                     agent.stoppingDistance = 5;
@@ -136,7 +132,7 @@ public class enemyAI : MonoBehaviour, IDamage
                     facePlayer();
                 }
                 //this remaindistance<20 prevents the enemies from shooting when out of range
-                if (!isShotting && angleToPlayer <= shootAngle && agent.remainingDistance < 15)
+                if (!isShotting && angleToPlayer <= viewAngle /*&& agent.remainingDistance < 15*/)
                 {
                     StartCoroutine(shoot());
                 }
@@ -208,8 +204,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     public void OnTriggerEnter(Collider other)
     {
-        /*     Begining of Collider Fix tried     */
-        //other = colliderIgnore.GetComponent<SphereCollider>();
+        
         if (other.CompareTag("Player"))
         {
 
@@ -219,8 +214,7 @@ public class enemyAI : MonoBehaviour, IDamage
     }
     public void OnTriggerExit(Collider other)
     {
-        /*     Begining of Collider Fix tried     */
-        //other = collides;
+        
         if (other.CompareTag("Player"))
         {
             agent.stoppingDistance = 0;

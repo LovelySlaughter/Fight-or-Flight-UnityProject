@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &691630583163609333
 Transform:
   m_ObjectHideFlags: 0
@@ -436,7 +436,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 100
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &6261959730227128334
 CapsuleCollider:
@@ -609,7 +609,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6261959730217638846}
-  m_LocalRotation: {x: -0.27059796, y: -0.6532815, z: 0.6532816, w: 0.27059802}
+  m_LocalRotation: {x: -0.27059793, y: -0.65328145, z: 0.65328157, w: 0.270598}
   m_LocalPosition: {x: 0.0000018498522, y: 0.0000049050304, z: -0.0009064552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

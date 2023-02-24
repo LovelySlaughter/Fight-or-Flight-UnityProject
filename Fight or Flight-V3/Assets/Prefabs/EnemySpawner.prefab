@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e1efc7d0e1fb94bbf2eb6bef3b765c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 9027974424199364023, guid: bda57008a9a3d0244851a54cecb8a275, type: 3}
+  enemy: {fileID: 6261959730217638840, guid: b9ec3abb94021634a9129c42ad9c904d, type: 3}
   enemiesToSpawn: 4
   timer: 1
   spawnPOS: {fileID: 3360923855699594082}
@@ -63,7 +63,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 2.89
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3360923855699594083
 GameObject:
