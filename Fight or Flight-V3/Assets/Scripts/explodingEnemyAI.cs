@@ -139,6 +139,7 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
         if (HP <= 0 && exploded == false)
         {
             updateEnemyUI();
+
         }
     }
 
@@ -153,9 +154,10 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
     {
         exploded = true;
         yield return new WaitForSeconds(explodeWaitTime);
-        updateEnemyUI();
+       
         GameObject explosionClone = Instantiate(explosion, explosionPos.position, explosion.transform.rotation);
         explosionClone.GetComponent<enemyExplosion>().explosionDamage = explosionDamage;
+        updateEnemyUI();
     }
 
     void facePlayer()
@@ -187,8 +189,8 @@ public class explodingEnemyAI : MonoBehaviour, IDamage
 
     public void updateEnemyUI()
     {
-        gameManager.instance.updateEnemyRemaining(-1);
         Destroy(gameObject);
+        gameManager.instance.updateEnemyRemaining(-1);
         gameManager.instance.UpdateEnemiesKilled(1);
     }
 }
