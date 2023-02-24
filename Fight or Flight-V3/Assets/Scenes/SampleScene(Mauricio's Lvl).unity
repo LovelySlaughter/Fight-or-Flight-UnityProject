@@ -20848,7 +20848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8157931537486973139, guid: 704bf004332697e47aeb92ca1bbaa0c2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8157931537486973140, guid: 704bf004332697e47aeb92ca1bbaa0c2, type: 3}
       propertyPath: m_RootOrder
@@ -25718,10 +25718,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 691630583163609332, guid: b9ec3abb94021634a9129c42ad9c904d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6261959730217600984, guid: b9ec3abb94021634a9129c42ad9c904d, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -26171,22 +26167,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3360923855422048432, guid: 193d688dc1dc1a7409ef22e8183c9b21, type: 3}
-      propertyPath: m_Radius
-      value: 2.89
-      objectReference: {fileID: 0}
     - target: {fileID: 3360923855422048433, guid: 193d688dc1dc1a7409ef22e8183c9b21, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 3360923855422048433, guid: 193d688dc1dc1a7409ef22e8183c9b21, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3360923855422048434, guid: 193d688dc1dc1a7409ef22e8183c9b21, type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 6261959730217638840, guid: b9ec3abb94021634a9129c42ad9c904d, type: 3}
     - target: {fileID: 3360923855422048435, guid: 193d688dc1dc1a7409ef22e8183c9b21, type: 3}
       propertyPath: m_RootOrder
       value: 8

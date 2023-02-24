@@ -9,6 +9,7 @@ public class cameraControls : MonoBehaviour
     [SerializeField] int xSensitivity;
     float xRotation;
     float yRotation;
+    public bool CameraOn = true;
 
     [Header("--- Clamp Stats ---")]
     [SerializeField] int verticalMax;
@@ -27,30 +28,33 @@ public class cameraControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseHorizontal = Input.GetAxis("Mouse X") * Time.deltaTime * xSensitivity;
-        float mouseVertical = Input.GetAxis("Mouse Y") * Time.deltaTime * ySensitivity;
+        if (CameraOn)
+        {
+            float mouseHorizontal = Input.GetAxis("Mouse X") * Time.deltaTime * xSensitivity;
+            float mouseVertical = Input.GetAxis("Mouse Y") * Time.deltaTime * ySensitivity;
 
-        if (pilotControls)
-        {
-            xRotation += mouseVertical;
-        }
-        else
-        {
-            xRotation -= mouseVertical;
-        }
-        if (invertY)
-        {
-            yRotation += mouseHorizontal;
-        }
-        else
-        {
-            yRotation -= mouseHorizontal;
-        }
+            if (pilotControls)
+            {
+                xRotation += mouseVertical;
+            }
+            else
+            {
+                xRotation -= mouseVertical;
+            }
+            if (invertY)
+            {
+                yRotation += mouseHorizontal;
+            }
+            else
+            {
+                yRotation -= mouseHorizontal;
+            }
 
-        xRotation = Mathf.Clamp(xRotation, verticalMin, verticalMax);
+            xRotation = Mathf.Clamp(xRotation, verticalMin, verticalMax);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.parent.Rotate(Vector3.up * mouseHorizontal);
+            transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            transform.parent.Rotate(Vector3.up * mouseHorizontal);
+        }
        
     }
 }
