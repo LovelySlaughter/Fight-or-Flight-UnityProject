@@ -133,7 +133,7 @@ public class playerController : MonoBehaviour
                 StartCoroutine(Shoot());
                 
              
-                    Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);
+                //    Instantiate(MuzzleFlash, shootPos.position, Quaternion.identity);  do not uncomment MORITZZZIO
                 
                
 
