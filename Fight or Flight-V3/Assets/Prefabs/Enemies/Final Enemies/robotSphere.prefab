@@ -1728,7 +1728,7 @@ MonoBehaviour:
   headPos: {fileID: 3707480733597838577}
   HP: 10
   playerfaceSpeed: 10
-  viewAngle: 100
+  viewAngle: 180
   shootAngle: 45
   waitTime: 4
   roamDist: 6
@@ -1743,6 +1743,7 @@ MonoBehaviour:
   explosionPos: {fileID: 3709963600900888347}
   explosion: {fileID: 6331478455022207851, guid: 10ff9ca71b317504e908400719c9d23b, type: 3}
   explosionDamage: 37
+  playerInRange: 0
 --- !u!95 &3616062198977338381
 Animator:
   serializedVersion: 5
@@ -1774,7 +1775,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &3616062198977338379
 CapsuleCollider:
