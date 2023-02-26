@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
     public class Waves
     {
         public string names;
-        public GameObject enemy;
+        public Transform enemy;
         public int spawnCount;
         public float swawnRate;
 
@@ -43,10 +43,8 @@ public class WaveSpawner : MonoBehaviour
             if (!enemiesAlive())
             {
                 // Insert Wave Completed stuff
-
                 //Begin new wave
                 WaveComplete();
-
             }
             else
             {
@@ -56,7 +54,7 @@ public class WaveSpawner : MonoBehaviour
         if (waveCountDown <= 0)
         {
             if (states != SpawnState.Spawning) { StartCoroutine(SpawnWave(waves[nextWaveNum])); }
-            else { waveCountDown -= Time.deltaTime; }
+            else { waveCountDown -= Time.deltaTime; Debug.Log("Wave Cound Down" + waveCountDown); }
         }
     }
 
@@ -113,7 +111,7 @@ public class WaveSpawner : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemies(GameObject _enemy)
+    void SpawnEnemies(Transform _enemy)
     {
         Instantiate(_enemy, transform.position, transform.rotation);
         Debug.Log("Spawning Enemy" + _enemy.name);

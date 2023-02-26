@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         timer = 3;
-        //gameManager.instance.updateEnemyRemaining(enemiesToSpawn);
+        gameManager.instance.updateEnemyRemaining(enemiesToSpawn);
     }
 
     // Update is called once per frame

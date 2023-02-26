@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ySensitivity: 300
   xSensitivity: 300
+  CameraOn: 1
   verticalMax: 85
   verticalMin: -75
   pilotControls: 0
@@ -296,7 +297,7 @@ MonoBehaviour:
   pushBack: {x: 0, y: 0, z: 0}
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 46079
   wallRunForce: 0
   maxWallSpeed: 0
 --- !u!143 &8864996730310552802

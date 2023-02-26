@@ -41,7 +41,7 @@ public class enemyAI : MonoBehaviour, IDamage
     bool explode;
     bool isShotting;
     Vector3 playerDir;
-    bool playerInRange;
+    public bool playerInRange;
     float angleToPlayer;
     bool destinationChosen;
     float speedOrig;
@@ -70,6 +70,7 @@ public class enemyAI : MonoBehaviour, IDamage
             }
             if (canSeePlayer())
             {
+                facePlayer();
                 if (!enemySniper)
                 {
                     agent.stoppingDistance = 5;
@@ -131,7 +132,7 @@ public class enemyAI : MonoBehaviour, IDamage
                     facePlayer();
                 }
                 //this remaindistance<20 prevents the enemies from shooting when out of range
-                if (!isShotting && angleToPlayer <= shootAngle && agent.remainingDistance< 15)
+                if (!isShotting && angleToPlayer <= viewAngle /*&& agent.remainingDistance < 15*/)
                 {
                     StartCoroutine(shoot());
                 }
@@ -203,6 +204,7 @@ public class enemyAI : MonoBehaviour, IDamage
 
     public void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("Player"))
         {
 
@@ -212,6 +214,7 @@ public class enemyAI : MonoBehaviour, IDamage
     }
     public void OnTriggerExit(Collider other)
     {
+        
         if (other.CompareTag("Player"))
         {
             agent.stoppingDistance = 0;
